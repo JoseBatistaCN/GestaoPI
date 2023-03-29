@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "7TzM74j7JacGhSfWaxX240EkQA2p6hvm97CyJoUKVOZVstWUs9J+SxGUGqdCVudCKhzSitRipfuTZuskWgVVhQ==",
+  "dgSpecHash": "o22biQZ39Hiq5tHa4upCawtF9ffGozjdjysV8hWZaG1pMrrhEzuWFxyfP9VQiPQ2SXXGNm07Lu+Zp6ID1HVkBg==",
   "success": true,
   "projectFilePath": "C:\\Users\\202000012874\\Documents\\Code\\GestaoPI\\GestaoPI.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\202000012874\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.4\\microsoft.entityframeworkcore.analyzers.7.0.4.nupkg.sha512",
     "C:\\Users\\202000012874\\.nuget\\packages\\microsoft.entityframeworkcore.design\\7.0.4\\microsoft.entityframeworkcore.design.7.0.4.nupkg.sha512",
     "C:\\Users\\202000012874\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\7.0.4\\microsoft.entityframeworkcore.relational.7.0.4.nupkg.sha512",
+    "C:\\Users\\202000012874\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\7.0.4\\microsoft.entityframeworkcore.tools.7.0.4.nupkg.sha512",
     "C:\\Users\\202000012874\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\7.0.0\\microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\202000012874\\.nuget\\packages\\microsoft.extensions.caching.memory\\7.0.0\\microsoft.extensions.caching.memory.7.0.0.nupkg.sha512",
     "C:\\Users\\202000012874\\.nuget\\packages\\microsoft.extensions.configuration\\7.0.0\\microsoft.extensions.configuration.7.0.0.nupkg.sha512",

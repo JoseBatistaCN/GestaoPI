@@ -15,4 +15,35 @@ html {
 
 body {
   margin-bottom: 60px;
+  background-color: #EEEEEE;
+}
+
+#card-processo {
+  background-color: #27A9E3;
+  color: white;
+}
+
+#card-agenda {
+  background-color: #28B779;
+  color: white;
+}
+
+#card-grafico {
+  background-color: #FFB848;
+  color: white;
+}
+
+#card-revista {
+  background-color: #DA542E;
+  color: white;
+}
+
+#card-inventores {
+  background-color: #27A9E3;
+  color: white;
+}
+
+#card-relatorio {
+  background-color: #2255A4;
+  color: white;
 }

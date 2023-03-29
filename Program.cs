@@ -1,4 +1,4 @@
-using GestaoPI.Data;
+using GestaoPI.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -6,10 +6,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddDbContext<GestaopiContext>(options =>
+    options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"), ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))));
+
 var app = builder.Build();
 
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseMySql(app.Configuration.GetConnectionString("DefaultConnection"), ServerVersion.AutoDetect(app.Configuration.GetConnectionString("DefaultConnection"))));
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
