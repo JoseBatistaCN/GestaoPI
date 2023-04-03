@@ -139,7 +139,7 @@ namespace GestaoPI.Controllers
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
             var processo = await _context.Processos.FindAsync(id);
-            _context.Processos.Remove(processo);
+            _context.Processos.Remove(processo!);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

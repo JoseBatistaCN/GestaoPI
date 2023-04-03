@@ -15,7 +15,6 @@ html {
 
 body {
   margin-bottom: 60px;
-  background-color: #EEEEEE;
 }
 
 #card-processo {
@@ -46,4 +45,13 @@ body {
 #card-relatorio {
   background-color: #2255A4;
   color: white;
+}
+
+.card:hover {
+    transition: all 0.3s ease-out;
+    box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+    top: -4px;
+    /* border: 1px solid #cccccc;
+    background-color: white; */
+
 }

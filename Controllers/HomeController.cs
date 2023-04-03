@@ -18,10 +18,6 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Processo()
-    {
-        return View(Index);
-    }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
