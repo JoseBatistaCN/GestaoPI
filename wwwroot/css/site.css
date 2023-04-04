@@ -17,34 +17,42 @@ body {
   margin-bottom: 60px;
 }
 
+a {
+  text-decoration: none;
+}
+
 #card-processo {
-  background-color: #27A9E3;
+  background-color: #FDE4CF;
   color: white;
 }
 
 #card-agenda {
-  background-color: #28B779;
+  background-color: #FFCFD2;
   color: white;
 }
 
 #card-grafico {
-  background-color: #FFB848;
+  background-color: #8EECF5;
   color: white;
 }
 
 #card-revista {
-  background-color: #DA542E;
+  background-color: #FBF8CC;
   color: white;
 }
 
 #card-inventores {
-  background-color: #27A9E3;
+  background-color: #B9FBC0;
   color: white;
 }
 
 #card-relatorio {
-  background-color: #2255A4;
+  background-color: #90DBF4;
   color: white;
+}
+
+.feature {
+  height: 180px;
 }
 
 .card:hover {

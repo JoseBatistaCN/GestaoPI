@@ -1,8 +1,8 @@
-﻿@{ ViewData["Title"] = "Home Page"; }
+﻿@{ ViewData["Title"] = "Home"; }
 
 <div class="content">
     <div class="container px-4 py-5" id="menu">
-        <div class="row">
+        <div id="statisticsHome" class="row">
             <div class="col">
                 <div class="card h-100">
                     <div class="card-header">
@@ -51,37 +51,56 @@
             </div>
         </div>
         <h2 class="pb-3 border-bottom"></h2>
-        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+        <div class="list-unstyled row g-4 py-5 row-cols-1 row-cols-lg-3">
             <div class="feature col">
-                <a asp-action="Processo">
-                    <div id="card-processo" class="card text-center justify-content-center" style="height: 182px">
-                        <div class="card-img-top"></div>
-                        <h5 class="card-title">Processos</h5>
+                <a asp-controller="Processo" asp-action="Index">
+                    <div class="feature col">
+                        <div id="card-processo" class="card h-100 text-center">
+                            <div class="card-header">
+                                <img src="https://cdn-icons-png.flaticon.com/512/3160/3160299.png" alt="" style="height: 128px;">
+                            </div>
+                            <h5 class="card-title">Processo</h5>
+                        </div>
                     </div>
                 </a>
             </div>
             <div class="feature col">
-                <div id="card-agenda" class="card h-100 text-center justify-content-center">
+                <div id="card-agenda" class="card h-100 text-center">
+                    <div class="card-header">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2983/2983719.png" alt="" style="height: 128px;">
+                    </div>
                     <h5 class="card-title">Agenda</h5>
                 </div>
             </div>
             <div class="feature col">
                 <div id="card-grafico" class="card h-100 text-center justify-content-center">
+                    <div class="card-header">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2257/2257295.png" alt="" style="height: 128px;">
+                    </div>
                     <h5 class="card-title">Gráficos</h5>
                 </div>
             </div>
             <div class="feature col">
                 <div id="card-revista" class="card text-center justify-content-center" style="height: 182px">
+                    <div class="card-header">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2356/2356617.png" alt="" style="height: 128px;">
+                    </div>
                     <h5 class="card-title">Revista RPI</h5>
                 </div>
             </div>
             <div class="feature col">
                 <div id="card-inventores" class="card h-100 text-center justify-content-center">
+                    <div class="card-header">
+                        <img src="https://cdn-icons-png.flaticon.com/512/681/681392.png" alt="" style="height: 128px;">
+                    </div>
                     <h5 class="card-title">Inventores</h5>
                 </div>
             </div>
             <div class="feature col">
                 <div id="card-relatorio" class="card h-100 text-center justify-content-center">
+                    <div class="card-header">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1690/1690617.png" alt="" style="height: 128px;">
+                    </div>
                     <h5 class="card-title">Relatórios</h5>
                 </div>
             </div>
