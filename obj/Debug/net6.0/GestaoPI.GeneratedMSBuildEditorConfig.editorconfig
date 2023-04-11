@@ -27,24 +27,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcm9jZXNzb3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Processo/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvY2Vzc29cQ3JlYXRlLmNzaHRtbA==
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Patente/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0ZW50ZVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Processo/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvY2Vzc29cRGVsZXRlLmNzaHRtbA==
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Patente/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0ZW50ZVxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Processo/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvY2Vzc29cRGV0YWlscy5jc2h0bWw=
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Patente/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0ZW50ZVxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Processo/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvY2Vzc29cRWRpdC5jc2h0bWw=
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Patente/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0ZW50ZVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Processo/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvY2Vzc29cSW5kZXguY3NodG1s
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Patente/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0ZW50ZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/202000012874/Documents/Code/GestaoPI/Views/Shared/Error.cshtml]

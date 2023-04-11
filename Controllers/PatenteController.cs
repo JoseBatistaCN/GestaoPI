@@ -9,11 +9,11 @@ using GestaoPI.Models;
 
 namespace GestaoPI.Controllers
 {
-    public class ProcessoController : Controller
+    public class PatenteController : Controller
     {
         private readonly GestaopiContext _context;
 
-        public ProcessoController(GestaopiContext context)
+        public PatenteController(GestaopiContext context)
         {
             _context = context;
         }

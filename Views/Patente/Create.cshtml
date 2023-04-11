@@ -3,31 +3,16 @@
 ViewData["Title"] = "Cadastro Processo";
 }
 
-<h4>Cadastrar Processo</h4>
+<h1>Cadastrar Patente</h1>
 <hr/>
 <div class="container">
     <div>
         <form asp-action="Create" class="row g-3">
             <div asp-validation-summary="ModelOnly" class="text-danger col-12"></div>
-            <div class="col-12 form-group">
-
-                <label asp-for="Tipo" class="control-label">*Apresentação</label>
-                <select asp-for="Tipo" class="form-select">
-                    <option>PI - Patente de Invenção</option>
-                    <option>MU - Modelo de Utilidade</option>
-                    <option>DI - Desenho Industrial</option>
-                </select>
-                <span asp-validation-for="Tipo" class="text-danger"></span>
-            </div>
-            <div class="col-6 form-group">
-                <label asp-for="Codigo" class="control-label">Código</label>
+            <div class="col-3 form-group">
+                <label asp-for="Codigo" class="control-label">Código INPI</label>
                 <input asp-for="Codigo" class="form-control" placeholder="BR ZZ XXXX YYYYYY K"/>
                 <span asp-validation-for="Codigo" class="text-danger"></span>
-            </div>
-            <div class="col-6 form-group">
-                <label asp-for="CodigoNotificacao" class="control-label">Código de notificação</label>
-                <input asp-for="CodigoNotificacao" class="form-control" />
-                <span asp-validation-for="CodigoNotificacao" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Titulo" class="control-label"></label>
