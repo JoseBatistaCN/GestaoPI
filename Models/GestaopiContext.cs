@@ -47,9 +47,6 @@ public partial class GestaopiContext : DbContext
             entity.Property(e => e.Resumo)
                 .HasColumnType("mediumtext")
                 .HasColumnName("resumo");
-            entity.Property(e => e.Tipo)
-                .HasColumnType("enum('PI - Patente de Invenção','MU - Modelo de Utilidade','DI - Desenho Industrial')")
-                .HasColumnName("tipo");
             entity.Property(e => e.Titulo)
                 .HasMaxLength(255)
                 .HasColumnName("titulo");

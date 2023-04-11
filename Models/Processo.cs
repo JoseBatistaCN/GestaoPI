@@ -1,13 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Text.RegularExpressions;
 
 namespace GestaoPI.Models;
 
 public partial class Processo
 {
-    public string Tipo { get; set; } = null!;
+    private string _codigo = null!;
 
-    public string Codigo { get; set; } = null!;
+    [Required]
+    public string Codigo
+    {
+        get => _codigo;
+        set
+        {
+            string regexCodigo = @"^[A-Z]{2}\s[0-9]{2}\s[0-9]{4}\s[0-9]{6}-[0-9]$";
+            if (Regex.IsMatch(value, regexCodigo))
+            {
+                _codigo = value;
+            }
+            else
+            {
+
+            }
+        }
+    }
 
     public string? Titulo { get; set; }
 
