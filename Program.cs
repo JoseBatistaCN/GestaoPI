@@ -1,4 +1,4 @@
-using GestaoPI.Models;
+using GestaoPI.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 var conn = builder.Configuration.GetConnectionString("DefaultConnection");
 
-builder.Services.AddDbContext<GestaopiContext>(options =>
+builder.Services.AddDbContext<PatenteContext>(options =>
     options.UseMySql(conn, ServerVersion.AutoDetect(conn)));
 
 var app = builder.Build();

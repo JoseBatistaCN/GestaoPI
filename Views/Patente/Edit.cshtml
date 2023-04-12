@@ -1,4 +1,4 @@
-@model GestaoPI.Models.Processo
+@model GestaoPI.Models.Patente
 
 @{
     ViewData["Title"] = "Edit";
@@ -44,12 +44,7 @@
                 <span asp-validation-for="Anotacao" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CodigoNotificacao" class="control-label"></label>
-                <input asp-for="CodigoNotificacao" class="form-control" />
-                <span asp-validation-for="CodigoNotificacao" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary"/>
             </div>
         </form>
     </div>

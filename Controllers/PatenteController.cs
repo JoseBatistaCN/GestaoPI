@@ -6,25 +6,24 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GestaoPI.Models;
+using GestaoPI.Context;
 
-namespace GestaoPI.Controllers
-{
     public class PatenteController : Controller
     {
-        private readonly GestaopiContext _context;
+        private readonly PatenteContext _context;
 
-        public PatenteController(GestaopiContext context)
+        public PatenteController(PatenteContext context)
         {
             _context = context;
         }
 
-        // GET: Processo
+        // GET: patente
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Processos.ToListAsync());
+            return View(await _context.Patentes.ToListAsync());
         }
 
-        // GET: Processo/Details/5
+        // GET: patente/Details/5
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -32,39 +31,39 @@ namespace GestaoPI.Controllers
                 return NotFound();
             }
 
-            var processo = await _context.Processos
+            var patente = await _context.Patentes
                 .FirstOrDefaultAsync(m => m.Codigo == id);
-            if (processo == null)
+            if (patente == null)
             {
                 return NotFound();
             }
 
-            return View(processo);
+            return View(patente);
         }
 
-        // GET: Processo/Create
+        // GET: patente/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Processo/Create
+        // POST: patente/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Tipo,Codigo,Titulo,Resumo,Deposito,Exame,DominioPublico,Anotacao,CodigoNotificacao")] Processo processo)
+        public async Task<IActionResult> Create([Bind("Codigo,Titulo,Resumo,Situacao,Status,Deposito,Concessao,Exame,DominioPublico, Anotacao")] Patente patente)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(processo);
+                _context.Add(patente);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(processo);
+            return View(patente);
         }
 
-        // GET: Processo/Edit/5
+        // GET: patente/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -72,22 +71,22 @@ namespace GestaoPI.Controllers
                 return NotFound();
             }
 
-            var processo = await _context.Processos.FindAsync(id);
-            if (processo == null)
+            var patente = await _context.Patentes.FindAsync(id);
+            if (patente == null)
             {
                 return NotFound();
             }
-            return View(processo);
+            return View(patente);
         }
 
-        // POST: Processo/Edit/5
+        // POST: patente/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Tipo,Codigo,Titulo,Resumo,Deposito,Exame,DominioPublico,Anotacao,CodigoNotificacao")] Processo processo)
+        public async Task<IActionResult> Edit(string id, [Bind("Codigo,Titulo,Resumo,Situacao,Status,Deposito,Concessao,Exame,DominioPublico, Anotacao")] Patente patente)
         {
-            if (id != processo.Codigo)
+            if (id != patente.Codigo)
             {
                 return NotFound();
             }
@@ -96,12 +95,12 @@ namespace GestaoPI.Controllers
             {
                 try
                 {
-                    _context.Update(processo);
+                    _context.Update(patente);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProcessoExists(processo.Codigo))
+                    if (!patenteExists(patente.Codigo))
                     {
                         return NotFound();
                     }
@@ -112,10 +111,10 @@ namespace GestaoPI.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(processo);
+            return View(patente);
         }
 
-        // GET: Processo/Delete/5
+        // GET: patente/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
@@ -123,30 +122,29 @@ namespace GestaoPI.Controllers
                 return NotFound();
             }
 
-            var processo = await _context.Processos
+            var patente = await _context.Patentes
                 .FirstOrDefaultAsync(m => m.Codigo == id);
-            if (processo == null)
+            if (patente == null)
             {
                 return NotFound();
             }
 
-            return View(processo);
+            return View(patente);
         }
 
-        // POST: Processo/Delete/5
+        // POST: patente/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var processo = await _context.Processos.FindAsync(id);
-            _context.Processos.Remove(processo!);
+            var patente = await _context.Patentes.FindAsync(id);
+            _context.Patentes.Remove(patente!);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ProcessoExists(string id)
+        private bool patenteExists(string id)
         {
-            return _context.Processos.Any(e => e.Codigo == id);
+            return _context.Patentes.Any(e => e.Codigo == id);
         }
     }
-}

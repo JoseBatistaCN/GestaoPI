@@ -1,10 +1,14 @@
 {
     "cSpell.words": [
         "Gestao",
+        "Gestaopi",
         "grafico",
         "inventores",
         "processo",
         "relatorio",
         "revista"
+    ],
+    "cSpell.enableFiletypes": [
+        "!csharp"
     ]
 }

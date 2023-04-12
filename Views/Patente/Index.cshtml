@@ -1,71 +1,36 @@
-@model IEnumerable<GestaoPI.Models.Processo>
+@model IEnumerable<GestaoPI.Models.Patente>
+    @{ ViewData["Title"] = "Patente"; }
 
-@{
-    ViewData["Title"] = "Index";
-}
+    <h1>Processos > Patente</h1>
 
-<h1>Processos</h1>
-
-<p>
-    <a asp-action="Create">Cadastrar</a>
-</p>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Titulo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Resumo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Deposito)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Exame)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DominioPublico)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Anotacao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CodigoNotificacao)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Titulo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Resumo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Deposito)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Exame)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DominioPublico)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Anotacao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CodigoNotificacao)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Codigo">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Codigo">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Codigo">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <p>
+        <a asp-action="Create">Cadastrar</a>
+    </p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Codigo)</th>
+                <th>@Html.DisplayNameFor(model => model.Titulo)</th>
+                <th>@Html.DisplayNameFor(model => model.Deposito)</th>
+                <th>@Html.DisplayNameFor(model => model.Exame)</th>
+                <th>@Html.DisplayNameFor(model => model.DominioPublico)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model) {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Codigo)</td>
+                <td>@Html.DisplayFor(modelItem => item.Titulo)</td>
+                <td>@Html.DisplayFor(modelItem => item.Deposito)</td>
+                <td>@Html.DisplayFor(modelItem => item.Exame)</td>
+                <td>@Html.DisplayFor(modelItem => item.DominioPublico)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Codigo">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Codigo">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Codigo">Delete</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</GestaoPI.Models.Patente>
