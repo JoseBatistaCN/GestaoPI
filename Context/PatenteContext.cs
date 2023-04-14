@@ -18,8 +18,6 @@ public partial class PatenteContext : DbContext
 
     public virtual DbSet<CodigoDespachosPatente> CodigoDespachosPatentes { get; set; } = null!;
 
-    public virtual DbSet<Efmigrationshistory> Efmigrationshistories { get; set; } = null!;
-
     public virtual DbSet<Patente> Patentes { get; set; } = null!;
 
     public virtual DbSet<Revista> Revista { get; set; } = null!;

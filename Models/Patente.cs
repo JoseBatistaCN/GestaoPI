@@ -12,39 +12,49 @@ public partial class Patente
 {
     [Key]
     [Column("codigo")]
+    [Display(Name = "Código")]
     [StringLength(20)]
     public string Codigo { get; set; } = null!;
 
     [Column("titulo")]
+    [Display(Name = "Título")]
     [StringLength(255)]
     public string? Titulo { get; set; }
 
     [Column("resumo")]
+    [Display(Name ="Resumo")]
     public string? Resumo { get; set; }
 
     [Column("situacao", TypeName = "enum('Em Processo','Concedido')")]
+    [Display(Name = "Situação")]
     public string? Situacao { get; set; }
 
     [Column("status")]
+    [Display(Name = "Status")]
     [StringLength(45)]
     public string? Status { get; set; }
 
     [Column("deposito")]
+    [Display(Name = "Depósito")]
     [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
     public DateTime? Deposito { get; set; }
 
     [Column("concessao")]
+    [Display(Name = "Concessão")]
     [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
     public DateTime? Concessao { get; set; }
 
     [Column("exame")]
+    [Display(Name = "Exame")]
     [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
     public DateTime? Exame { get; set; }
 
-    [Column("dominio_publico")]
+    [Column("publicacao")]
+    [Display(Name = "Publicação")]
     [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
     public DateTime? DominioPublico { get; set; }
 
     [Column("anotacao", TypeName = "text")]
+    [Display(Name = "Anotação")]
     public string? Anotacao { get; set; }
 }
