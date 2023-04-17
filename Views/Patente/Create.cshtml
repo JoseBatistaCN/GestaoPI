@@ -9,10 +9,18 @@ ViewData["Title"] = "Cadastro Processo";
     <div>
         <form asp-action="Create" class="row g-3">
             <div asp-validation-summary="ModelOnly" class="text-danger col-12"></div>
-            <div class="col-3 form-group">
+            <div class="col-6 form-group">
                 <label asp-for="Codigo" class="control-label"></label>
                 <input asp-for="Codigo" class="form-control" placeholder="BR ZZ XXXX YYYYYY K"/>
                 <span asp-validation-for="Codigo" class="text-danger"></span>
+            </div>
+            <div class="col-6 form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <select class="form-control form-select">
+                  <option selected>Status</option>
+                  <option value="1">Concedido</option>
+                  <option value="2">Em Processo</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Titulo" class="control-label"></label>
@@ -26,7 +34,7 @@ ViewData["Title"] = "Cadastro Processo";
             </div>
             <div class="form-group col-3">
                 <label asp-for="Deposito" class="control-label"></label>
-                <input type="date" asp-for="Deposito" class=" form-control" />
+                <input type="date" asp-for="Deposito" class=" form-control"/>
                 <span asp-validation-for="Deposito" class="text-danger"></span>
             </div>
             <div class="col-6"></div>
@@ -36,9 +44,9 @@ ViewData["Title"] = "Cadastro Processo";
                 <span asp-validation-for="Exame" class="text-danger"></span>
             </div>
             <div class="form-group col-3">
-                <label asp-for="DominioPublico" class="control-label"></label>
-                <input type="Date" asp-for="DominioPublico" class="form-control" />
-                <span asp-validation-for="DominioPublico" class="text-danger"></span>
+                <label asp-for="Publicacao" class="control-label"></label>
+                <input type="date" asp-for="Publicacao" class="form-control" />
+                <span asp-validation-for="Publicacao" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Anotacao" class="control-label"></label>
@@ -51,8 +59,7 @@ ViewData["Title"] = "Cadastro Processo";
         </form>
     </div>
 </div>
-
-<div></div>
+<div class="g-3 p-3">
     <a asp-action="Index">Voltar</a>
 </div>
 

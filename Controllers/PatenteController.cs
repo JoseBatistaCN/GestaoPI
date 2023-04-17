@@ -52,7 +52,7 @@ using GestaoPI.Context;
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Codigo,Titulo,Resumo,Situacao,Status,Deposito,Concessao,Exame,DominioPublico, Anotacao")] Patente patente)
+        public async Task<IActionResult> Create([Bind("Codigo,Titulo,Resumo,Situacao,Status,Deposito,Concessao,Exame,Publicacao,Anotacao")] Patente patente)
         {
             if (ModelState.IsValid)
             {
@@ -84,7 +84,7 @@ using GestaoPI.Context;
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Codigo,Titulo,Resumo,Situacao,Status,Deposito,Concessao,Exame,DominioPublico, Anotacao")] Patente patente)
+        public async Task<IActionResult> Edit(string id, [Bind("Codigo,Titulo,Resumo,Situacao,Status,Deposito,Concessao,Exame,Publicacao, Anotacao")] Patente patente)
         {
             if (id != patente.Codigo)
             {

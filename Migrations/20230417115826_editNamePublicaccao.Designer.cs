@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GestaoPI.Migrations
 {
     [DbContext(typeof(PatenteContext))]
-    [Migration("20230412142201_formatdate")]
-    partial class formatdate
+    [Migration("20230417115826_editNamePublicaccao")]
+    partial class editNamePublicaccao
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -48,22 +48,6 @@ namespace GestaoPI.Migrations
                     b.ToTable("codigo_despachos_patente");
                 });
 
-            modelBuilder.Entity("GestaoPI.Models.Efmigrationshistory", b =>
-                {
-                    b.Property<string>("MigrationId")
-                        .HasMaxLength(150)
-                        .HasColumnType("varchar(150)");
-
-                    b.Property<string>("ProductVersion")
-                        .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("varchar(32)");
-
-                    b.HasKey("MigrationId");
-
-                    b.ToTable("__efmigrationshistory");
-                });
-
             modelBuilder.Entity("GestaoPI.Models.Patente", b =>
                 {
                     b.Property<string>("Codigo")
@@ -76,21 +60,21 @@ namespace GestaoPI.Migrations
                         .HasColumnType("text")
                         .HasColumnName("anotacao");
 
-                    b.Property<DateOnly?>("Concessao")
-                        .HasColumnType("date")
+                    b.Property<DateTime?>("Concessao")
+                        .HasColumnType("datetime(6)")
                         .HasColumnName("concessao");
 
-                    b.Property<DateOnly?>("Deposito")
-                        .HasColumnType("date")
+                    b.Property<DateTime?>("Deposito")
+                        .HasColumnType("datetime(6)")
                         .HasColumnName("deposito");
 
-                    b.Property<DateOnly?>("Publicacao")
-                        .HasColumnType("date")
-                        .HasColumnName("dominio_publico");
-
-                    b.Property<DateOnly?>("Exame")
-                        .HasColumnType("date")
+                    b.Property<DateTime?>("Exame")
+                        .HasColumnType("datetime(6)")
                         .HasColumnName("exame");
+
+                    b.Property<DateTime?>("Publicacao")
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("publicacao");
 
                     b.Property<string>("Resumo")
                         .HasColumnType("longtext")
