@@ -1,18 +1,12 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace GestaoPI.Models;
-
-[Table("revista")]
-public partial class Revista
+namespace GestaoPI.Models
 {
-    [Key]
-    [Column("codigo")]
-    public int Codigo { get; set; }
-
-    [Column("data")]
-    public DateOnly Data { get; set; }
+    public class Revista
+    {
+        
+    }
 }

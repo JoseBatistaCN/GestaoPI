@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GestaoPI.Models;
-using GestaoPI.Context;
+using GestaoPI.Data;
 
     public class PatenteController : Controller
     {

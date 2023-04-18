@@ -1,4 +1,4 @@
-using GestaoPI.Context;
+using GestaoPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 

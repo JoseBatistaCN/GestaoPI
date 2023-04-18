@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using GestaoPI.Interfaces;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
@@ -8,7 +9,7 @@ namespace GestaoPI.Models;
 
 [Table("patente")]
 [Index("Codigo", Name = "codigo_UNIQUE", IsUnique = true)]
-public partial class Patente
+public partial class Patente : IProcesso
 {
     [Key]
     [Column("codigo")]
@@ -39,7 +40,7 @@ public partial class Patente
     [Required]
     [Display(Name = "Depósito")]
     [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
-    public DateTime? Deposito { get; set; }
+    public DateTime Deposito { get; set; }
 
     [Column("concessao")]
     [Display(Name = "Concessão")]
