@@ -5,18 +5,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GestaoPI.Data;
 
-public partial class PatenteContext : DbContext
+public partial class GestaoPIContext : DbContext
 {
-    public PatenteContext()
+    public GestaoPIContext()
     {
     }
 
-    public PatenteContext(DbContextOptions<PatenteContext> options)
+    public GestaoPIContext(DbContextOptions<GestaoPIContext> options)
         : base(options)
     {
     }
 
-    public virtual DbSet<Patente> Patentes { get; set; } = null!;
-    public virtual DbSet<Revista> Revistas { get; set; } = null!;
-      partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+    public virtual DbSet<Patente> Patentes => Set<Patente>();
+    public virtual DbSet<Revista> Revistas => Set<Revista>();
+    partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }

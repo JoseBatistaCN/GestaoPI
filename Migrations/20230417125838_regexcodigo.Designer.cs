@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GestaoPI.Migrations
 {
-    [DbContext(typeof(PatenteContext))]
+    [DbContext(typeof(GestaoPIContext))]
     [Migration("20230417125838_regexcodigo")]
     partial class regexcodigo
     {

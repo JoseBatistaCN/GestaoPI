@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 var conn = builder.Configuration.GetConnectionString("DefaultConnection");
 
-builder.Services.AddDbContext<PatenteContext>(options =>
+builder.Services.AddDbContext<GestaoPIContext>(options =>
     options.UseMySql(conn, ServerVersion.AutoDetect(conn)));
 
 var app = builder.Build();

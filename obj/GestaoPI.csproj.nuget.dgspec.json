@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\202000012874\\Documents\\Code\\GestaoPI\\GestaoPI.csproj": {}
+    "c:\\Users\\202000012874\\Documents\\Code\\GestaoPI\\GestaoPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\202000012874\\Documents\\Code\\GestaoPI\\GestaoPI.csproj": {
+    "c:\\Users\\202000012874\\Documents\\Code\\GestaoPI\\GestaoPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\202000012874\\Documents\\Code\\GestaoPI\\GestaoPI.csproj",
+        "projectUniqueName": "c:\\Users\\202000012874\\Documents\\Code\\GestaoPI\\GestaoPI.csproj",
         "projectName": "GestaoPI",
-        "projectPath": "C:\\Users\\202000012874\\Documents\\Code\\GestaoPI\\GestaoPI.csproj",
+        "projectPath": "c:\\Users\\202000012874\\Documents\\Code\\GestaoPI\\GestaoPI.csproj",
         "packagesPath": "C:\\Users\\202000012874\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\202000012874\\Documents\\Code\\GestaoPI\\obj\\",
+        "outputPath": "c:\\Users\\202000012874\\Documents\\Code\\GestaoPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\202000012874\\AppData\\Roaming\\NuGet\\NuGet.Config"
