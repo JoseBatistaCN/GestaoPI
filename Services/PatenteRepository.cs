@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using GestaoPI.Data;
 using GestaoPI.Models;
+using GestaoPI.Interfaces;
 
 namespace GestaoPI.Services
 {
-    public class PatenteRepository
+    public class PatenteRepository : IRepository<Patente>
     {
         private readonly GestaoPIContext _context;
 
@@ -16,36 +17,38 @@ namespace GestaoPI.Services
         {
             _context = context;
         }
-        public async Task<IEnumerable<Patente>> PegarTodas()
+
+        public async Task<IEnumerable<Patente>> ObterTodos()
         {
             return await _context.Patentes!.ToListAsync();
         }
 
-        public async Task InserirPatente(Patente patente)
+        public async Task Inserir(Patente processo)
         {
-            _context.Patentes!.Add(patente);
+            _context.Patentes!.Add(processo);
             await _context.SaveChangesAsync();
         }
 
-        public async Task<Patente?> pegarPatente(string id)
+        public async Task<Patente?> ObterPorId(string id)
         {
             return await _context.Patentes.FindAsync(id);
         }
 
-        public async Task AtualizarPatente(Patente patente)
+        public async Task Atualizar(Patente processo)
         {
-            _context.Update(patente);
+            _context.Update(processo);
             await _context.SaveChangesAsync();
         }
 
-        public async Task ExcluirPatente(string id){
+        public async Task Excluir(string id){
             var patente = await _context.Patentes!.FindAsync(id);
             _context.Patentes.Remove(patente!);
             await _context.SaveChangesAsync();
         }
 
-        public Boolean ExistePatente(string id){
+        public Boolean Existe(string id){
             return _context.Patentes.Any(e => e.Codigo == id);
         }
+
     }
 }

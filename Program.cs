@@ -1,4 +1,7 @@
 using GestaoPI.Data;
+using GestaoPI.Models;
+using GestaoPI.Interfaces;
+using GestaoPI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -6,6 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 var conn = builder.Configuration.GetConnectionString("DefaultConnection");
+
+builder.Services.AddScoped<IRepository<Patente>, PatenteRepository>();
 
 builder.Services.AddDbContext<GestaoPIContext>(options =>
     options.UseMySql(conn, ServerVersion.AutoDetect(conn)));
