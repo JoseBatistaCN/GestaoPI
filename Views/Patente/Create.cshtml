@@ -1,30 +1,27 @@
-@model GestaoPI.Models.Patente
-@{
-ViewData["Title"] = "Cadastro Processo";
-}
+@model GestaoPI.Models.Patente 
+@{ ViewData["Title"] = "Cadastrar Processo"; }
 
 <h1>Cadastrar Patente</h1>
-<hr/>
+<hr />
+
 <div class="container">
     <div>
         <form asp-action="Create" class="row g-3">
             <div asp-validation-summary="ModelOnly" class="text-danger col-12"></div>
             <div class="col-6 form-group">
                 <label asp-for="Codigo" class="control-label"></label>
-                <input asp-for="Codigo" class="form-control" placeholder="BR ZZ XXXX YYYYYY K"/>
+                <input asp-for="Codigo" class="form-control" placeholder="BR ZZ XXXX YYYYYY K" />
                 <span asp-validation-for="Codigo" class="text-danger"></span>
             </div>
             <div class="col-6 form-group">
-                <label asp-for="Situacao" class="control-label"></label>
-                <select class="form-control form-select">
-                  <option selected>Selecionar</option>
-                  <option value="1">Concedido</option>
-                  <option value="2">Em Processo</option>
+                <label asp-for="Codigo" class="control-label"></label>
+                <select asp-for="Status" class="form-select">
+                    <option asp-for="Status">Selecionar</option>
                 </select>
             </div>
             <div class="form-group">
                 <label asp-for="Titulo" class="control-label"></label>
-                <input asp-for="Titulo" class="form-control"/>
+                <input asp-for="Titulo" class="form-control" />
                 <span asp-validation-for="Titulo" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -34,7 +31,7 @@ ViewData["Title"] = "Cadastro Processo";
             </div>
             <div class="form-group col-3">
                 <label asp-for="Deposito" class="control-label"></label>
-                <input type="date" asp-for="Deposito" class=" form-control"/>
+                <input type="date" asp-for="Deposito" class="form-control" />
                 <span asp-validation-for="Deposito" class="text-danger"></span>
             </div>
             <div class="col-6"></div>
@@ -50,11 +47,11 @@ ViewData["Title"] = "Cadastro Processo";
             </div>
             <div class="form-group">
                 <label asp-for="Anotacao" class="control-label"></label>
-                <textarea asp-for="Anotacao" class="form-control" ></textarea>
+                <textarea asp-for="Anotacao" class="form-control"></textarea>
                 <span asp-validation-for="Anotacao" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Cadastrar" class="btn btn-primary"/>
+                <input type="submit" value="Cadastrar" class="btn btn-primary" />
             </div>
         </form>
     </div>
@@ -63,6 +60,5 @@ ViewData["Title"] = "Cadastro Processo";
     <a asp-action="Index">Voltar</a>
 </div>
 
-@section Scripts {
-@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+@section Scripts { @{await
+Html.RenderPartialAsync("_ValidationScriptsPartial");} }

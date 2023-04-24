@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using GestaoPI.Models;
 
 namespace GestaoPI.Data;
 
@@ -15,16 +16,15 @@ public partial class GestaoPIContext : DbContext
     {
     }
 
-    public virtual DbSet<Efmigrationshistory> Efmigrationshistories { get; set; }
+    public virtual DbSet<Efmigrationshistory> Efmigrationshistories { get; set; } = null!;
 
-    public virtual DbSet<Patente> Patentes { get; set; }
+    public virtual DbSet<Patente> Patentes => Set<Patente>();
 
-    public virtual DbSet<Revistum> Revista { get; set; }
+    public virtual DbSet<ServicoPatente> ServicosPatente => Set<ServicoPatente>();
 
-    public virtual DbSet<Servicospatente> Servicospatentes { get; set; }
+    public virtual DbSet<Revista> Revista => Set<Revista>();
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseMySql("server=localhost;port=3306;database=gestaopi;user=root;password=admin", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.32-mysql"));
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -51,8 +51,6 @@ public partial class GestaoPIContext : DbContext
 
             entity.HasIndex(e => e.Codigo, "codigo_UNIQUE").IsUnique();
 
-            entity.HasIndex(e => e.SituacaoPatenteSituacao, "fk_patente_SituacaoPatente1_idx");
-
             entity.Property(e => e.Codigo)
                 .HasMaxLength(19)
                 .IsFixedLength()
@@ -67,43 +65,12 @@ public partial class GestaoPIContext : DbContext
             entity.Property(e => e.Resumo)
                 .HasColumnType("mediumtext")
                 .HasColumnName("resumo");
-            entity.Property(e => e.SituacaoPatenteSituacao)
-                .HasMaxLength(50)
-                .HasColumnName("SituacaoPatente_situacao");
             entity.Property(e => e.Status)
                 .HasMaxLength(45)
                 .HasColumnName("status");
             entity.Property(e => e.Titulo)
                 .HasMaxLength(255)
                 .HasColumnName("titulo");
-        });
-
-        modelBuilder.Entity<Revistum>(entity =>
-        {
-            entity.HasKey(e => e.Codigo).HasName("PRIMARY");
-
-            entity.ToTable("revista");
-
-            entity.Property(e => e.Codigo)
-                .ValueGeneratedNever()
-                .HasColumnName("codigo");
-            entity.Property(e => e.Data).HasColumnName("data");
-            entity.Property(e => e.DespachoPatentePatenteCodigo)
-                .HasMaxLength(19)
-                .IsFixedLength()
-                .HasColumnName("DespachoPatente_patente_codigo");
-        });
-
-        modelBuilder.Entity<Servicospatente>(entity =>
-        {
-            entity.HasKey(e => e.Codigo).HasName("PRIMARY");
-
-            entity.ToTable("servicospatente");
-
-            entity.Property(e => e.Codigo).ValueGeneratedNever();
-            entity.Property(e => e.Servico).HasMaxLength(255);
-            entity.Property(e => e.ValorComDesconto).HasPrecision(10, 2);
-            entity.Property(e => e.ValorSemDesconto).HasPrecision(10, 2);
         });
 
         OnModelCreatingPartial(modelBuilder);

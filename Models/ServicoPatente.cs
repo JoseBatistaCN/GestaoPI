@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace GestaoPI.Models;
 
-public partial class Servicospatente
+public partial class ServicoPatente
 {
     public int Codigo { get; set; }
 
