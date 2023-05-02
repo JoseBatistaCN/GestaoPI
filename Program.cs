@@ -12,7 +12,7 @@ var conn = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddScoped<IRepository<Patente>, PatenteRepository>();
 
-builder.Services.AddDbContext<GestaoPIContext>(options =>
+builder.Services.AddDbContext<GestaopiContext>(options =>
     options.UseMySql(conn, ServerVersion.AutoDetect(conn)));
 
 var app = builder.Build();

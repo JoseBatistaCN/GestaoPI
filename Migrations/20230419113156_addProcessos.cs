@@ -281,12 +281,12 @@ namespace GestaoPI.Migrations
                 nullable: false,
                 defaultValue: 0);
 
-            migrationBuilder.AddColumn<DateOnly>(
+            migrationBuilder.AddColumn<DateTime>(
                 name: "data",
                 table: "revista",
                 type: "date",
                 nullable: false,
-                defaultValue: new DateOnly(1, 1, 1));
+                defaultValue: new DateTime(1, 1, 1));
 
             migrationBuilder.AddPrimaryKey(
                 name: "PRIMARY",

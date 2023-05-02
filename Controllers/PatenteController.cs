@@ -12,7 +12,7 @@ using GestaoPI.Interfaces;
     {
         private readonly IRepository<Patente> _patenteRepository;
 
-        public PatenteController(GestaoPIContext context, IRepository<Patente> patenteRepository)
+        public PatenteController(GestaopiContext context, IRepository<Patente> patenteRepository)
         {
             _patenteRepository = patenteRepository;
         }

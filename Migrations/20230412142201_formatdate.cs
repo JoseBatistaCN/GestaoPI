@@ -61,10 +61,10 @@ namespace GestaoPI.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     status = table.Column<string>(type: "varchar(45)", maxLength: 45, nullable: true, collation: "utf8mb4_0900_ai_ci")
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    deposito = table.Column<DateOnly>(type: "date", nullable: true),
-                    concessao = table.Column<DateOnly>(type: "date", nullable: true),
-                    exame = table.Column<DateOnly>(type: "date", nullable: true),
-                    dominio_publico = table.Column<DateOnly>(type: "date", nullable: true),
+                    deposito = table.Column<DateTime>(type: "date", nullable: true),
+                    concessao = table.Column<DateTime>(type: "date", nullable: true),
+                    exame = table.Column<DateTime>(type: "date", nullable: true),
+                    dominio_publico = table.Column<DateTime>(type: "date", nullable: true),
                     anotacao = table.Column<string>(type: "text", nullable: true, collation: "utf8mb4_0900_ai_ci")
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
@@ -80,7 +80,7 @@ namespace GestaoPI.Migrations
                 columns: table => new
                 {
                     codigo = table.Column<int>(type: "int", nullable: false),
-                    data = table.Column<DateOnly>(type: "date", nullable: false)
+                    data = table.Column<DateTime>(type: "date", nullable: false)
                 },
                 constraints: table =>
                 {

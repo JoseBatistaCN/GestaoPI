@@ -11,9 +11,9 @@ namespace GestaoPI.Services
 {
     public class PatenteRepository : IRepository<Patente>
     {
-        private readonly GestaoPIContext _context;
+        private readonly GestaopiContext _context;
 
-        public PatenteRepository(GestaoPIContext context)
+        public PatenteRepository(GestaopiContext context)
         {
             _context = context;
         }

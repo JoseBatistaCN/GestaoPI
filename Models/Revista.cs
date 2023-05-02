@@ -1,15 +1,25 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
-namespace GestaoPI.Models
+namespace GestaoPI.Models;
+
+[Table("revista")]
+public partial class Revista
 {
-    public class Revista
-    {
-        [Key]
-        public ushort numeroRevista {get; set;}
-        public DateTime dataPublicacao {get; set;}
-    }
+    [Key]
+    [Column("codigo")]
+    public int Codigo { get; set; }
+
+    [Column("data")]
+    public DateTime Data { get; set; }
+
+    [Column("DespachoPatente_patente_codigo")]
+    [StringLength(19)]
+    public string DespachoPatentePatenteCodigo { get; set; } = null!;
+
+    [InverseProperty("RevistaCodigoNavigation")]
+    public virtual ICollection<Despachopatente> Despachopatentes { get; } = new List<Despachopatente>();
 }

@@ -1,15 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 namespace GestaoPI.Models;
 
-public partial class ServicoPatente
+[Table("servicopatente")]
+[Index("PatenteCodigo", Name = "fk_ServicoPatente_patente1_idx")]
+public partial class Servicopatente
 {
-    public int Codigo { get; set; }
+    [Key]
+    [Column("servicoPatente_id")]
+    public int ServicoPatenteId { get; set; }
 
-    public string Servico { get; set; } = null!;
+    [Column("patente_codigo")]
+    [StringLength(19)]
+    public string PatenteCodigo { get; set; } = null!;
 
-    public decimal? ValorSemDesconto { get; set; }
+    [Precision(10, 2)]
+    public decimal? Valor { get; set; }
 
-    public decimal? ValorComDesconto { get; set; }
+    [ForeignKey("PatenteCodigo")]
+    [InverseProperty("Servicopatentes")]
+    public virtual Patente PatenteCodigoNavigation { get; set; } = null!;
 }

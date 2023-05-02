@@ -1,28 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
 using GestaoPI.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace GestaoPI.Data;
 
-public partial class GestaoPIContext : DbContext
+public partial class GestaopiContext : DbContext
 {
-    public GestaoPIContext()
+    public GestaopiContext()
     {
     }
 
-    public GestaoPIContext(DbContextOptions<GestaoPIContext> options)
+    public GestaopiContext(DbContextOptions<GestaopiContext> options)
         : base(options)
     {
     }
 
-    public virtual DbSet<Efmigrationshistory> Efmigrationshistories { get; set; } = null!;
+    public virtual DbSet<Codigodespachopatente> Codigodespachopatentes { get; set; }
 
-    public virtual DbSet<Patente> Patentes => Set<Patente>();
+    public virtual DbSet<Codigodespachospatente> Codigodespachospatentes { get; set; }
 
-    public virtual DbSet<ServicoPatente> ServicosPatente => Set<ServicoPatente>();
+    public virtual DbSet<Codigoservicopatente> Codigoservicopatentes { get; set; }
 
-    public virtual DbSet<Revista> Revista => Set<Revista>();
+    public virtual DbSet<Despachopatente> Despachopatentes { get; set; }
+
+    public virtual DbSet<Efmigrationshistory> Efmigrationshistories { get; set; }
+
+    public virtual DbSet<Patente> Patentes { get; set; }
+
+    public virtual DbSet<Revista> Revista { get; set; }
+
+    public virtual DbSet<Servicopatente> Servicopatentes { get; set; }
+
+    public virtual DbSet<Servicospatente> Servicospatentes { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseMySql("server=localhost;port=3306;database=gestaopi;user=root;password=admin", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.32-mysql"));
@@ -33,44 +43,76 @@ public partial class GestaoPIContext : DbContext
             .UseCollation("utf8mb4_0900_ai_ci")
             .HasCharSet("utf8mb4");
 
+        modelBuilder.Entity<Codigodespachopatente>(entity =>
+        {
+            entity.HasKey(e => e.Codigo).HasName("PRIMARY");
+        });
+
+        modelBuilder.Entity<Codigodespachospatente>(entity =>
+        {
+            entity.HasKey(e => e.Codigo).HasName("PRIMARY");
+        });
+
+        modelBuilder.Entity<Codigoservicopatente>(entity =>
+        {
+            entity.HasKey(e => e.Servico).HasName("PRIMARY");
+        });
+
+        modelBuilder.Entity<Despachopatente>(entity =>
+        {
+            entity.HasKey(e => new { e.PatenteCodigo, e.RevistaCodigo })
+                .HasName("PRIMARY")
+                .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
+
+            entity.Property(e => e.PatenteCodigo).IsFixedLength();
+
+            entity.HasOne(d => d.CodigoDespachosPatenteCodigoNavigation).WithMany(p => p.Despachopatentes)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_DespachoPatente_CodigoDespachosPatente");
+
+            entity.HasOne(d => d.PatenteCodigoNavigation).WithMany(p => p.Despachopatentes)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_DespachoPatente_patente");
+
+            entity.HasOne(d => d.RevistaCodigoNavigation).WithMany(p => p.Despachopatentes)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_DespachoPatente_revista");
+        });
+
         modelBuilder.Entity<Efmigrationshistory>(entity =>
         {
             entity.HasKey(e => e.MigrationId).HasName("PRIMARY");
-
-            entity.ToTable("__efmigrationshistory");
-
-            entity.Property(e => e.MigrationId).HasMaxLength(150);
-            entity.Property(e => e.ProductVersion).HasMaxLength(32);
         });
 
         modelBuilder.Entity<Patente>(entity =>
         {
             entity.HasKey(e => e.Codigo).HasName("PRIMARY");
 
-            entity.ToTable("patente");
+            entity.Property(e => e.Codigo).IsFixedLength();
+        });
 
-            entity.HasIndex(e => e.Codigo, "codigo_UNIQUE").IsUnique();
+        modelBuilder.Entity<Revista>(entity =>
+        {
+            entity.HasKey(e => e.Codigo).HasName("PRIMARY");
 
-            entity.Property(e => e.Codigo)
-                .HasMaxLength(19)
-                .IsFixedLength()
-                .HasColumnName("codigo");
-            entity.Property(e => e.Anotacao)
-                .HasColumnType("text")
-                .HasColumnName("anotacao");
-            entity.Property(e => e.Concessao).HasColumnName("concessao");
-            entity.Property(e => e.Deposito).HasColumnName("deposito");
-            entity.Property(e => e.Exame).HasColumnName("exame");
-            entity.Property(e => e.Publicacao).HasColumnName("publicacao");
-            entity.Property(e => e.Resumo)
-                .HasColumnType("mediumtext")
-                .HasColumnName("resumo");
-            entity.Property(e => e.Status)
-                .HasMaxLength(45)
-                .HasColumnName("status");
-            entity.Property(e => e.Titulo)
-                .HasMaxLength(255)
-                .HasColumnName("titulo");
+            entity.Property(e => e.Codigo).ValueGeneratedNever();
+            entity.Property(e => e.DespachoPatentePatenteCodigo).IsFixedLength();
+        });
+
+        modelBuilder.Entity<Servicopatente>(entity =>
+        {
+            entity.HasKey(e => e.ServicoPatenteId).HasName("PRIMARY");
+
+            entity.Property(e => e.PatenteCodigo).IsFixedLength();
+
+            entity.HasOne(d => d.PatenteCodigoNavigation).WithMany(p => p.Servicopatentes)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_ServicoPatente_patente");
+        });
+
+        modelBuilder.Entity<Servicospatente>(entity =>
+        {
+            entity.HasKey(e => e.Servico).HasName("PRIMARY");
         });
 
         OnModelCreatingPartial(modelBuilder);

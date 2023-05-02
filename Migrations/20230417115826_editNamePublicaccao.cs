@@ -23,7 +23,7 @@ namespace GestaoPI.Migrations
                 table: "patente",
                 type: "datetime(6)",
                 nullable: true,
-                oldClrType: typeof(DateOnly),
+                oldClrType: typeof(DateTime),
                 oldType: "date",
                 oldNullable: true);
 
@@ -32,7 +32,7 @@ namespace GestaoPI.Migrations
                 table: "patente",
                 type: "datetime(6)",
                 nullable: true,
-                oldClrType: typeof(DateOnly),
+                oldClrType: typeof(DateTime),
                 oldType: "date",
                 oldNullable: true);
 
@@ -41,7 +41,7 @@ namespace GestaoPI.Migrations
                 table: "patente",
                 type: "datetime(6)",
                 nullable: true,
-                oldClrType: typeof(DateOnly),
+                oldClrType: typeof(DateTime),
                 oldType: "date",
                 oldNullable: true);
 
@@ -59,7 +59,7 @@ namespace GestaoPI.Migrations
                 name: "publicacao",
                 table: "patente");
 
-            migrationBuilder.AlterColumn<DateOnly>(
+            migrationBuilder.AlterColumn<DateTime>(
                 name: "exame",
                 table: "patente",
                 type: "date",
@@ -68,7 +68,7 @@ namespace GestaoPI.Migrations
                 oldType: "datetime(6)",
                 oldNullable: true);
 
-            migrationBuilder.AlterColumn<DateOnly>(
+            migrationBuilder.AlterColumn<DateTime>(
                 name: "deposito",
                 table: "patente",
                 type: "date",
@@ -77,7 +77,7 @@ namespace GestaoPI.Migrations
                 oldType: "datetime(6)",
                 oldNullable: true);
 
-            migrationBuilder.AlterColumn<DateOnly>(
+            migrationBuilder.AlterColumn<DateTime>(
                 name: "concessao",
                 table: "patente",
                 type: "date",
@@ -86,7 +86,7 @@ namespace GestaoPI.Migrations
                 oldType: "datetime(6)",
                 oldNullable: true);
 
-            migrationBuilder.AddColumn<DateOnly>(
+            migrationBuilder.AddColumn<DateTime>(
                 name: "dominio_publico",
                 table: "patente",
                 type: "date",

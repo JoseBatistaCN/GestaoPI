@@ -1,44 +1,49 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 namespace GestaoPI.Models;
 
+[Table("patente")]
+[Index("Codigo", Name = "codigo_UNIQUE", IsUnique = true)]
 public partial class Patente
 {
     [Key]
-    [Required]
+    [Column("codigo")]
     [StringLength(19)]
-    [Display(Name = "Código")]
-    [RegularExpression(@"^[A-Z]{2}\s[0-9]{2}\s[0-9]{4}\s[0-9]{6}\s[0-9]$")]
     public string Codigo { get; set; } = null!;
 
-    [Display(Name = "Título")]
+    [Column("titulo")]
+    [StringLength(255)]
     public string? Titulo { get; set; }
 
+    [Column("resumo", TypeName = "mediumtext")]
     public string? Resumo { get; set; }
 
+    [Column("status")]
+    [StringLength(45)]
     public string? Status { get; set; }
 
-    [Display(Name = "Depósito")]
-    [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+    [Column("deposito")]
     public DateTime Deposito { get; set; }
 
-    [Display(Name = "Concessão")]
-    [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+    [Column("concessao")]
     public DateTime? Concessao { get; set; }
 
-    [Display(Name = "Exame")]
-    [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+    [Column("exame")]
     public DateTime? Exame { get; set; }
 
-    [Display(Name = "Publicação")]
-    [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+    [Column("publicacao")]
     public DateTime? Publicacao { get; set; }
 
-    [Display(Name = "Anotação")]
+    [Column("anotacao", TypeName = "text")]
     public string? Anotacao { get; set; }
 
-    public ICollection<ServicoPatente> Servicos => new List<ServicoPatente>();
-    public ICollection<DespachoPatente> Despachos => new List<DespachoPatente>();
+    [InverseProperty("PatenteCodigoNavigation")]
+    public virtual ICollection<Despachopatente> Despachopatentes { get; } = new List<Despachopatente>();
+
+    [InverseProperty("PatenteCodigoNavigation")]
+    public virtual ICollection<Servicopatente> Servicopatentes { get; } = new List<Servicopatente>();
 }
