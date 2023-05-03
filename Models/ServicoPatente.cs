@@ -18,10 +18,19 @@ public partial class Servicopatente
     [StringLength(19)]
     public string PatenteCodigo { get; set; } = null!;
 
+    [Column("codigo_patente")]
+    public string CodigoPatente {get; set;} = null!;
+
+    [Column("servico_codigo")]
+    public string ServicoCodigo {get; set;} = null!;
+
     [Precision(10, 2)]
     public decimal? Valor { get; set; }
 
+    [ForeignKey("ServicoCodigo")]
+    public virtual Codigoservicopatente CodigoservicopatenteNavigation {get; set;} = null!;
+
+
     [ForeignKey("PatenteCodigo")]
-    [InverseProperty("Servicopatentes")]
     public virtual Patente PatenteCodigoNavigation { get; set; } = null!;
 }

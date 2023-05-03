@@ -24,6 +24,14 @@ using GestaoPI.Interfaces;
             return View(todasPatentes);
         }
 
+        public async Task<IActionResult> Servico()
+        {
+            
+            return View("IndexTeste");
+        }
+
+        
+
         // GET: patente/Details/5
         public async Task<IActionResult> Details(string id)
         {

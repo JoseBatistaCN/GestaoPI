@@ -17,4 +17,7 @@ public partial class Codigoservicopatente
 
     [Precision(10, 2)]
     public decimal? ValorComDesconto { get; set; }
+
+
+    public ICollection<Servicopatente> ServicoPatentes {get; set;}
 }

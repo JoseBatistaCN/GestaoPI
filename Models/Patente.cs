@@ -27,15 +27,19 @@ public partial class Patente
     public string? Status { get; set; }
 
     [Column("deposito")]
+    [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
     public DateTime Deposito { get; set; }
 
     [Column("concessao")]
+    [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
     public DateTime? Concessao { get; set; }
 
     [Column("exame")]
+    [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
     public DateTime? Exame { get; set; }
 
     [Column("publicacao")]
+    [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
     public DateTime? Publicacao { get; set; }
 
     [Column("anotacao", TypeName = "text")]

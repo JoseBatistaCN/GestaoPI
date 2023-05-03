@@ -16,23 +16,17 @@ public partial class GestaopiContext : DbContext
     {
     }
 
-    public virtual DbSet<Codigodespachopatente> Codigodespachopatentes { get; set; }
-
     public virtual DbSet<Codigodespachospatente> Codigodespachospatentes { get; set; }
 
     public virtual DbSet<Codigoservicopatente> Codigoservicopatentes { get; set; }
 
     public virtual DbSet<Despachopatente> Despachopatentes { get; set; }
 
-    public virtual DbSet<Efmigrationshistory> Efmigrationshistories { get; set; }
-
     public virtual DbSet<Patente> Patentes { get; set; }
 
     public virtual DbSet<Revista> Revista { get; set; }
 
     public virtual DbSet<Servicopatente> Servicopatentes { get; set; }
-
-    public virtual DbSet<Servicospatente> Servicospatentes { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseMySql("server=localhost;port=3306;database=gestaopi;user=root;password=admin", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.32-mysql"));
@@ -43,10 +37,6 @@ public partial class GestaopiContext : DbContext
             .UseCollation("utf8mb4_0900_ai_ci")
             .HasCharSet("utf8mb4");
 
-        modelBuilder.Entity<Codigodespachopatente>(entity =>
-        {
-            entity.HasKey(e => e.Codigo).HasName("PRIMARY");
-        });
 
         modelBuilder.Entity<Codigodespachospatente>(entity =>
         {
@@ -79,10 +69,6 @@ public partial class GestaopiContext : DbContext
                 .HasConstraintName("fk_DespachoPatente_revista");
         });
 
-        modelBuilder.Entity<Efmigrationshistory>(entity =>
-        {
-            entity.HasKey(e => e.MigrationId).HasName("PRIMARY");
-        });
 
         modelBuilder.Entity<Patente>(entity =>
         {
@@ -110,10 +96,6 @@ public partial class GestaopiContext : DbContext
                 .HasConstraintName("fk_ServicoPatente_patente");
         });
 
-        modelBuilder.Entity<Servicospatente>(entity =>
-        {
-            entity.HasKey(e => e.Servico).HasName("PRIMARY");
-        });
 
         OnModelCreatingPartial(modelBuilder);
     }
