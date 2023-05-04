@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 var conn = builder.Configuration.GetConnectionString("DefaultConnection");
 
-builder.Services.AddScoped<IRepository<Patente>, PatenteRepository>();
+builder.Services.AddScoped<IProcessoRepository<Patente>, PatenteRepository>();
 
 builder.Services.AddDbContext<GestaopiContext>(options =>
     options.UseMySql(conn, ServerVersion.AutoDetect(conn)));

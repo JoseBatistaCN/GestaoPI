@@ -6,13 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GestaoPI.Models;
-using GestaoPI.Data;
 using GestaoPI.Interfaces;
     public class PatenteController : Controller
     {
-        private readonly IRepository<Patente> _patenteRepository;
+        private readonly IProcessoRepository<Patente> _patenteRepository;
 
-        public PatenteController(GestaopiContext context, IRepository<Patente> patenteRepository)
+        public PatenteController(IProcessoRepository<Patente> patenteRepository)
         {
             _patenteRepository = patenteRepository;
         }
@@ -23,14 +22,6 @@ using GestaoPI.Interfaces;
             var todasPatentes = await _patenteRepository.ObterTodos();
             return View(todasPatentes);
         }
-
-        public async Task<IActionResult> Servico()
-        {
-            
-            return View("IndexTeste");
-        }
-
-        
 
         // GET: patente/Details/5
         public async Task<IActionResult> Details(string id)

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace GestaoPI.Interfaces
 {
-    public interface IRepository<T> where T: class
+    public interface IProcessoRepository<T> where T: class
     {
         public Task<T?> ObterPorId(string id);
         public Task<IEnumerable<T>> ObterTodos();

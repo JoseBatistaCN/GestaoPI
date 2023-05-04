@@ -12,10 +12,12 @@ public partial class Patente
 {
     [Key]
     [Column("codigo")]
+    [Display(Name = "Código INPI")]
     [StringLength(19)]
     public string Codigo { get; set; } = null!;
 
     [Column("titulo")]
+    [Display(Name = "Título")]
     [StringLength(255)]
     public string? Titulo { get; set; }
 
@@ -27,6 +29,8 @@ public partial class Patente
     public string? Status { get; set; }
 
     [Column("deposito")]
+    [Display(Name = "Depósito")]
+
     [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
     public DateTime Deposito { get; set; }
 
@@ -39,6 +43,7 @@ public partial class Patente
     public DateTime? Exame { get; set; }
 
     [Column("publicacao")]
+    [Display(Name = "Publicação")]
     [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
     public DateTime? Publicacao { get; set; }
 

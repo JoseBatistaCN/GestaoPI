@@ -28,7 +28,7 @@
       <td class="text-nowrap">@Html.DisplayFor(modelItem => item.Codigo)
 
       </td>
-      <td class="flex-wrap">@Html.DisplayFor(modelItem => item.Titulo)
+      <td class="flex-wrap text-ju">@Html.DisplayFor(modelItem => item.Titulo)
 
       </td>
       <td>@Html.DisplayFor(modelItem => item.Deposito)
@@ -46,7 +46,7 @@
       <td class="text-center">
         <i class="bi bi-arrow-down-square"></i>
       </td>
-      <td class="text-center"><a asp-action="Servico" asp-route-id="@item.Codigo"><i class="bi bi-arrow-up-square"></i></a></td>
+      <td class="text-center"><a asp-controller="ServicoPatente" asp-action="index" asp-route-id="@item.Codigo"><i class="bi bi-arrow-up-square"></i></a></td>
       <td class="text-center"><i class="bi bi-calendar"></i></td>
       <td class="text-center"><i class="bi bi-archive"></i></td>
       <td class="text-center"><a asp-action="Edit" asp-route-id="@item.Codigo"><i class="bi bi-gear"></i></a></td>

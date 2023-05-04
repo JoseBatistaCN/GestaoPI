@@ -9,7 +9,7 @@ using GestaoPI.Interfaces;
 
 namespace GestaoPI.Services
 {
-    public class PatenteRepository : IRepository<Patente>
+    public class PatenteRepository : IProcessoRepository<Patente>
     {
         private readonly GestaopiContext _context;
 

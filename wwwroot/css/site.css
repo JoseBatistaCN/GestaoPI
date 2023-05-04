@@ -15,7 +15,8 @@ html {
 
 body {
   margin-bottom: 60px;
-  background-color: #FFFFFF;
+  background-color: #F5F7FB;
+  font-family: 'Roboto', sans-serif;
 }
 
 a {
@@ -23,35 +24,13 @@ a {
   color: black;
 }
 
-#card-processo {
-  background-color: #FDE4CF;
-}
-
-#card-agenda {
-  background-color: #FFCFD2;
-}
-
-#card-grafico {
-  background-color: #8EECF5;
-}
-
-#card-revista {
-  background-color: #FBF8CC;
-}
-
-#card-inventores {
-  background-color: #B9FBC0;
-}
-
-#card-relatorio {
-  background-color: #90DBF4;
-}
 
 .feature {
   height: 180px;
   justify-content: center;
   text-align: center;
   align-items: center;
+  box-shadow: 10px black;
 }
 
 .card-feature:hover {

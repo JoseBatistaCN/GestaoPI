@@ -18,9 +18,6 @@ public partial class Servicopatente
     [StringLength(19)]
     public string PatenteCodigo { get; set; } = null!;
 
-    [Column("codigo_patente")]
-    public string CodigoPatente {get; set;} = null!;
-
     [Column("servico_codigo")]
     public string ServicoCodigo {get; set;} = null!;
 
