@@ -3,6 +3,7 @@ using System;
 using GestaoPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GestaoPI.Migrations
 {
     [DbContext(typeof(GestaopiContext))]
-    partial class GestaopiContextModelSnapshot : ModelSnapshot
+    [Migration("20230508115525_servicopatente")]
+    partial class servicopatente
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -190,7 +193,7 @@ namespace GestaoPI.Migrations
                     b.Property<string>("ServicoCodigo")
                         .IsRequired()
                         .HasColumnType("varchar(255)")
-                        .HasColumnName("codigo_servico_patente");
+                        .HasColumnName("servico_codigo");
 
                     b.Property<decimal?>("Valor")
                         .HasPrecision(10, 2)

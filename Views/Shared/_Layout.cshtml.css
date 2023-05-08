@@ -46,3 +46,9 @@ button.accept-policy {
   white-space: nowrap;
   line-height: 60px;
 }
+
+.container {
+  background-color: white;
+  border: 0 solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+}

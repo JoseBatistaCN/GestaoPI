@@ -12,13 +12,14 @@ public partial class Servicopatente
 {
     [Key]
     [Column("servicoPatente_id")]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int ServicoPatenteId { get; set; }
 
     [Column("patente_codigo")]
     [StringLength(19)]
     public string PatenteCodigo { get; set; } = null!;
 
-    [Column("servico_codigo")]
+    [Column("codigo_servico_patente")]
     public string ServicoCodigo {get; set;} = null!;
 
     [Precision(10, 2)]

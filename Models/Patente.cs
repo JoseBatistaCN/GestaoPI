@@ -13,6 +13,8 @@ public partial class Patente
     [Key]
     [Column("codigo")]
     [Display(Name = "Código INPI")]
+    [RegularExpression(@"^[A-Z]{2}\s{0-9}{2}\s[0-9]{4}\s[0-9]{6}\s[0-9]{1}$", ErrorMessage="Formato Inválido, BR ZZ XXXX YYYYYY K")]
+    [Required(ErrorMessage = "Campo Obrigatório")]
     [StringLength(19)]
     public string Codigo { get; set; } = null!;
 
@@ -25,10 +27,12 @@ public partial class Patente
     public string? Resumo { get; set; }
 
     [Column("status")]
+    [Display(Name = "Status")]
     [StringLength(45)]
     public string? Status { get; set; }
 
     [Column("deposito")]
+    [Required(ErrorMessage = "Campo Obrigatório")]
     [Display(Name = "Depósito")]
 
     [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
