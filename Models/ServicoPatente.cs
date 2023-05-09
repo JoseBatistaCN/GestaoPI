@@ -26,9 +26,11 @@ public partial class Servicopatente
     public decimal? Valor { get; set; }
 
     [ForeignKey("ServicoCodigo")]
+    [Display(Name = "Serviço")]
     public virtual Codigoservicopatente CodigoservicopatenteNavigation {get; set;} = null!;
 
 
     [ForeignKey("PatenteCodigo")]
+    [Display(Name = "Código INPI")]
     public virtual Patente PatenteCodigoNavigation { get; set; } = null!;
 }

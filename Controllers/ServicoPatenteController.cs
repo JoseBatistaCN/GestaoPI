@@ -97,12 +97,21 @@ namespace GestaoPI.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ServicoPatenteId,PatenteCodigo,ServicoCodigo,Valor")] Servicopatente servicopatente)
+        public async Task<IActionResult> Edit(int id, [Bind("ServicoPatenteId,PatenteCodigo,ServicoCodigo,Valor, PatenteCodigoNavigation, CodigoservicopatenteNavigation")] 
+        Servicopatente servicopatente)
         {
-            if (id != servicopatente.ServicoPatenteId)
+            Patente? patente = await _context.Patentes.FindAsync(servicopatente.PatenteCodigo);
+            Codigoservicopatente? codigoServico = await _context.Codigoservicopatentes.FindAsync(servicopatente.ServicoCodigo);
+
+            if (id != servicopatente.ServicoPatenteId || patente == null || codigoServico == null )
+            
             {
                 return NotFound();
             }
+
+            servicopatente.CodigoservicopatenteNavigation = codigoServico;
+            servicopatente.PatenteCodigoNavigation = patente;
+
 
             if (ModelState.IsValid)
             {
@@ -124,7 +133,29 @@ namespace GestaoPI.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ServicoCodigo"] = new SelectList(_context.Codigoservicopatentes, "Servico", "Servico", servicopatente.ServicoCodigo);
+
+            else
+            {
+                var validationContext = new ValidationContext(servicopatente, null, null);
+                var validationResults = new List<ValidationResult>();
+
+                foreach (var property in validationContext.ObjectType.GetProperties())
+                {
+                    var value = property.GetValue(servicopatente);
+                    var results = new List<ValidationResult>();
+                    var context = new ValidationContext(servicopatente) { MemberName = property.Name };
+
+                if (!Validator.TryValidateProperty(value, context, results))
+                {
+                    foreach (var result in results)
+                    {
+                        ModelState.AddModelError(property.Name, result.ErrorMessage);
+                    }
+                }
+            }
+
+            ViewData["ServicoCodigo"] = new SelectList(_context.Codigoservicopatentes, "Servico", "Servico", 
+            servicopatente.ServicoCodigo);
             ViewData["PatenteCodigo"] = new SelectList(_context.Patentes, "Codigo", "Codigo", servicopatente.PatenteCodigo);
             return View(servicopatente);
         }

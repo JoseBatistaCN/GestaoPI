@@ -100,5 +100,10 @@ public partial class GestaopiContext : DbContext
         OnModelCreatingPartial(modelBuilder);
     }
 
+    internal Task<Patente?> FindAsync(string patenteCodigo)
+    {
+        throw new NotImplementedException();
+    }
+
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }
