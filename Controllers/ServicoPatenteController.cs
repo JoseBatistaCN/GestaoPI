@@ -134,26 +134,6 @@ namespace GestaoPI.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            else
-            {
-                var validationContext = new ValidationContext(servicopatente, null, null);
-                var validationResults = new List<ValidationResult>();
-
-                foreach (var property in validationContext.ObjectType.GetProperties())
-                {
-                    var value = property.GetValue(servicopatente);
-                    var results = new List<ValidationResult>();
-                    var context = new ValidationContext(servicopatente) { MemberName = property.Name };
-
-                if (!Validator.TryValidateProperty(value, context, results))
-                {
-                    foreach (var result in results)
-                    {
-                        ModelState.AddModelError(property.Name, result.ErrorMessage);
-                    }
-                }
-            }
-
             ViewData["ServicoCodigo"] = new SelectList(_context.Codigoservicopatentes, "Servico", "Servico", 
             servicopatente.ServicoCodigo);
             ViewData["PatenteCodigo"] = new SelectList(_context.Patentes, "Codigo", "Codigo", servicopatente.PatenteCodigo);

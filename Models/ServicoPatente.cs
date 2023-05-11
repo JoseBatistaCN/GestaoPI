@@ -7,7 +7,6 @@ using Microsoft.EntityFrameworkCore;
 namespace GestaoPI.Models;
 
 [Table("servicopatente")]
-[Index("PatenteCodigo", Name = "fk_ServicoPatente_patente1_idx")]
 public partial class Servicopatente
 {
     [Key]
@@ -24,6 +23,14 @@ public partial class Servicopatente
 
     [Precision(10, 2)]
     public decimal? Valor { get; set; }
+
+    [Column("protocolo")]
+    [RegularExpression(@"[0-9]*")]
+    public string? Protocolo {get; set;}
+
+    [Column("data")]
+    [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
+    public DateTime? Data {get; set;} = DateTime.Now;
 
     [ForeignKey("ServicoCodigo")]
     [Display(Name = "Serviço")]

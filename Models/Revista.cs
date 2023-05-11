@@ -16,10 +16,6 @@ public partial class Revista
     [Column("data")]
     public DateTime Data { get; set; }
 
-    [Column("DespachoPatente_patente_codigo")]
-    [StringLength(19)]
-    public string DespachoPatentePatenteCodigo { get; set; } = null!;
-
     [InverseProperty("RevistaCodigoNavigation")]
     public virtual ICollection<Despachopatente> Despachopatentes { get; } = new List<Despachopatente>();
 }

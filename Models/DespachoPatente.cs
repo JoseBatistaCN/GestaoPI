@@ -32,7 +32,7 @@ public partial class Despachopatente
     public DateTime? ValidadeCodigo { get; set; }
 
     [Column("cumprido")]
-    public sbyte? Cumprido { get; set; }
+    public Boolean? Cumprido { get; set; }
 
     [ForeignKey("CodigoDespachosPatenteCodigo")]
     [InverseProperty("Despachopatentes")]

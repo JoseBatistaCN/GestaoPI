@@ -25,6 +25,8 @@ namespace GestaoPI.Services
 
         public async Task Inserir(Patente processo)
         {
+            processo.Titulo = processo.Titulo?.Trim();
+            processo.Resumo = processo.Titulo?.Trim();
             _context.Patentes!.Add(processo);
             await _context.SaveChangesAsync();
         }
@@ -36,6 +38,8 @@ namespace GestaoPI.Services
 
         public async Task Atualizar(Patente processo)
         {
+            processo.Titulo = processo.Titulo?.Trim();
+            processo.Resumo = processo.Titulo?.Trim();
             _context.Update(processo);
             await _context.SaveChangesAsync();
         }

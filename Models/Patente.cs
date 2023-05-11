@@ -13,7 +13,7 @@ public partial class Patente
     [Key]
     [Column("codigo")]
     [Display(Name = "Código INPI")]
-    [RegularExpression(@"^[A-Z]{2}\s{0-9}{2}\s[0-9]{4}\s[0-9]{6}\s[0-9]{1}$", ErrorMessage="Formato Inválido, BR ZZ XXXX YYYYYY K")]
+    [RegularExpression(@"^[A-Z]{2}\s[0-9]{2}\s[0-9]{4}\s[0-9]{6}\s[0-9]$", ErrorMessage="Formato Inválido, BR ZZ XXXX YYYYYY K")]
     [Required(ErrorMessage = "Campo Obrigatório")]
     [StringLength(19)]
     public string Codigo { get; set; } = null!;
@@ -52,6 +52,7 @@ public partial class Patente
     public DateTime? Publicacao { get; set; }
 
     [Column("anotacao", TypeName = "text")]
+    [Display(Name = "Anotação")]
     public string? Anotacao { get; set; }
 
     [InverseProperty("PatenteCodigoNavigation")]
@@ -59,4 +60,5 @@ public partial class Patente
 
     [InverseProperty("PatenteCodigoNavigation")]
     public virtual ICollection<Servicopatente> Servicopatentes { get; } = new List<Servicopatente>();
+
 }
