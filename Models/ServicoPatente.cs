@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GestaoPI.Models;
 
-[Table("servicopatente")]
-public partial class Servicopatente
+[Table("servico_patente")]
+public partial class ServicoPatente
 {
     [Key]
-    [Column("servicoPatente_id")]
+    [Column("id_servico_patente")]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int ServicoPatenteId { get; set; }
 
@@ -21,6 +21,7 @@ public partial class Servicopatente
     [Column("codigo_servico_patente")]
     public string ServicoCodigo {get; set;} = null!;
 
+    [Column("valor")]
     [Precision(10, 2)]
     public decimal? Valor { get; set; }
 
@@ -34,10 +35,10 @@ public partial class Servicopatente
 
     [ForeignKey("ServicoCodigo")]
     [Display(Name = "Serviço")]
-    public virtual Codigoservicopatente CodigoservicopatenteNavigation {get; set;} = null!;
-
+    public virtual CodigoServicoPatente CodigoServicoPatenteNavigation {get; set;} = null!;
 
     [ForeignKey("PatenteCodigo")]
     [Display(Name = "Código INPI")]
     public virtual Patente PatenteCodigoNavigation { get; set; } = null!;
+
 }

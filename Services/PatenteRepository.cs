@@ -54,5 +54,9 @@ namespace GestaoPI.Services
             return _context.Patentes.Any(e => e.Codigo == id);
         }
 
+        public ICollection<Patente?> ObterStatusPatente()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

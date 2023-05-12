@@ -17,5 +17,5 @@ public partial class Revista
     public DateTime Data { get; set; }
 
     [InverseProperty("RevistaCodigoNavigation")]
-    public virtual ICollection<Despachopatente> Despachopatentes { get; } = new List<Despachopatente>();
+    public virtual ICollection<DespachoPatente> DespachoPatentes { get; } = new List<DespachoPatente>();
 }

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GestaoPI.Services
 {
-    public class ServicoPatenteRepository : IServicoRepository<Servicopatente>
+    public class ServicoPatenteRepository : IServicoRepository<ServicoPatente>
     {
         private readonly GestaopiContext _context;
 
@@ -18,36 +18,36 @@ namespace GestaoPI.Services
             _context = context;
         }
 
-        public async Task<IEnumerable<Servicopatente>> ObterTodos(string processoId)
+        public async Task<IEnumerable<ServicoPatente>> ObterTodos(string processoId)
         {
-            var servicosPatente = await _context.Servicopatentes
+            var servicosPatente = await _context.ServicoPatentes
             .Where(sp => sp.PatenteCodigo == processoId).ToListAsync();
 
             return servicosPatente;
             
         }
 
-        Task IServicoRepository<Servicopatente>.Atualizar(Servicopatente servico)
+        Task IServicoRepository<ServicoPatente>.Atualizar(ServicoPatente servico)
         {
             throw new NotImplementedException();
         }
 
-        Task IServicoRepository<Servicopatente>.Excluir(string id)
+        Task IServicoRepository<ServicoPatente>.Excluir(string id)
         {
             throw new NotImplementedException();
         }
 
-        bool IServicoRepository<Servicopatente>.Existe(string id)
+        bool IServicoRepository<ServicoPatente>.Existe(string id)
         {
             throw new NotImplementedException();
         }
 
-        Task IServicoRepository<Servicopatente>.Inserir(Servicopatente servico)
+        Task IServicoRepository<ServicoPatente>.Inserir(ServicoPatente servico)
         {
             throw new NotImplementedException();
         }
 
-        async Task<Servicopatente?> IServicoRepository<Servicopatente>.ObterPorId(string id)
+        async Task<ServicoPatente?> IServicoRepository<ServicoPatente>.ObterPorId(string id)
         {
             throw new NotImplementedException();
         }

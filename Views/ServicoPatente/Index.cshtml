@@ -1,4 +1,4 @@
-@model IEnumerable<GestaoPI.Models.Servicopatente>
+@model IEnumerable<GestaoPI.Models.ServicoPatente>
 
 @{
     ViewData["Title"] = "Index";
@@ -16,7 +16,7 @@
                 @Html.DisplayNameFor(model => model.Valor)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CodigoservicopatenteNavigation)
+                @Html.DisplayNameFor(model => model.CodigoServicoPatenteNavigation)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.PatenteCodigoNavigation)
@@ -31,7 +31,7 @@
                 @Html.DisplayFor(modelItem => item.Valor)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CodigoservicopatenteNavigation.Servico)
+                @Html.DisplayFor(modelItem => item.CodigoServicoPatenteNavigation.Servico)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PatenteCodigoNavigation.Codigo)

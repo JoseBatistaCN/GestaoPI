@@ -1,4 +1,4 @@
-@model GestaoPI.Models.Servicopatente
+@model GestaoPI.Models.ServicoPatente
 
 @{
     ViewData["Title"] = "Delete";
@@ -8,7 +8,7 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Servicopatente</h4>
+    <h4>ServicoPatente</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -18,10 +18,10 @@
             @Html.DisplayFor(model => model.Valor)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CodigoservicopatenteNavigation)
+            @Html.DisplayNameFor(model => model.CodigoServicoPatenteNavigation)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CodigoservicopatenteNavigation.Servico)
+            @Html.DisplayFor(model => model.CodigoServicoPatenteNavigation.Servico)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.PatenteCodigoNavigation)

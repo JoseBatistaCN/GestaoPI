@@ -28,7 +28,6 @@ public partial class Patente
 
     [Column("status")]
     [Display(Name = "Status")]
-    [StringLength(45)]
     public string? Status { get; set; }
 
     [Column("deposito")]
@@ -56,9 +55,11 @@ public partial class Patente
     public string? Anotacao { get; set; }
 
     [InverseProperty("PatenteCodigoNavigation")]
-    public virtual ICollection<Despachopatente> Despachopatentes { get; } = new List<Despachopatente>();
+    public virtual ICollection<DespachoPatente> DespachosPatente { get; } = new List<DespachoPatente>();
 
     [InverseProperty("PatenteCodigoNavigation")]
-    public virtual ICollection<Servicopatente> Servicopatentes { get; } = new List<Servicopatente>();
+    public virtual ICollection<ServicoPatente> ServicosPatente { get; } = new List<ServicoPatente>();
 
+    [ForeignKey("Status")]
+    public StatusPatente StatusPatenteNavigation {get; set;} = null!;
 }

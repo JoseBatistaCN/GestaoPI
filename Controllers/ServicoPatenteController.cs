@@ -22,7 +22,7 @@ namespace GestaoPI.Controllers
         // GET: ServicoPatente
         public async Task<IActionResult> Index()
         {
-            var gestaopiContext = _context.Servicopatentes.Include(s => s.CodigoservicopatenteNavigation).Include(s => s.PatenteCodigoNavigation);
+            var gestaopiContext = _context.ServicoPatentes.Include(s => s.CodigoServicoPatenteNavigation).Include(s => s.PatenteCodigoNavigation);
             return View(await gestaopiContext.ToListAsync());
         }
 
@@ -34,8 +34,8 @@ namespace GestaoPI.Controllers
                 return NotFound();
             }
 
-            var servicopatente = await _context.Servicopatentes
-                .Include(s => s.CodigoservicopatenteNavigation)
+            var servicopatente = await _context.ServicoPatentes
+                .Include(s => s.CodigoServicoPatenteNavigation)
                 .Include(s => s.PatenteCodigoNavigation)
                 .FirstOrDefaultAsync(m => m.ServicoPatenteId == id);
             if (servicopatente == null)
@@ -49,7 +49,7 @@ namespace GestaoPI.Controllers
         // GET: ServicoPatente/Create
         public IActionResult Create()
         {
-            ViewData["ServicoCodigo"] = new SelectList(_context.Codigoservicopatentes, "Servico", "Servico");
+            ViewData["ServicoCodigo"] = new SelectList(_context.CodigoServicoPatentes, "Servico", "Servico");
             ViewData["PatenteCodigo"] = new SelectList(_context.Patentes, "Codigo", "Codigo");
             return View();
         }
@@ -59,7 +59,7 @@ namespace GestaoPI.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ServicoPatenteId,PatenteCodigo,ServicoCodigo,Valor")] Servicopatente servicopatente)
+        public async Task<IActionResult> Create([Bind("ServicoPatenteId,PatenteCodigo,ServicoCodigo,Valor")] ServicoPatente servicopatente)
         {
             if (ModelState.IsValid)
             {
@@ -69,7 +69,7 @@ namespace GestaoPI.Controllers
             }
 
             ModelState.AddModelError("", "Ocorreu um erro durante o Bind do objeto Patente.");
-            ViewData["ServicoCodigo"] = new SelectList(_context.Codigoservicopatentes, "Servico", "Servico", servicopatente.ServicoCodigo);
+            ViewData["ServicoCodigo"] = new SelectList(_context.CodigoServicoPatentes, "Servico", "Servico", servicopatente.ServicoCodigo);
             ViewData["PatenteCodigo"] = new SelectList(_context.Patentes, "Codigo", "Codigo", servicopatente.PatenteCodigo);
             return View(servicopatente);
         }
@@ -82,12 +82,12 @@ namespace GestaoPI.Controllers
                 return NotFound();
             }
 
-            var servicopatente = await _context.Servicopatentes.FindAsync(id);
+            var servicopatente = await _context.ServicoPatentes.FindAsync(id);
             if (servicopatente == null)
             {
                 return NotFound();
             }
-            ViewData["ServicoCodigo"] = new SelectList(_context.Codigoservicopatentes, "Servico", "Servico", servicopatente.ServicoCodigo);
+            ViewData["ServicoCodigo"] = new SelectList(_context.CodigoServicoPatentes, "Servico", "Servico", servicopatente.ServicoCodigo);
             ViewData["PatenteCodigo"] = new SelectList(_context.Patentes, "Codigo", "Codigo", servicopatente.PatenteCodigo);
             return View(servicopatente);
         }
@@ -97,11 +97,11 @@ namespace GestaoPI.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ServicoPatenteId,PatenteCodigo,ServicoCodigo,Valor, PatenteCodigoNavigation, CodigoservicopatenteNavigation")] 
-        Servicopatente servicopatente)
+        public async Task<IActionResult> Edit(int id, [Bind("ServicoPatenteId,PatenteCodigo,ServicoCodigo,Valor, PatenteCodigoNavigation, CodigoServicoPatenteNavigation")] 
+        ServicoPatente servicopatente)
         {
             Patente? patente = await _context.Patentes.FindAsync(servicopatente.PatenteCodigo);
-            Codigoservicopatente? codigoServico = await _context.Codigoservicopatentes.FindAsync(servicopatente.ServicoCodigo);
+            CodigoServicoPatente? codigoServico = await _context.CodigoServicoPatentes.FindAsync(servicopatente.ServicoCodigo);
 
             if (id != servicopatente.ServicoPatenteId || patente == null || codigoServico == null )
             
@@ -109,7 +109,7 @@ namespace GestaoPI.Controllers
                 return NotFound();
             }
 
-            servicopatente.CodigoservicopatenteNavigation = codigoServico;
+            servicopatente.CodigoServicoPatenteNavigation = codigoServico;
             servicopatente.PatenteCodigoNavigation = patente;
 
 
@@ -122,7 +122,7 @@ namespace GestaoPI.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ServicopatenteExists(servicopatente.ServicoPatenteId))
+                    if (!ServicoPatenteExists(servicopatente.ServicoPatenteId))
                     {
                         return NotFound();
                     }
@@ -134,7 +134,7 @@ namespace GestaoPI.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            ViewData["ServicoCodigo"] = new SelectList(_context.Codigoservicopatentes, "Servico", "Servico", 
+            ViewData["ServicoCodigo"] = new SelectList(_context.CodigoServicoPatentes, "Servico", "Servico", 
             servicopatente.ServicoCodigo);
             ViewData["PatenteCodigo"] = new SelectList(_context.Patentes, "Codigo", "Codigo", servicopatente.PatenteCodigo);
             return View(servicopatente);
@@ -148,8 +148,8 @@ namespace GestaoPI.Controllers
                 return NotFound();
             }
 
-            var servicopatente = await _context.Servicopatentes
-                .Include(s => s.CodigoservicopatenteNavigation)
+            var servicopatente = await _context.ServicoPatentes
+                .Include(s => s.CodigoServicoPatenteNavigation)
                 .Include(s => s.PatenteCodigoNavigation)
                 .FirstOrDefaultAsync(m => m.ServicoPatenteId == id);
             if (servicopatente == null)
@@ -165,15 +165,15 @@ namespace GestaoPI.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var servicopatente = await _context.Servicopatentes.FindAsync(id);
-            _context.Servicopatentes.Remove(servicopatente);
+            var servicopatente = await _context.ServicoPatentes.FindAsync(id);
+            _context.ServicoPatentes.Remove(servicopatente);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ServicopatenteExists(int id)
+        private bool ServicoPatenteExists(int id)
         {
-            return _context.Servicopatentes.Any(e => e.ServicoPatenteId == id);
+            return _context.ServicoPatentes.Any(e => e.ServicoPatenteId == id);
         }
     }
 }

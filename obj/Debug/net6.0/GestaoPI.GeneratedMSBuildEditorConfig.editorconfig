@@ -8,81 +8,81 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = GestaoPI
 build_property.RootNamespace = GestaoPI
-build_property.ProjectDir = C:\Users\202000012874\Documents\Code\GestaoPI\
+build_property.ProjectDir = c:\Users\202000012874\Documents\Code\GestaoPI\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\202000012874\Documents\Code\GestaoPI
+build_property.MSBuildProjectDirectory = c:\Users\202000012874\Documents\Code\GestaoPI
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Home/Index.cshtml]
+[c:/Users/202000012874/Documents/Code/GestaoPI/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Home/Privacy.cshtml]
+[c:/Users/202000012874/Documents/Code/GestaoPI/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Home/Processos.cshtml]
+[c:/Users/202000012874/Documents/Code/GestaoPI/Views/Home/Processos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcm9jZXNzb3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Patente/Create.cshtml]
+[c:/Users/202000012874/Documents/Code/GestaoPI/Views/Patente/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0ZW50ZVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Patente/Delete.cshtml]
+[c:/Users/202000012874/Documents/Code/GestaoPI/Views/Patente/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0ZW50ZVxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Patente/Details.cshtml]
+[c:/Users/202000012874/Documents/Code/GestaoPI/Views/Patente/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0ZW50ZVxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Patente/Edit.cshtml]
+[c:/Users/202000012874/Documents/Code/GestaoPI/Views/Patente/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0ZW50ZVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Patente/Index.cshtml]
+[c:/Users/202000012874/Documents/Code/GestaoPI/Views/Patente/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0ZW50ZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/202000012874/Documents/Code/GestaoPI/Views/ServicoPatente/Create.cshtml]
+[c:/Users/202000012874/Documents/Code/GestaoPI/Views/ServicoPatente/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vydmljb1BhdGVudGVcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/202000012874/Documents/Code/GestaoPI/Views/ServicoPatente/Delete.cshtml]
+[c:/Users/202000012874/Documents/Code/GestaoPI/Views/ServicoPatente/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vydmljb1BhdGVudGVcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/202000012874/Documents/Code/GestaoPI/Views/ServicoPatente/Details.cshtml]
+[c:/Users/202000012874/Documents/Code/GestaoPI/Views/ServicoPatente/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vydmljb1BhdGVudGVcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/202000012874/Documents/Code/GestaoPI/Views/ServicoPatente/Edit.cshtml]
+[c:/Users/202000012874/Documents/Code/GestaoPI/Views/ServicoPatente/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vydmljb1BhdGVudGVcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/202000012874/Documents/Code/GestaoPI/Views/ServicoPatente/Index.cshtml]
+[c:/Users/202000012874/Documents/Code/GestaoPI/Views/ServicoPatente/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vydmljb1BhdGVudGVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Shared/Error.cshtml]
+[c:/Users/202000012874/Documents/Code/GestaoPI/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Shared/_ValidationScriptsPartial.cshtml]
+[c:/Users/202000012874/Documents/Code/GestaoPI/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/202000012874/Documents/Code/GestaoPI/Views/_ViewImports.cshtml]
+[c:/Users/202000012874/Documents/Code/GestaoPI/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/202000012874/Documents/Code/GestaoPI/Views/_ViewStart.cshtml]
+[c:/Users/202000012874/Documents/Code/GestaoPI/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Shared/_Layout.cshtml]
+[c:/Users/202000012874/Documents/Code/GestaoPI/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-vhosamdyp9

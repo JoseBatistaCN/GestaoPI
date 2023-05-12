@@ -7,13 +7,16 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GestaoPI.Models;
 using GestaoPI.Interfaces;
+using GestaoPI.Data;
     public class PatenteController : Controller
     {
         private readonly IProcessoRepository<Patente> _patenteRepository;
+        private readonly GestaopiContext _context;
 
-        public PatenteController(IProcessoRepository<Patente> patenteRepository)
+        public PatenteController(IProcessoRepository<Patente> patenteRepository, GestaopiContext context)
         {
             _patenteRepository = patenteRepository;
+            _context = context;
         }
 
         // GET: patente
@@ -44,6 +47,8 @@ using GestaoPI.Interfaces;
         // GET: patente/Create
         public IActionResult Create()
         {
+            var statusPatente = _context.StatusPatentes!.ToList();
+            ViewBag.StatusPatente = statusPatente;
             return View();
         }
 
