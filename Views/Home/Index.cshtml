@@ -1,60 +1,8 @@
 ﻿@{ ViewData["Title"] = "Home"; }
 
 <div class="content">
-  <div id="Home" class="container px-4 py-5">
-    <div id="HomeEstatisticas" class="row g-4">
-      <div class="col">
-        <div class="card h-100">
-          <div class="card-header">
-            <h6 class="card-title">Últimas Revistas Publicadas</h6>
-          </div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col">Código: 2528</div>
-              <div class="col">Data: 28/03/2023</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <div class="card-header">
-            <h6 class="card-title">Processos Ativos</h6>
-          </div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-6 d-flex justify-content-between">
-                <span>Patentes:</span> 0
-              </div>
-              <div class="col-6 d-flex justify-content-between">
-                <p>Marcas:</p>
-                <span>0</span>
-              </div>
-              <div class="col d-flex justify-content-between">
-                <p>Softwares:</p>
-                <span>0</span>
-              </div>
-              <div class="col d-flex justify-content-between">
-                <p>Desenho Industrial:</p>
-                <span>0</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <div class="card-header">
-            <h6 class="card-title">Procesos a vencer</h6>
-          </div>
-          <div class="card-body text-center justify-content-center">
-            <div class="card-text">0</div>
-          </div>
-        </div>
-      </div>
-    </div>
     <h2 class="pb-3 border-bottom"></h2>
-    <div class="list-unstyled row g-4 py-4 row-cols-1 row-cols-lg-3">
+    <div class="row g-3 py-3 row-cols-lg-3">
       <div class="feature col">
         <a asp-action="Processos">
           <div class="feature col">
@@ -90,7 +38,7 @@
       </div>
       <div class="feature col">
         <a href="#">
-          <div id="card-revista" class="card-feature card" style="height: 182px">
+          <div id="card-revista" class="card-feature card h-100" style="height: 182px">
             <div class="card-body">
               <img src="https://cdn-icons-png.flaticon.com/512/2356/2356617.png" alt="" style="height: 128px" />
               <h5 class="card-title">Revista RPI</h5>
@@ -110,7 +58,7 @@
       </div>
       <div class="feature col">
         <a href="#">
-          <div id="card-relatorio" class="card-feature card h-100">
+          <div id="card-relatorio" class="card-feature card">
             <div class="card-body">
               <img src="https://cdn-icons-png.flaticon.com/512/1690/1690617.png" alt="" style="height: 128px" />
               <h5 class="card-title">Relatórios</h5>

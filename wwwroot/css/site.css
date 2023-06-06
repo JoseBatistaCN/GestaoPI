@@ -14,8 +14,6 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
-  background-color: #F5F7FB;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -26,7 +24,6 @@ a {
 
 
 .feature {
-  height: 180px;
   justify-content: center;
   text-align: center;
   align-items: center;
@@ -40,8 +37,4 @@ a {
     border: 1px solid #cccccc;
     color: black;
 
-}
-
-footer {
-  background-color: white;
 }

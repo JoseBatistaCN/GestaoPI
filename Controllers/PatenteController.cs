@@ -47,7 +47,7 @@ using GestaoPI.Data;
         // GET: patente/Create
         public IActionResult Create()
         {
-            var statusPatente = _context.StatusPatentes!.ToList();
+            var statusPatente = _context.SituacaoPatentes.ToList();
             ViewBag.StatusPatente = statusPatente;
             return View();
         }

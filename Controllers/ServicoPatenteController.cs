@@ -22,7 +22,7 @@ namespace GestaoPI.Controllers
         // GET: ServicoPatente
         public async Task<IActionResult> Index()
         {
-            var gestaopiContext = _context.ServicoPatentes.Include(s => s.CodigoServicoPatenteNavigation).Include(s => s.PatenteCodigoNavigation);
+            var gestaopiContext = _context.ServicoPatentes.Include(s => s.CodigoServicoPatente).Include(s => s.Patente);
             return View(await gestaopiContext.ToListAsync());
         }
 
@@ -35,8 +35,8 @@ namespace GestaoPI.Controllers
             }
 
             var servicopatente = await _context.ServicoPatentes
-                .Include(s => s.CodigoServicoPatenteNavigation)
-                .Include(s => s.PatenteCodigoNavigation)
+                .Include(s => s.CodigoServicoPatente)
+                .Include(s => s.Patente)
                 .FirstOrDefaultAsync(m => m.ServicoPatenteId == id);
             if (servicopatente == null)
             {
@@ -109,8 +109,8 @@ namespace GestaoPI.Controllers
                 return NotFound();
             }
 
-            servicopatente.CodigoServicoPatenteNavigation = codigoServico;
-            servicopatente.PatenteCodigoNavigation = patente;
+            servicopatente.CodigoServicoPatente = codigoServico;
+            servicopatente.Patente = patente;
 
 
             if (ModelState.IsValid)
@@ -149,8 +149,8 @@ namespace GestaoPI.Controllers
             }
 
             var servicopatente = await _context.ServicoPatentes
-                .Include(s => s.CodigoServicoPatenteNavigation)
-                .Include(s => s.PatenteCodigoNavigation)
+                .Include(s => s.CodigoServicoPatente)
+                .Include(s => s.Patente)
                 .FirstOrDefaultAsync(m => m.ServicoPatenteId == id);
             if (servicopatente == null)
             {
@@ -166,7 +166,7 @@ namespace GestaoPI.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var servicopatente = await _context.ServicoPatentes.FindAsync(id);
-            _context.ServicoPatentes.Remove(servicopatente);
+            _context.ServicoPatentes.Remove(servicopatente!);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

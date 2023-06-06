@@ -124,8 +124,12 @@ namespace GestaoPI.Migrations
                         .HasColumnType("mediumtext")
                         .HasColumnName("resumo");
 
-                    b.Property<string>("Status")
+                    b.Property<string>("Situacao")
                         .HasColumnType("varchar(255)")
+                        .HasColumnName("situacao");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("tinyint(1)")
                         .HasColumnName("status");
 
                     b.Property<string>("Titulo")
@@ -135,7 +139,7 @@ namespace GestaoPI.Migrations
 
                     b.HasKey("Codigo");
 
-                    b.HasIndex("Status");
+                    b.HasIndex("Situacao");
 
                     b.HasIndex(new[] { "Codigo" }, "codigo_UNIQUE")
                         .IsUnique();
@@ -199,70 +203,70 @@ namespace GestaoPI.Migrations
                     b.ToTable("servico_patente");
                 });
 
-            modelBuilder.Entity("GestaoPI.Models.StatusPatente", b =>
+            modelBuilder.Entity("GestaoPI.Models.SituacaoPatente", b =>
                 {
-                    b.Property<string>("Status")
+                    b.Property<string>("Situacao")
                         .HasColumnType("varchar(255)")
-                        .HasColumnName("status");
+                        .HasColumnName("situacao");
 
-                    b.HasKey("Status");
+                    b.HasKey("Situacao");
 
-                    b.ToTable("status_patente");
+                    b.ToTable("situacao_patente");
                 });
 
             modelBuilder.Entity("GestaoPI.Models.DespachoPatente", b =>
                 {
-                    b.HasOne("GestaoPI.Models.CodigoDespachoPatente", "CodigoDespachoPatenteNavigation")
+                    b.HasOne("GestaoPI.Models.CodigoDespachoPatente", "CodigoDespachoPatente")
                         .WithMany("DespachosPatente")
                         .HasForeignKey("CodigoDespacho")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("GestaoPI.Models.Patente", "PatenteCodigoNavigation")
+                    b.HasOne("GestaoPI.Models.Patente", "Patente")
                         .WithMany("DespachosPatente")
                         .HasForeignKey("PatenteCodigo")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("GestaoPI.Models.Revista", "RevistaCodigoNavigation")
+                    b.HasOne("GestaoPI.Models.Revista", "Revista")
                         .WithMany("DespachoPatentes")
                         .HasForeignKey("RevistaCodigo")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("CodigoDespachoPatenteNavigation");
+                    b.Navigation("CodigoDespachoPatente");
 
-                    b.Navigation("PatenteCodigoNavigation");
+                    b.Navigation("Patente");
 
-                    b.Navigation("RevistaCodigoNavigation");
+                    b.Navigation("Revista");
                 });
 
             modelBuilder.Entity("GestaoPI.Models.Patente", b =>
                 {
-                    b.HasOne("GestaoPI.Models.StatusPatente", "StatusPatenteNavigation")
+                    b.HasOne("GestaoPI.Models.SituacaoPatente", "SituacaoPatente")
                         .WithMany("Patentes")
-                        .HasForeignKey("Status");
+                        .HasForeignKey("Situacao");
 
-                    b.Navigation("StatusPatenteNavigation");
+                    b.Navigation("SituacaoPatente");
                 });
 
             modelBuilder.Entity("GestaoPI.Models.ServicoPatente", b =>
                 {
-                    b.HasOne("GestaoPI.Models.Patente", "PatenteCodigoNavigation")
+                    b.HasOne("GestaoPI.Models.Patente", "Patente")
                         .WithMany("ServicosPatente")
                         .HasForeignKey("PatenteCodigo")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("GestaoPI.Models.CodigoServicoPatente", "CodigoServicoPatenteNavigation")
+                    b.HasOne("GestaoPI.Models.CodigoServicoPatente", "CodigoServicoPatente")
                         .WithMany("ServicosPatente")
                         .HasForeignKey("ServicoCodigo")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("CodigoServicoPatenteNavigation");
+                    b.Navigation("CodigoServicoPatente");
 
-                    b.Navigation("PatenteCodigoNavigation");
+                    b.Navigation("Patente");
                 });
 
             modelBuilder.Entity("GestaoPI.Models.CodigoDespachoPatente", b =>
@@ -287,7 +291,7 @@ namespace GestaoPI.Migrations
                     b.Navigation("DespachoPatentes");
                 });
 
-            modelBuilder.Entity("GestaoPI.Models.StatusPatente", b =>
+            modelBuilder.Entity("GestaoPI.Models.SituacaoPatente", b =>
                 {
                     b.Navigation("Patentes");
                 });

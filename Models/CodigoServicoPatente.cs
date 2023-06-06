@@ -20,8 +20,7 @@ public partial class CodigoServicoPatente
     [Precision(10, 2)]
     [Column("valor_com_desconto")]
     public decimal? ValorComDesconto { get; set; }
-
-    [InverseProperty("CodigoServicoPatenteNavigation")]
+    
     public ICollection<ServicoPatente> ServicosPatente {get; set;} = new List<ServicoPatente>();
 
 }

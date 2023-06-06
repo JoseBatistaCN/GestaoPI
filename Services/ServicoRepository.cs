@@ -47,7 +47,7 @@ namespace GestaoPI.Services
             throw new NotImplementedException();
         }
 
-        async Task<ServicoPatente?> IServicoRepository<ServicoPatente>.ObterPorId(string id)
+        Task<ServicoPatente?> IServicoRepository<ServicoPatente>.ObterPorId(string id)
         {
             throw new NotImplementedException();
         }

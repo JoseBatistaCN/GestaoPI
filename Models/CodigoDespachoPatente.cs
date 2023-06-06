@@ -16,8 +16,7 @@ public partial class CodigoDespachoPatente
     [Column("descricao")]
     [StringLength(255)]
     public string? Descricao { get; set; }
-
-    [InverseProperty("CodigoDespachoPatenteNavigation")]
+    
     public ICollection<DespachoPatente> DespachosPatente {get; set;} = new List<DespachoPatente>();
 
 }

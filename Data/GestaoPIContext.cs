@@ -25,7 +25,7 @@ public partial class GestaopiContext : DbContext
 
     public virtual DbSet<Revista> Revistas { get; set; }
 
-    public virtual DbSet<StatusPatente> StatusPatentes {get; set;}
+    public virtual DbSet<SituacaoPatente> SituacaoPatentes {get; set;}
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseMySql("server=localhost;port=3306;database=gestaopi;user=root;password=admin", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.32-mysql"));

@@ -16,10 +16,10 @@
                 @Html.DisplayNameFor(model => model.Valor)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CodigoServicoPatenteNavigation)
+                @Html.DisplayNameFor(model => model.CodigoServicoPatente)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PatenteCodigoNavigation)
+                @Html.DisplayNameFor(model => model.Patente)
             </th>
             <th></th>
         </tr>
@@ -31,10 +31,10 @@
                 @Html.DisplayFor(modelItem => item.Valor)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CodigoServicoPatenteNavigation.Servico)
+                @Html.DisplayFor(modelItem => item.CodigoServicoPatente.Servico)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PatenteCodigoNavigation.Codigo)
+                @Html.DisplayFor(modelItem => item.Patente.Codigo)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ServicoPatenteId">Edit</a> |

@@ -13,6 +13,22 @@ namespace GestaoPI.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int InventorID {get; set;}
+
+        [Column("nome")]
+        [RegularExpression(@"^[A-Z][a-z]+(\s[A-Z][a-z]+)+$", ErrorMessage="Nome Inválido")]
+        [Required(ErrorMessage = "Campo Obrigatório")]
         public string Nome {get; set;} = null!;
+
+        [Column("ativo")]
+        public Boolean Ativo {get; set;} = true;
+
+        [Column("identificacao")]
+        public string? Identificacao {get; set;}
+
+        public ICollection<Patente> Patentes {get; set;} = new List<Patente>();
+        public ICollection<Marca> Marcas {get; set;} = new List<Marca>();
+        public ICollection<ProgramaDeComputador> ProgramasDeComputador {get; set;} = new List<ProgramaDeComputador>();
+        public ICollection<DesenhoIndustrial> DesenhosIndustriais {get; set;} = new List<DesenhoIndustrial>();
+
     }
 }

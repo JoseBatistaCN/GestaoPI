@@ -32,11 +32,11 @@ public partial class DespachoPatente
     public Boolean? Cumprido { get; set; }
 
     [ForeignKey("CodigoDespacho")]
-    public virtual CodigoDespachoPatente CodigoDespachoPatenteNavigation { get; set; } = null!;
+    public virtual CodigoDespachoPatente CodigoDespachoPatente { get; set; } = null!;
 
     [ForeignKey("PatenteCodigo")]
-    public virtual Patente PatenteCodigoNavigation { get; set; } = null!;
+    public virtual Patente Patente { get; set; } = null!;
 
     [ForeignKey("RevistaCodigo")]
-    public virtual Revista  RevistaCodigoNavigation { get; set; } = null!;
+    public virtual Revista  Revista { get; set; } = null!;
 }

@@ -10,6 +10,8 @@ namespace GestaoPI.Models;
 [Index("Codigo", Name = "codigo_UNIQUE", IsUnique = true)]
 public partial class Patente
 {
+
+    // Dados do Processo
     [Key]
     [Column("codigo")]
     [Display(Name = "Código INPI")]
@@ -26,9 +28,15 @@ public partial class Patente
     [Column("resumo", TypeName = "mediumtext")]
     public string? Resumo { get; set; }
 
+    [Column("situacao")]
+    [Display(Name = "Situação")]
+    public string? Situacao { get; set; }
+
     [Column("status")]
     [Display(Name = "Status")]
-    public string? Status { get; set; }
+    public Boolean Status { get; set; } = true;
+
+    // Datas do Processo
 
     [Column("deposito")]
     [Required(ErrorMessage = "Campo Obrigatório")]
@@ -50,16 +58,17 @@ public partial class Patente
     [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
     public DateTime? Publicacao { get; set; }
 
+    // Outros
+
     [Column("anotacao", TypeName = "text")]
     [Display(Name = "Anotação")]
     public string? Anotacao { get; set; }
 
-    [InverseProperty("PatenteCodigoNavigation")]
     public virtual ICollection<DespachoPatente> DespachosPatente { get; } = new List<DespachoPatente>();
 
-    [InverseProperty("PatenteCodigoNavigation")]
     public virtual ICollection<ServicoPatente> ServicosPatente { get; } = new List<ServicoPatente>();
 
-    [ForeignKey("Status")]
-    public StatusPatente StatusPatenteNavigation {get; set;} = null!;
+    [ForeignKey("Situacao")]
+    public SituacaoPatente SituacaoPatente {get; set;} = null!;
+
 }

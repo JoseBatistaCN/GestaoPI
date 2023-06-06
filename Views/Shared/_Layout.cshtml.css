@@ -7,10 +7,6 @@ a.navbar-brand {
   word-break: break-all;
 }
 
-a {
-  color: #0077cc;
-}
-
 .btn-primary {
   color: #fff;
   background-color: #1b6ec2;
@@ -48,7 +44,6 @@ button.accept-policy {
 }
 
 .container {
-  background-color: white;
   border: 0 solid rgba(0,0,0,.125);
   border-radius: .25rem;
 }

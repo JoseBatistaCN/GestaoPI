@@ -35,10 +35,10 @@ public partial class ServicoPatente
 
     [ForeignKey("ServicoCodigo")]
     [Display(Name = "Serviço")]
-    public virtual CodigoServicoPatente CodigoServicoPatenteNavigation {get; set;} = null!;
+    public virtual CodigoServicoPatente CodigoServicoPatente {get; set;} = null!;
 
     [ForeignKey("PatenteCodigo")]
     [Display(Name = "Código INPI")]
-    public virtual Patente PatenteCodigoNavigation { get; set; } = null!;
+    public virtual Patente Patente { get; set; } = null!;
 
 }
