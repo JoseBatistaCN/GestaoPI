@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "CQQWkBDZ8yMbJ8px0pR8207/GMUxmuq+ixqnrNauZUM=",
+  "Hash": "k8Zd1YSWZT/w328iNz55ysJDdpkE9Litww2IvcajTdg=",
   "Source": "GestaoPI",
   "BasePath": "_content/GestaoPI",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\202000012874\\Documents\\Code\\GestaoPI\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\GestaoPI.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\202000012874\\Documents\\Code\\GestaoPI\\wwwroot\\css\\list-group.css",
+      "SourceId": "GestaoPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\202000012874\\Documents\\Code\\GestaoPI\\wwwroot\\",
+      "BasePath": "_content/GestaoPI",
+      "RelativePath": "css/list-group.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\list-group.css"
     },
     {
       "Identity": "C:\\Users\\202000012874\\Documents\\Code\\GestaoPI\\wwwroot\\css\\site.css",

@@ -7,6 +7,15 @@ namespace GestaoPI.Models
 {
     public class Marca
     {
+    // Publicado, Arquivado, Indeferido, Concedido, Aguardando Sobrestamento, Extinto, 
+    public enum SitaucacaoMarca
+    {
+        Publicado, 
+        Aruivado,
+        Indeferido,
+        Concedido,
         
+    }
+
     }
 }

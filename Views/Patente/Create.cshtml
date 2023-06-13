@@ -1,8 +1,10 @@
 @model GestaoPI.Models.Patente 
 @{ ViewData["Title"] = "Cadastrar Processo"; }
 
-<h1>Cadastrar Patente</h1>
+<h4>Cadastrar Patente</h4>
 <hr />
+
+
 
 <div class="container">
     <div>
@@ -16,8 +18,12 @@
             <div class="col-6 form-group">
                 <label asp-for="Situacao" class="control-label"></label>
                 <select class="form-select">
-                    <option value="1">Ativo</option>
-                    <option value="2">Inativo</option>
+                    <option value="">sigilo 2</option>
+                    <option value="">concedido 6</option>
+                    <option value="">arquivada 4</option>
+                    <option value="">indeferida 5</option>
+                    <option value="">em exame técnico 3</option>
+                    <option value="">anulada 1</option>
                 </select>
             </div>
             <div class="form-group">

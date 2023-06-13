@@ -23,6 +23,7 @@ namespace GestaoPI.Models
         public Boolean Ativo {get; set;} = true;
 
         [Column("identificacao")]
+        [RegularExpression(@"^[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}$", ErrorMessage="CPF Inválido")]
         public string? Identificacao {get; set;}
 
         public ICollection<Patente> Patentes {get; set;} = new List<Patente>();

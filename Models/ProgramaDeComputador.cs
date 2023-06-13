@@ -7,6 +7,6 @@ namespace GestaoPI.Models
 {
     public class ProgramaDeComputador
     {
-        
+        // Registrado, Concedido
     }
 }
