@@ -80,6 +80,7 @@ using GestaoPI.Data;
             {
                 return NotFound();
             }
+            ViewBag.Situacoes = Enum.GetValues(typeof(PatenteSituacao));
             return View(patente);
         }
 

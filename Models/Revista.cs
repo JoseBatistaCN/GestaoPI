@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace GestaoPI.Models;
 
 [Table("revista")]
-public partial class Revista
+public class Revista
 {
     [Key]
     [Column("codigo")]

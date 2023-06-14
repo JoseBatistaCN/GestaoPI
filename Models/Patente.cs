@@ -9,7 +9,7 @@ namespace GestaoPI.Models;
 
 [Table("patente")]
 [Index("Codigo", Name = "codigo_UNIQUE", IsUnique = true)]
-public partial class Patente
+public class Patente : Processo
 {
 
     // Dados do Processo
@@ -65,8 +65,8 @@ public partial class Patente
     [Display(Name = "Anotação")]
     public string? Anotacao { get; set; }
 
+    public virtual ICollection<Inventor> Inventores { get; } = new List<Inventor>();
     public virtual ICollection<DespachoPatente> DespachosPatente { get; } = new List<DespachoPatente>();
-
     public virtual ICollection<ServicoPatente> ServicosPatente { get; } = new List<ServicoPatente>();
 
 }

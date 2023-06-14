@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace GestaoPI.Models;
 
 [Table("servico_patente")]
-public partial class ServicoPatente
+public class ServicoPatente : Servico
 {
     [Key]
     [Column("id_servico_patente")]

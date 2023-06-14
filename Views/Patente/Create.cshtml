@@ -1,12 +1,9 @@
 @model GestaoPI.Models.Patente 
 @{ ViewData["Title"] = "Cadastrar Processo"; }
 
-<h4>Cadastrar Patente</h4>
+<h1>Cadastrar Patente</h1>
 <hr />
-
-
-
-<div class="container">
+<div>
     <div>
         <form asp-action="Create" class="row g-3">
             <div asp-validation-summary="ModelOnly" class="text-danger col-12"></div>
@@ -18,9 +15,10 @@
             <div class="col-6 form-group">
                 <label asp-for="Situacao" class="control-label"></label>
                 <select asp-for="Situacao" class="form-select">
+                    <option value="@null">Selecione</option>
                     @foreach (var item in ViewBag.Situacoes)
                     {
-                        <option value="@item">@item.Text</option>
+                        <option value="@item">@item</option>
                     }
                 </select>
             </div>
@@ -61,8 +59,9 @@
         </form>
     </div>
 </div>
-<div class="g-3 p-3">
+<div class="my-3">
     <a asp-action="Index">Voltar</a>
+    
 </div>
 
 @section Scripts { 

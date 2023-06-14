@@ -19,7 +19,6 @@ namespace GestaoPI.Models
         [Required(ErrorMessage = "Campo Obrigatório")]
         public string Nome {get; set;} = null!;
 
-
         public ICollection<Patente> Patentes {get; set;} = new List<Patente>();
         public ICollection<Marca> Marcas {get; set;} = new List<Marca>();
         public ICollection<ProgramaDeComputador> ProgramasDeComputador {get; set;} = new List<ProgramaDeComputador>();

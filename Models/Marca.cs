@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace GestaoPI.Models
 {
     [Table("marca")]
-    public class Marca
+    public class Marca : Processo
     {
 
         [Key]
