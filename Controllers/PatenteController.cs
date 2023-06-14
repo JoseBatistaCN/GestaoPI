@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GestaoPI.Models;
+using GestaoPI.Models.Enums;
 using GestaoPI.Interfaces;
 using GestaoPI.Data;
     public class PatenteController : Controller
@@ -47,8 +48,7 @@ using GestaoPI.Data;
         // GET: patente/Create
         public IActionResult Create()
         {
-            var statusPatente = _context.SituacaoPatentes.ToList();
-            ViewBag.StatusPatente = statusPatente;
+            ViewBag.Situacoes = Enum.GetValues(typeof(PatenteSituacao));
             return View();
         }
 

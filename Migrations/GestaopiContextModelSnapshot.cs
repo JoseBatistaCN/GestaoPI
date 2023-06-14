@@ -56,6 +56,31 @@ namespace GestaoPI.Migrations
                     b.ToTable("codigo_servico_patente");
                 });
 
+            modelBuilder.Entity("GestaoPI.Models.DesenhoIndustrial", b =>
+                {
+                    b.Property<string>("Codigo")
+                        .HasColumnType("varchar(255)")
+                        .HasColumnName("codigo");
+
+                    b.Property<DateTime>("Deposito")
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("data_deposito");
+
+                    b.Property<int?>("InventorID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Titulo")
+                        .IsRequired()
+                        .HasColumnType("longtext")
+                        .HasColumnName("titulo");
+
+                    b.HasKey("Codigo");
+
+                    b.HasIndex("InventorID");
+
+                    b.ToTable("desenho_industrial");
+                });
+
             modelBuilder.Entity("GestaoPI.Models.DespachoPatente", b =>
                 {
                     b.Property<string>("PatenteCodigo")
@@ -93,6 +118,52 @@ namespace GestaoPI.Migrations
                     b.ToTable("despacho_patente");
                 });
 
+            modelBuilder.Entity("GestaoPI.Models.Inventor", b =>
+                {
+                    b.Property<int>("InventorID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("longtext")
+                        .HasColumnName("nome");
+
+                    b.HasKey("InventorID");
+
+                    b.ToTable("inventor");
+                });
+
+            modelBuilder.Entity("GestaoPI.Models.Marca", b =>
+                {
+                    b.Property<string>("NumeroProcesso")
+                        .HasMaxLength(9)
+                        .HasColumnType("varchar(9)")
+                        .HasColumnName("codigo");
+
+                    b.Property<int>("Classe")
+                        .HasColumnType("int")
+                        .HasColumnName("apresentacao");
+
+                    b.Property<int?>("InventorID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("NomeMarca")
+                        .IsRequired()
+                        .HasColumnType("longtext")
+                        .HasColumnName("marca");
+
+                    b.Property<int>("Situacao")
+                        .HasColumnType("int")
+                        .HasColumnName("situacao");
+
+                    b.HasKey("NumeroProcesso");
+
+                    b.HasIndex("InventorID");
+
+                    b.ToTable("marca");
+                });
+
             modelBuilder.Entity("GestaoPI.Models.Patente", b =>
                 {
                     b.Property<string>("Codigo")
@@ -116,6 +187,9 @@ namespace GestaoPI.Migrations
                         .HasColumnType("datetime(6)")
                         .HasColumnName("exame");
 
+                    b.Property<int?>("InventorID")
+                        .HasColumnType("int");
+
                     b.Property<DateTime?>("Publicacao")
                         .HasColumnType("datetime(6)")
                         .HasColumnName("publicacao");
@@ -124,8 +198,8 @@ namespace GestaoPI.Migrations
                         .HasColumnType("mediumtext")
                         .HasColumnName("resumo");
 
-                    b.Property<string>("Situacao")
-                        .HasColumnType("varchar(255)")
+                    b.Property<int?>("Situacao")
+                        .HasColumnType("int")
                         .HasColumnName("situacao");
 
                     b.Property<bool>("Status")
@@ -139,12 +213,41 @@ namespace GestaoPI.Migrations
 
                     b.HasKey("Codigo");
 
-                    b.HasIndex("Situacao");
+                    b.HasIndex("InventorID");
 
                     b.HasIndex(new[] { "Codigo" }, "codigo_UNIQUE")
                         .IsUnique();
 
                     b.ToTable("patente");
+                });
+
+            modelBuilder.Entity("GestaoPI.Models.ProgramaDeComputador", b =>
+                {
+                    b.Property<string>("Codigo")
+                        .HasColumnType("varchar(255)")
+                        .HasColumnName("codigo");
+
+                    b.Property<DateTime>("Deposito")
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("data_deposito");
+
+                    b.Property<int?>("InventorID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("Registro")
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("data_registro");
+
+                    b.Property<string>("Titulo")
+                        .IsRequired()
+                        .HasColumnType("longtext")
+                        .HasColumnName("titulo");
+
+                    b.HasKey("Codigo");
+
+                    b.HasIndex("InventorID");
+
+                    b.ToTable("programa_de_computador");
                 });
 
             modelBuilder.Entity("GestaoPI.Models.Revista", b =>
@@ -203,15 +306,11 @@ namespace GestaoPI.Migrations
                     b.ToTable("servico_patente");
                 });
 
-            modelBuilder.Entity("GestaoPI.Models.SituacaoPatente", b =>
+            modelBuilder.Entity("GestaoPI.Models.DesenhoIndustrial", b =>
                 {
-                    b.Property<string>("Situacao")
-                        .HasColumnType("varchar(255)")
-                        .HasColumnName("situacao");
-
-                    b.HasKey("Situacao");
-
-                    b.ToTable("situacao_patente");
+                    b.HasOne("GestaoPI.Models.Inventor", null)
+                        .WithMany("DesenhosIndustriais")
+                        .HasForeignKey("InventorID");
                 });
 
             modelBuilder.Entity("GestaoPI.Models.DespachoPatente", b =>
@@ -241,13 +340,25 @@ namespace GestaoPI.Migrations
                     b.Navigation("Revista");
                 });
 
+            modelBuilder.Entity("GestaoPI.Models.Marca", b =>
+                {
+                    b.HasOne("GestaoPI.Models.Inventor", null)
+                        .WithMany("Marcas")
+                        .HasForeignKey("InventorID");
+                });
+
             modelBuilder.Entity("GestaoPI.Models.Patente", b =>
                 {
-                    b.HasOne("GestaoPI.Models.SituacaoPatente", "SituacaoPatente")
+                    b.HasOne("GestaoPI.Models.Inventor", null)
                         .WithMany("Patentes")
-                        .HasForeignKey("Situacao");
+                        .HasForeignKey("InventorID");
+                });
 
-                    b.Navigation("SituacaoPatente");
+            modelBuilder.Entity("GestaoPI.Models.ProgramaDeComputador", b =>
+                {
+                    b.HasOne("GestaoPI.Models.Inventor", null)
+                        .WithMany("ProgramasDeComputador")
+                        .HasForeignKey("InventorID");
                 });
 
             modelBuilder.Entity("GestaoPI.Models.ServicoPatente", b =>
@@ -279,6 +390,17 @@ namespace GestaoPI.Migrations
                     b.Navigation("ServicosPatente");
                 });
 
+            modelBuilder.Entity("GestaoPI.Models.Inventor", b =>
+                {
+                    b.Navigation("DesenhosIndustriais");
+
+                    b.Navigation("Marcas");
+
+                    b.Navigation("Patentes");
+
+                    b.Navigation("ProgramasDeComputador");
+                });
+
             modelBuilder.Entity("GestaoPI.Models.Patente", b =>
                 {
                     b.Navigation("DespachosPatente");
@@ -289,11 +411,6 @@ namespace GestaoPI.Migrations
             modelBuilder.Entity("GestaoPI.Models.Revista", b =>
                 {
                     b.Navigation("DespachoPatentes");
-                });
-
-            modelBuilder.Entity("GestaoPI.Models.SituacaoPatente", b =>
-                {
-                    b.Navigation("Patentes");
                 });
 #pragma warning restore 612, 618
         }

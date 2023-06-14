@@ -74,6 +74,15 @@
     </header>
 
     <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                @foreach (var (key, value) in ViewContext.RouteData.Values)
+                {
+                    <li class="breadcrumb-item">@value</li>
+                }
+            </ol>
+        </nav>
+        
         <main role="main" class="pb-3">@RenderBody()</main>
     </div>
     <footer class="border-top footer text-muted">

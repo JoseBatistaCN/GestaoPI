@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using GestaoPI.Models.Enums;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
@@ -30,7 +31,7 @@ public partial class Patente
 
     [Column("situacao")]
     [Display(Name = "Situação")]
-    public string? Situacao { get; set; }
+    public PatenteSituacao? Situacao { get; set; }
 
     [Column("status")]
     [Display(Name = "Status")]
@@ -67,8 +68,5 @@ public partial class Patente
     public virtual ICollection<DespachoPatente> DespachosPatente { get; } = new List<DespachoPatente>();
 
     public virtual ICollection<ServicoPatente> ServicosPatente { get; } = new List<ServicoPatente>();
-
-    [ForeignKey("Situacao")]
-    public SituacaoPatente SituacaoPatente {get; set;} = null!;
 
 }

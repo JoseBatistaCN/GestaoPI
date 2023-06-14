@@ -19,12 +19,6 @@ namespace GestaoPI.Models
         [Required(ErrorMessage = "Campo Obrigatório")]
         public string Nome {get; set;} = null!;
 
-        [Column("ativo")]
-        public Boolean Ativo {get; set;} = true;
-
-        [Column("identificacao")]
-        [RegularExpression(@"^[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}$", ErrorMessage="CPF Inválido")]
-        public string? Identificacao {get; set;}
 
         public ICollection<Patente> Patentes {get; set;} = new List<Patente>();
         public ICollection<Marca> Marcas {get; set;} = new List<Marca>();
