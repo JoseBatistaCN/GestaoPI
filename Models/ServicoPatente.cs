@@ -19,6 +19,7 @@ public class ServicoPatente : Servico
     public string PatenteCodigo { get; set; } = null!;
 
     [Column("codigo_servico_patente")]
+    [Display(Name = "Código")]
     public string ServicoCodigo {get; set;} = null!;
 
     [Column("valor")]

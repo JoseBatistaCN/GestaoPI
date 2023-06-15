@@ -27,6 +27,12 @@ using GestaoPI.Data;
             return View(todasPatentes);
         }
 
+        public async Task<IActionResult> Servicos(string id)
+        {
+            var servicosPatente = from sp in _context.ServicoPatentes where sp.PatenteCodigo == id select sp;
+            return View("Views/Patente/Servico/Index.cshtml", servicosPatente);
+        }
+
         // GET: patente/Details/5
         public async Task<IActionResult> Details(string id)
         {

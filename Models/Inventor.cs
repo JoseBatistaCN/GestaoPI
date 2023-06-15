@@ -15,7 +15,6 @@ namespace GestaoPI.Models
         public int InventorID {get; set;}
 
         [Column("nome")]
-        [RegularExpression(@"^[A-Z][a-z]+(\s[A-Z][a-z]+)+$", ErrorMessage="Nome Inválido")]
         [Required(ErrorMessage = "Campo Obrigatório")]
         public string Nome {get; set;} = null!;
 
