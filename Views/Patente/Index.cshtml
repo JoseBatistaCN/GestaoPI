@@ -6,15 +6,12 @@
     <div class="col-md-6">
       <div class="input-group">
         <select class="form-select search-field" aria-label="Campo de Pesquisa">
-          <option value="titulo">Nº Processo</option>
-          <option value="dataDeposito">Título</option>
-          <option value="codigo">Resumo</option>
+          <option value="Codigo">Código</option>
+          <option value="Deposito">Título</option>
+          <option value="Inventor">Resumo</option>
+
         </select>
-        <input
-          type="text"
-          class="form-control search-input"
-          placeholder="Digite sua pesquisa"
-        />
+        <input type="text" class="form-control search-input" placeholder="Digite sua pesquisa" />
         <button class="btn btn-primary search-button" type="button">
           Pesquisar
         </button>
@@ -22,8 +19,7 @@
     </div>
     <div class="col-6">
       <div class="d-flex justify-content-end">
-        <a asp-action="Create"
-          ><button type="button" class="btn btn-primary">Cadastar</button>
+        <a asp-action="Create"><button type="button" class="btn btn-primary">Cadastar</button>
         </a>
       </div>
     </div>
@@ -57,26 +53,20 @@
         <td>@Html.DisplayFor(modelItem => item.Exame)</td>
         <td>@Html.DisplayFor(modelItem => item.Publicacao)</td>
         <td class="text-center">
-          <a asp-action="Details" asp-route-id="@item.Codigo"
-            ><i class="bi bi-eye"></i
-          ></a>
+          <a asp-action="Details" asp-route-id="@item.Codigo">
+            <i class="bi bi-eye"></i>
+          </a>
         </td>
         <td class="text-center">
           <i class="bi bi-arrow-down-square"></i>
         </td>
         <td class="text-center">
-          <a
-            asp-action="Servicos"
-            asp-route-id="@item.Codigo"
-            ><i class="bi bi-arrow-up-square"></i
-          ></a>
+          <a asp-action="Servicos" asp-route-id="@item.Codigo"><i class="bi bi-arrow-up-square"></i></a>
         </td>
         <td class="text-center"><i class="bi bi-calendar"></i></td>
         <td class="text-center"><i class="bi bi-archive"></i></td>
         <td class="text-center">
-          <a asp-action="Edit" asp-route-id="@item.Codigo"
-            ><i class="bi bi-gear"></i
-          ></a>
+          <a asp-action="Edit" asp-route-id="@item.Codigo"><i class="bi bi-gear"></i></a>
         </td>
       </tr>
       }

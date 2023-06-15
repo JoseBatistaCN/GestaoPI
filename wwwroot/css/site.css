@@ -8,17 +8,13 @@ html {
   }
 }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
 
 body {
   font-family: 'Roboto', sans-serif;
 }
 
 h1 {
-  font-size: 24px;
+  font-size: 1.6em;
 }
 
 a {
@@ -30,7 +26,6 @@ a {
 .feature {
   justify-content: center;
   text-align: center;
-  align-items: center;
   box-shadow: 10px black;
 }
 

@@ -1,0 +1,55 @@
+
+    @{ ViewData["Title"] = "Inventores";}
+  
+    <h1>@ViewData["Title"]</h1>
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <div class="input-group">
+          <select class="form-select search-field" aria-label="Campo de Pesquisa">
+            <option value="titulo">Nome</option>
+            <option value="dataDeposito">Pantente</option>
+            <option value="codigo">Resumo</option>
+          </select>
+          <input
+            type="text"
+            class="form-control search-input"
+            placeholder="Digite sua pesquisa"
+          />
+          <button class="btn btn-primary search-button" type="button">
+            Pesquisar
+          </button>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="d-flex justify-content-end">
+          <a asp-action="Create"
+            ><button type="button" class="btn btn-primary">Cadastar</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  
+  
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr class="text-center">
+          <th>Nome</th>
+          <th>Patente</th>
+          <td>Marca</td>
+          <td>Desenho Industrial</td>
+          <td>Programa de Computador</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="text-center">
+          <td class="text-nowrap">Claudio</td>
+          <td class="flex-wrap text-ju">0
+          </td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+      </tbody>
+    </table>
+  </GestaoPI.Models.Patente>
+  

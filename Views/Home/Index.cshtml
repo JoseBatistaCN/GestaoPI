@@ -1,11 +1,12 @@
 ﻿@{ ViewData["Title"] = "Home"; }
 
+
 <div class="content">
     <h2 class="pb-3 border-bottom"></h2>
     <div class="row g-3 py-3 row-cols-lg-3">
       <div class="feature col">
         <a asp-action="Processos">
-          <div class="feature col">
+          <div class="col">
             <div id="card-processo" class="card-feature card h-100">
               <div class="card-body">
                 <img src="https://cdn-icons-png.flaticon.com/512/3160/3160299.png" alt="" style="height: 128px" />
@@ -47,7 +48,7 @@
         </a>
       </div>
       <div class="feature col">
-        <a href="#">
+        <a asp-action="Inventores">
           <div id="card-inventores" class="card-feature card h-100">
             <div class="card-body">
               <img src="https://cdn-icons-png.flaticon.com/512/681/681392.png" alt="" style="height: 128px" />
@@ -57,7 +58,7 @@
         </a>
       </div>
       <div class="feature col">
-        <a href="#">
+        <a asp-action="Relatorio">
           <div id="card-relatorio" class="card-feature card">
             <div class="card-body">
               <img src="https://cdn-icons-png.flaticon.com/512/1690/1690617.png" alt="" style="height: 128px" />

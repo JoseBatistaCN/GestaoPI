@@ -29,7 +29,7 @@ using GestaoPI.Data;
 
         public async Task<IActionResult> Servicos(string id)
         {
-            var servicosPatente = from sp in _context.ServicoPatentes where sp.PatenteCodigo == id select sp;
+            var servicosPatente = await (from sp in _context.ServicoPatentes where sp.PatenteCodigo == id select sp).ToListAsync() ;
             return View("Views/Patente/Servico/Index.cshtml", servicosPatente);
         }
 

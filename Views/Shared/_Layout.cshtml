@@ -1,5 +1,4 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -18,7 +17,8 @@
         rel="stylesheet">
 </head>
 
-<body>
+<body >
+
     <header id="navbar">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
@@ -72,23 +72,27 @@
             </div>
         </nav>
     </header>
-
     <div class="container">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                @foreach (var (key, value) in ViewContext.RouteData.Values)
-                {
+
+        <main role="main">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    @foreach (var (key, value) in ViewContext.RouteData.Values)
+                    {
                     <li class="breadcrumb-item">@value</li>
-                }
-            </ol>
-        </nav>
-        
-        <main role="main" class="pb-3">@RenderBody()</main>
+                    }
+                </ol>
+            </nav>
+
+            @RenderBody()
+            
+        </main>
     </div>
     <footer class="border-top footer text-muted">
         <div class="container d-flex justify-content-between">
-            <span>&copy; 2023 - GestaoPI -
-                <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></span>
+            <span>&copy; 2023 - UFS - AGITTE
+                <a asp-area="" asp-controller="Home" asp-action="Privacy"></a></span>
+
             <p>
                 Icons made by Freepik from
                 <a href="https://www.faticon.com">www.flaticon.com</a>
