@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace GestaoPI.Models
 {
-    public class DespachoMarca : Despacho
+    public class DespachoMarca
     {
         
     }

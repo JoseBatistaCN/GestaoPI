@@ -8,7 +8,7 @@ namespace GestaoPI.Models;
 
 [PrimaryKey("PatenteCodigo", "RevistaCodigo")]
 [Table("despacho_patente")]
-public class DespachoPatente
+public class DespachoPatente 
 {
     [Key]
     [Column("patente_codigo")]

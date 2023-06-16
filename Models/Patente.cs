@@ -4,12 +4,13 @@ using GestaoPI.Models.Enums;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
+using GestaoPI.Interfaces;
 
 namespace GestaoPI.Models;
 
 [Table("patente")]
 [Index("Codigo", Name = "codigo_UNIQUE", IsUnique = true)]
-public class Patente : Processo
+public class Patente
 {
 
     // Dados do Processo

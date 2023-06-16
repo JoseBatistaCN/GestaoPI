@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace GestaoPI.Models
 {
     [Table("programa_de_computador")]
-    public class ProgramaDeComputador : Processo
+    public class ProgramaDeComputador
     {
         [Key]
         [Column("codigo")]
