@@ -11,7 +11,6 @@ namespace GestaoPI.Interfaces
         public string? Titulo {get; set;}
         public DateTime Deposito {get; set;}
         public DateTime? Concessao {get; set;}
-        public ICollection<IDespacho> Despachos {get; set;}
 
     }
 }

@@ -3,6 +3,7 @@ using System;
 using GestaoPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GestaoPI.Migrations
 {
     [DbContext(typeof(GestaopiContext))]
-    partial class GestaopiContextModelSnapshot : ModelSnapshot
+    [Migration("20230619140657_changeNamesTable")]
+    partial class changeNamesTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,7 +31,7 @@ namespace GestaoPI.Migrations
 
                     b.Property<string>("CodigoDespacho")
                         .IsRequired()
-                        .HasColumnType("varchar(10)")
+                        .HasColumnType("longtext")
                         .HasColumnName("cod_despacho");
 
                     b.Property<string>("CodigoRevista")
@@ -43,37 +46,11 @@ namespace GestaoPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CodigoDespacho");
-
                     b.HasIndex("CodigoRevista");
 
                     b.HasIndex("Processo");
 
                     b.ToTable("despacho_patente");
-                });
-
-            modelBuilder.Entity("GestaoPI.Models.CodigoDespachoPatente", b =>
-                {
-                    b.Property<string>("Codigo")
-                        .HasMaxLength(10)
-                        .HasColumnType("varchar(10)")
-                        .HasColumnName("cod_despacho");
-
-                    b.Property<string>("Descricao")
-                        .HasColumnType("longtext")
-                        .HasColumnName("descricao");
-
-                    b.Property<int?>("Prazo")
-                        .HasColumnType("int")
-                        .HasColumnName("prazo");
-
-                    b.Property<string>("Titulo")
-                        .HasColumnType("longtext")
-                        .HasColumnName("titulo");
-
-                    b.HasKey("Codigo");
-
-                    b.ToTable("codigo_despacho_patente");
                 });
 
             modelBuilder.Entity("GestaoPI.Models.CodigoServicoPatente", b =>
@@ -137,9 +114,14 @@ namespace GestaoPI.Migrations
                         .HasColumnType("longtext")
                         .HasColumnName("nm_inventor");
 
+                    b.Property<string>("PatenteCodigo")
+                        .HasColumnType("varchar(19)");
+
                     b.HasKey("Id");
 
-                    b.ToTable("inventor");
+                    b.HasIndex("PatenteCodigo");
+
+                    b.ToTable("Inventores");
                 });
 
             modelBuilder.Entity("GestaoPI.Models.Marca", b =>
@@ -295,29 +277,8 @@ namespace GestaoPI.Migrations
                     b.ToTable("servico_patente");
                 });
 
-            modelBuilder.Entity("InventorPatente", b =>
-                {
-                    b.Property<int>("InventoresId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("PatentesCodigo")
-                        .HasColumnType("varchar(19)");
-
-                    b.HasKey("InventoresId", "PatentesCodigo");
-
-                    b.HasIndex("PatentesCodigo");
-
-                    b.ToTable("InventorPatente");
-                });
-
             modelBuilder.Entity("DespachoPatente", b =>
                 {
-                    b.HasOne("GestaoPI.Models.CodigoDespachoPatente", "CodigoDespachoPatente")
-                        .WithMany("DespachoPatentes")
-                        .HasForeignKey("CodigoDespacho")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("GestaoPI.Models.Revista", "Revista")
                         .WithMany("DespachoPatentes")
                         .HasForeignKey("CodigoRevista")
@@ -330,11 +291,16 @@ namespace GestaoPI.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("CodigoDespachoPatente");
-
                     b.Navigation("Patente");
 
                     b.Navigation("Revista");
+                });
+
+            modelBuilder.Entity("GestaoPI.Models.Inventor", b =>
+                {
+                    b.HasOne("GestaoPI.Models.Patente", null)
+                        .WithMany("Inventores")
+                        .HasForeignKey("PatenteCodigo");
                 });
 
             modelBuilder.Entity("GestaoPI.Models.ServicoPatente", b =>
@@ -356,29 +322,14 @@ namespace GestaoPI.Migrations
                     b.Navigation("Patente");
                 });
 
-            modelBuilder.Entity("InventorPatente", b =>
-                {
-                    b.HasOne("GestaoPI.Models.Inventor", null)
-                        .WithMany()
-                        .HasForeignKey("InventoresId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("GestaoPI.Models.Patente", null)
-                        .WithMany()
-                        .HasForeignKey("PatentesCodigo")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("GestaoPI.Models.CodigoDespachoPatente", b =>
-                {
-                    b.Navigation("DespachoPatentes");
-                });
-
             modelBuilder.Entity("GestaoPI.Models.CodigoServicoPatente", b =>
                 {
                     b.Navigation("ServicosPatente");
+                });
+
+            modelBuilder.Entity("GestaoPI.Models.Patente", b =>
+                {
+                    b.Navigation("Inventores");
                 });
 
             modelBuilder.Entity("GestaoPI.Models.Revista", b =>

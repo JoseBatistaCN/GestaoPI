@@ -7,20 +7,20 @@ using Microsoft.EntityFrameworkCore;
 namespace GestaoPI.Models;
 
 [Table("servico_patente")]
-public class ServicoPatente : Servico
+public class ServicoPatente
 {
     [Key]
-    [Column("id_servico_patente")]
+    [Column("id")]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int ServicoPatenteId { get; set; }
+    public int Id { get; set; }
 
-    [Column("patente_codigo")]
+    [Column("cod_patente")]
     [StringLength(19)]
-    public string PatenteCodigo { get; set; } = null!;
+    public string CodigoPatente { get; set; } = null!;
 
-    [Column("codigo_servico_patente")]
+    [Column("cod_servico_patente")]
     [Display(Name = "Código")]
-    public string ServicoCodigo {get; set;} = null!;
+    public string CodigoServico {get; set;} = null!;
 
     [Column("valor")]
     [Precision(10, 2)]
@@ -30,15 +30,15 @@ public class ServicoPatente : Servico
     [RegularExpression(@"[0-9]*")]
     public string? Protocolo {get; set;}
 
-    [Column("data")]
+    [Column("dt_servico")]
     [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
     public DateTime? Data {get; set;} = DateTime.Now;
 
-    [ForeignKey("ServicoCodigo")]
+    [ForeignKey("CodigoServico")]
     [Display(Name = "Serviço")]
     public virtual CodigoServicoPatente CodigoServicoPatente {get; set;} = null!;
 
-    [ForeignKey("PatenteCodigo")]
+    [ForeignKey("CodigoPatente")]
     [Display(Name = "Código INPI")]
     public virtual Patente Patente { get; set; } = null!;
 

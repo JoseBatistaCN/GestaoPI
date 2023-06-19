@@ -21,7 +21,7 @@ namespace GestaoPI.Services
         public async Task<IEnumerable<ServicoPatente>> ObterTodos(string processoId)
         {
             var servicosPatente = await _context.ServicoPatentes
-            .Where(sp => sp.PatenteCodigo == processoId).ToListAsync();
+            .Where(sp => sp.CodigoPatente == processoId).ToListAsync();
 
             return servicosPatente;
             

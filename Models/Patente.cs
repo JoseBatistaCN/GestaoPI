@@ -67,7 +67,5 @@ public class Patente
     public string? Anotacao { get; set; }
 
     public virtual ICollection<Inventor> Inventores { get; } = new List<Inventor>();
-    public virtual ICollection<DespachoPatente> DespachosPatente { get; } = new List<DespachoPatente>();
-    public virtual ICollection<ServicoPatente> ServicosPatente { get; } = new List<ServicoPatente>();
 
 }

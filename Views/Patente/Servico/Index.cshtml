@@ -12,7 +12,7 @@
     <table class="table table-striped table-bordered">
         <thead class="text-center">
             <tr>
-                <td>@Html.DisplayNameFor(model => model.ServicoCodigo)</td>
+                <td>@Html.DisplayNameFor(model => model.CodigoServico)</td>
                 <td>@Html.DisplayNameFor(model => model.Data)</td>
                 <td>Detalhes</td>
             </tr>
@@ -20,10 +20,10 @@
         <tbody>
             @foreach (var item in Model) {
             <tr>
-                <td>@Html.DisplayFor(modelItem => item.ServicoCodigo)</td>
+                <td>@Html.DisplayFor(modelItem => item.CodigoServico)</td>
                 <td>@Html.DisplayFor(modelItem => item.Data)</td>
                 <td class="text-center">
-                    <a asp-action="Details" asp-route-id="@item.ServicoCodigo">
+                    <a asp-action="Details" asp-route-id="@item.CodigoServico">
                         <i class="bi bi-eye"></i>
                     </a>
                 </td>

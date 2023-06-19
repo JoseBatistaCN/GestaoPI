@@ -1,31 +1,32 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using GestaoPI.Interfaces;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GestaoPI.Models
 {
     [Table("desenho_industrial")]
-    public class DesenhoIndustrial
+    public class DesenhoIndustrial : IProcesso
     {
         [Key]
-        [Column("codigo")]
-        [Display(Name = "Nº do Pedido")]
-        [Required(ErrorMessage = "Campo Obrigatório")]
+        [Column("cod_desenho_industrial")]
+        [Required(ErrorMessage = "O código do desenho industrial é obrigatório.")]
         public string Codigo {get; set;} = null!;
 
         [Column("titulo")]
         [Display(Name = "Título")]
-        [Required(ErrorMessage = "Título é Obrigatório")]
-        public string Titulo {get; set;} = null!;
+        public string? Titulo {get; set;}
 
-        [Column("data_deposito")]
+        [Column("deposito")]
         [Display(Name = "Depósito")]
-        [Required(ErrorMessage = "Campo Obrigatório")]
         public DateTime Deposito {get; set;}
 
-        
+        [Column("concessao")]
+        [Display(Name = "Concessão")]
+        public DateTime? Concessao {get; set;}
+
     }
 }

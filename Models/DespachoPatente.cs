@@ -1,42 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using GestaoPI.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using GestaoPI.Models;
 
-namespace GestaoPI.Models;
-
-[PrimaryKey("PatenteCodigo", "RevistaCodigo")]
 [Table("despacho_patente")]
-public class DespachoPatente 
+public class DespachoPatente : IDespacho
 {
     [Key]
-    [Column("patente_codigo")]
-    [StringLength(19)]
-    public string PatenteCodigo { get; set; } = null!;
+    [Column("id")]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int Id { get; set; }
 
-    [Key]
-    [Column("revista_codigo")]
-    public int RevistaCodigo { get; set; }
+    [Column("cod_despacho")]
+    [Display(Name = "Código")]
+    public string CodigoDespacho {get; set;} = null!;
 
-    [Column("codigo_despacho")]
-    public string CodigoDespacho { get; set; } = null!;
-
-    [StringLength(255)]
-    public string? Descricao { get; set; }
+    [Column("cod_patente")]
+    public string Processo { get ; set; } = null!;
 
     [Column("validade")]
-    public DateTime? Validade { get; set; }
+    [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
+    public DateTime? validade {get;}
 
-    [Column("cumprido")]
-    public Boolean? Cumprido { get; set; }
+    [Column("cod_revista")]
+    public string CodigoRevista { get; set; } = null!;
+
+    [ForeignKey("Processo")]
+    public virtual Patente Patente { get; set; } = null!;
+    
+    [ForeignKey("CodigoRevista")]
+    public virtual Revista Revista {get; set;} = null!;
 
     [ForeignKey("CodigoDespacho")]
-    public virtual CodigoDespachoPatente CodigoDespachoPatente { get; set; } = null!;
+    public virtual CodigoDespachoPatente CodigoDespachoPatente {get; set;} = null!;
 
-    [ForeignKey("PatenteCodigo")]
-    public virtual Patente Patente { get; set; } = null!;
 
-    [ForeignKey("RevistaCodigo")]
-    public virtual Revista  Revista { get; set; } = null!;
+    
 }

@@ -8,10 +8,10 @@ namespace GestaoPI.Interfaces
     public interface IDespacho
     {
         public int Id {get; set;}
-        public ICodigoDespacho Codigo {get; set;}
-        public IProcesso Processo {get; set;}
-        public DateTime? Validade {get; set;}
-        public Boolean? Cumprido {get; set;}
-        public IRevista Revista {get; set;}
+        public string CodigoDespacho {get; set;}
+        public string Processo {get; set;}
+        public DateTime? validade {get;}
+        public string CodigoRevista {get; set;}
+
     }
 }

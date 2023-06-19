@@ -14,7 +14,6 @@ public partial class GestaopiContext : DbContext
 
     }
 
-    public virtual DbSet<CodigoDespachoPatente> CodigoDespachoPatentes { get; set; } = null!;
     public virtual DbSet<DespachoPatente> DespachoPatentes { get; set; } = null!;
     public virtual DbSet<CodigoServicoPatente> CodigoServicoPatentes { get; set; } = null!;
     public virtual DbSet<ServicoPatente> ServicoPatentes { get; set; } = null!;
