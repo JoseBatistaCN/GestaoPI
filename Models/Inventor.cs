@@ -20,7 +20,8 @@ namespace GestaoPI.Models
         [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$", ErrorMessage = "Números e caracteres especiais não são permitidos no nome do inventor.")]
         public string Nome {get; set;} = null!;
 
-        public virtual ICollection<Patente> Patentes { get; set;} = new List<Patente>();
+        public virtual ICollection<Patente> Patentes {get; set;} = null!;
+
 
     }
 }

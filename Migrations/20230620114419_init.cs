@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace GestaoPI.Migrations
 {
     /// <inheritdoc />
-    public partial class addInterfaces : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -16,17 +16,37 @@ namespace GestaoPI.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
+                name: "codigo_despacho_patente",
+                columns: table => new
+                {
+                    cod_despacho = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    titulo = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    descricao = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    prazo = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_codigo_despacho_patente", x => x.cod_despacho);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
                 name: "codigo_servico_patente",
                 columns: table => new
                 {
-                    servico = table.Column<string>(type: "varchar(255)", nullable: false)
+                    cod_servico = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    servico = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     valor_sem_desconto = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: true),
                     valor_com_desconto = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_codigo_servico_patente", x => x.servico);
+                    table.PrimaryKey("PK_codigo_servico_patente", x => x.cod_servico);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -34,24 +54,7 @@ namespace GestaoPI.Migrations
                 name: "desenho_industrial",
                 columns: table => new
                 {
-                    Codigo = table.Column<string>(type: "varchar(255)", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Titulo = table.Column<string>(type: "longtext", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Deposito = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    Concessao = table.Column<DateTime>(type: "datetime(6)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_desenho_industrial", x => x.Codigo);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "marca",
-                columns: table => new
-                {
-                    codigo = table.Column<string>(type: "varchar(255)", nullable: false)
+                    cod_desenho_industrial = table.Column<string>(type: "varchar(255)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     titulo = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
@@ -60,7 +63,39 @@ namespace GestaoPI.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_marca", x => x.codigo);
+                    table.PrimaryKey("PK_desenho_industrial", x => x.cod_desenho_industrial);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "inventor",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    nm_inventor = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_inventor", x => x.id);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "marca",
+                columns: table => new
+                {
+                    cod_marca = table.Column<string>(type: "varchar(255)", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    marca = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    deposito = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    concessao = table.Column<DateTime>(type: "datetime(6)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_marca", x => x.cod_marca);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -93,16 +128,16 @@ namespace GestaoPI.Migrations
                 name: "programa_de_computador",
                 columns: table => new
                 {
-                    codigo = table.Column<string>(type: "varchar(255)", nullable: false)
+                    cod_programa_de_computador = table.Column<string>(type: "varchar(255)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     titulo = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Deposito = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    deposito = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Concessao = table.Column<DateTime>(type: "datetime(6)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_programa_de_computador", x => x.codigo);
+                    table.PrimaryKey("PK_programa_de_computador", x => x.cod_programa_de_computador);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -110,35 +145,13 @@ namespace GestaoPI.Migrations
                 name: "revista",
                 columns: table => new
                 {
-                    codigo = table.Column<string>(type: "varchar(255)", nullable: false)
+                    cod_revista = table.Column<string>(type: "varchar(255)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    data = table.Column<DateTime>(type: "datetime(6)", nullable: false)
+                    dt_revista = table.Column<DateTime>(type: "datetime(6)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_revista", x => x.codigo);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "Inventores",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Nome = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    PatenteCodigo = table.Column<string>(type: "varchar(19)", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4")
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Inventores", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Inventores_patente_PatenteCodigo",
-                        column: x => x.PatenteCodigo,
-                        principalTable: "patente",
-                        principalColumn: "codigo");
+                    table.PrimaryKey("PK_revista", x => x.cod_revista);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -146,29 +159,29 @@ namespace GestaoPI.Migrations
                 name: "servico_patente",
                 columns: table => new
                 {
-                    id_servico_patente = table.Column<int>(type: "int", nullable: false)
+                    id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    patente_codigo = table.Column<string>(type: "varchar(19)", maxLength: 19, nullable: false)
+                    cod_patente = table.Column<string>(type: "varchar(19)", maxLength: 19, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    codigo_servico_patente = table.Column<string>(type: "varchar(255)", nullable: false)
+                    cod_servico_patente = table.Column<string>(type: "varchar(10)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     valor = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: true),
                     protocolo = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    data = table.Column<DateTime>(type: "datetime(6)", nullable: true)
+                    dt_servico = table.Column<DateTime>(type: "datetime(6)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_servico_patente", x => x.id_servico_patente);
+                    table.PrimaryKey("PK_servico_patente", x => x.id);
                     table.ForeignKey(
-                        name: "FK_servico_patente_codigo_servico_patente_codigo_servico_patente",
-                        column: x => x.codigo_servico_patente,
+                        name: "FK_servico_patente_codigo_servico_patente_cod_servico_patente",
+                        column: x => x.cod_servico_patente,
                         principalTable: "codigo_servico_patente",
-                        principalColumn: "servico",
+                        principalColumn: "cod_servico",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_servico_patente_patente_patente_codigo",
-                        column: x => x.patente_codigo,
+                        name: "FK_servico_patente_patente_cod_patente",
+                        column: x => x.cod_patente,
                         principalTable: "patente",
                         principalColumn: "codigo",
                         onDelete: ReferentialAction.Cascade);
@@ -176,50 +189,56 @@ namespace GestaoPI.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "DespachoPatentes",
+                name: "despacho_patente",
                 columns: table => new
                 {
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    codigo_despacho = table.Column<string>(type: "longtext", nullable: false)
+                    cod_despacho = table.Column<string>(type: "varchar(10)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    patente_codigo = table.Column<string>(type: "varchar(19)", nullable: false)
+                    cod_patente = table.Column<string>(type: "varchar(19)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    revista = table.Column<string>(type: "varchar(255)", nullable: false)
+                    cod_revista = table.Column<string>(type: "varchar(255)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DespachoPatentes", x => x.id);
+                    table.PrimaryKey("PK_despacho_patente", x => x.id);
                     table.ForeignKey(
-                        name: "FK_DespachoPatentes_patente_patente_codigo",
-                        column: x => x.patente_codigo,
+                        name: "FK_despacho_patente_codigo_despacho_patente_cod_despacho",
+                        column: x => x.cod_despacho,
+                        principalTable: "codigo_despacho_patente",
+                        principalColumn: "cod_despacho",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_despacho_patente_patente_cod_patente",
+                        column: x => x.cod_patente,
                         principalTable: "patente",
                         principalColumn: "codigo",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_DespachoPatentes_revista_revista",
-                        column: x => x.revista,
+                        name: "FK_despacho_patente_revista_cod_revista",
+                        column: x => x.cod_revista,
                         principalTable: "revista",
-                        principalColumn: "codigo",
+                        principalColumn: "cod_revista",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DespachoPatentes_patente_codigo",
-                table: "DespachoPatentes",
-                column: "patente_codigo");
+                name: "IX_despacho_patente_cod_despacho",
+                table: "despacho_patente",
+                column: "cod_despacho");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DespachoPatentes_revista",
-                table: "DespachoPatentes",
-                column: "revista");
+                name: "IX_despacho_patente_cod_patente",
+                table: "despacho_patente",
+                column: "cod_patente");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Inventores_PatenteCodigo",
-                table: "Inventores",
-                column: "PatenteCodigo");
+                name: "IX_despacho_patente_cod_revista",
+                table: "despacho_patente",
+                column: "cod_revista");
 
             migrationBuilder.CreateIndex(
                 name: "codigo_UNIQUE",
@@ -228,14 +247,14 @@ namespace GestaoPI.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_servico_patente_codigo_servico_patente",
+                name: "IX_servico_patente_cod_patente",
                 table: "servico_patente",
-                column: "codigo_servico_patente");
+                column: "cod_patente");
 
             migrationBuilder.CreateIndex(
-                name: "IX_servico_patente_patente_codigo",
+                name: "IX_servico_patente_cod_servico_patente",
                 table: "servico_patente",
-                column: "patente_codigo");
+                column: "cod_servico_patente");
         }
 
         /// <inheritdoc />
@@ -245,10 +264,10 @@ namespace GestaoPI.Migrations
                 name: "desenho_industrial");
 
             migrationBuilder.DropTable(
-                name: "DespachoPatentes");
+                name: "despacho_patente");
 
             migrationBuilder.DropTable(
-                name: "Inventores");
+                name: "inventor");
 
             migrationBuilder.DropTable(
                 name: "marca");
@@ -258,6 +277,9 @@ namespace GestaoPI.Migrations
 
             migrationBuilder.DropTable(
                 name: "servico_patente");
+
+            migrationBuilder.DropTable(
+                name: "codigo_despacho_patente");
 
             migrationBuilder.DropTable(
                 name: "revista");

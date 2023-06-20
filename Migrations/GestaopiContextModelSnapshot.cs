@@ -79,7 +79,8 @@ namespace GestaoPI.Migrations
             modelBuilder.Entity("GestaoPI.Models.CodigoServicoPatente", b =>
                 {
                     b.Property<string>("Codigo")
-                        .HasColumnType("varchar(255)")
+                        .HasMaxLength(10)
+                        .HasColumnType("varchar(10)")
                         .HasColumnName("cod_servico");
 
                     b.Property<string>("Servico")
@@ -270,7 +271,7 @@ namespace GestaoPI.Migrations
 
                     b.Property<string>("CodigoServico")
                         .IsRequired()
-                        .HasColumnType("varchar(255)")
+                        .HasColumnType("varchar(10)")
                         .HasColumnName("cod_servico_patente");
 
                     b.Property<DateTime?>("Data")
@@ -325,7 +326,7 @@ namespace GestaoPI.Migrations
                         .IsRequired();
 
                     b.HasOne("GestaoPI.Models.Patente", "Patente")
-                        .WithMany()
+                        .WithMany("DespachoPatentes")
                         .HasForeignKey("Processo")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -379,6 +380,11 @@ namespace GestaoPI.Migrations
             modelBuilder.Entity("GestaoPI.Models.CodigoServicoPatente", b =>
                 {
                     b.Navigation("ServicosPatente");
+                });
+
+            modelBuilder.Entity("GestaoPI.Models.Patente", b =>
+                {
+                    b.Navigation("DespachoPatentes");
                 });
 
             modelBuilder.Entity("GestaoPI.Models.Revista", b =>

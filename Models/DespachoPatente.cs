@@ -35,6 +35,5 @@ public class DespachoPatente : IDespacho
     [ForeignKey("CodigoDespacho")]
     public virtual CodigoDespachoPatente CodigoDespachoPatente {get; set;} = null!;
 
-
     
 }

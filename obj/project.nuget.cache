@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1+oRJG2imMnOXSBJxkjRuF8kenAd5tyTWgQ+WVCqK0KIHFnYFHzkpapazeBiJKaKVZjFXfa7qBWj8QCrp3mjBA==",
+  "dgSpecHash": "zHmCxfInPM0LLXe9DZMmPOnb31nyj54U5H3Qf3WvjvyDrC29dIc/m4LAZyi/ttjyxUQjaIB7tb13E2+sELO4xw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\202000012874\\Documents\\Code\\GestaoPI\\GestaoPI.csproj",
+  "projectFilePath": "c:\\Users\\202000012874\\Documents\\Code\\GestaoPI\\GestaoPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\202000012874\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\202000012874\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
@@ -171,7 +171,14 @@
     "C:\\Users\\202000012874\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\202000012874\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512",
     "C:\\Users\\202000012874\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "C:\\Users\\202000012874\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
+    "C:\\Users\\202000012874\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\202000012874\\.nuget\\packages\\xunit\\2.4.2\\xunit.2.4.2.nupkg.sha512",
+    "C:\\Users\\202000012874\\.nuget\\packages\\xunit.abstractions\\2.0.3\\xunit.abstractions.2.0.3.nupkg.sha512",
+    "C:\\Users\\202000012874\\.nuget\\packages\\xunit.analyzers\\1.0.0\\xunit.analyzers.1.0.0.nupkg.sha512",
+    "C:\\Users\\202000012874\\.nuget\\packages\\xunit.assert\\2.4.2\\xunit.assert.2.4.2.nupkg.sha512",
+    "C:\\Users\\202000012874\\.nuget\\packages\\xunit.core\\2.4.2\\xunit.core.2.4.2.nupkg.sha512",
+    "C:\\Users\\202000012874\\.nuget\\packages\\xunit.extensibility.core\\2.4.2\\xunit.extensibility.core.2.4.2.nupkg.sha512",
+    "C:\\Users\\202000012874\\.nuget\\packages\\xunit.extensibility.execution\\2.4.2\\xunit.extensibility.execution.2.4.2.nupkg.sha512"
   ],
   "logs": []
 }
