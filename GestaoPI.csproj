@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
@@ -6,11 +6,10 @@
     <UserSecretsId>70ca4d4e-ce35-4553-a28e-2eb0e4cc99a8</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.0" />
-    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.4" />
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.4" />
-    <PackageReference Include="xunit" Version="2.4.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.0"/>
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0"/>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.4"/>
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0"/>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.4"/>
   </ItemGroup>
 </Project>

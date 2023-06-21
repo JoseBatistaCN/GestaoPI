@@ -7,28 +7,39 @@ using System.Net;
 
 namespace GestaoPI.Services
 {
-    public class RPIDownloader
+    public class RPI
     {
-        private string url = "http://revistas.inpi.gov.br/txt/";
-        private string path = @"Revistas/";
-
-        public RPIDownloader(string tipo, string numeroRevista)
+        private string _url = "http://revistas.inpi.gov.br/txt/";
+        private string _titular;
+        private string _fileName;
+        
+        public RPI(string tipoProcesso, string numeroRevista, string titular)
         {
-            this.url += tipo + numeroRevista + ".zip";
-
+            this._fileName = tipoProcesso + numeroRevista + ".zip";
+            this._url += _fileName;
+            this._titular = titular;
         }
-
-        public async Task Download()
+    
+    public async Task<string> DownloadRPI()
+    {
+        using (HttpClient client = new HttpClient())
         {
-            var httpClient = new HttpClient();
-            using (var stream = await httpClient.GetStreamAsync(url))
+            using (HttpResponseMessage response = await client.GetAsync(_url))
             {
-                using (var fileStream = new FileStream(path, FileMode.Create, FileAccess.Write, FileShare.None))
+                using (HttpContent content = response.Content)
                 {
-                    await stream.CopyToAsync(fileStream);
+                    await content.ReadAsStreamAsync();
+                    using (var fileStream = File.Create(_fileName))
+                    {
+                        (await content.ReadAsStreamAsync()).CopyTo(fileStream);
+                        return "Arquivo baixado com sucesso!";
+                    }
                 }
             }
         }
-
     }
+    
+    
+    }
+        
 }

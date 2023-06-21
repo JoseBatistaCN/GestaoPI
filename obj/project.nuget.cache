@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zHmCxfInPM0LLXe9DZMmPOnb31nyj54U5H3Qf3WvjvyDrC29dIc/m4LAZyi/ttjyxUQjaIB7tb13E2+sELO4xw==",
+  "dgSpecHash": "uO33zw1v/Vy6WJwW+A1RjAPsokxAwC7awKTOqHnIVNheK7POl0Nzeoe7UpgknXsfRZoHl3g/EG/202FP22YmeQ==",
   "success": true,
-  "projectFilePath": "c:\\Users\\202000012874\\Documents\\Code\\GestaoPI\\GestaoPI.csproj",
+  "projectFilePath": "C:\\Users\\202000012874\\Documents\\Code\\GestaoPI\\GestaoPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\202000012874\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\202000012874\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
