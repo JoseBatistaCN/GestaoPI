@@ -535,7 +535,3 @@ C:\Users\202000012874\Documents\Code\GestaoPI\obj\Debug\net6.0\refint\GestaoPI.d
 C:\Users\202000012874\Documents\Code\GestaoPI\obj\Debug\net6.0\GestaoPI.pdb
 C:\Users\202000012874\Documents\Code\GestaoPI\obj\Debug\net6.0\GestaoPI.genruntimeconfig.cache
 C:\Users\202000012874\Documents\Code\GestaoPI\obj\Debug\net6.0\ref\GestaoPI.dll
-c:\Users\202000012874\Documents\Code\GestaoPI\bin\Debug\net6.0\xunit.abstractions.dll
-c:\Users\202000012874\Documents\Code\GestaoPI\bin\Debug\net6.0\xunit.assert.dll
-c:\Users\202000012874\Documents\Code\GestaoPI\bin\Debug\net6.0\xunit.core.dll
-c:\Users\202000012874\Documents\Code\GestaoPI\bin\Debug\net6.0\xunit.execution.dotnet.dll

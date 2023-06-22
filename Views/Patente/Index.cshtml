@@ -2,74 +2,75 @@
   @{ ViewData["Title"] = "Patentes";}
 
   <h1>@ViewData["Title"]</h1>
-  <div class="row mb-3">
-    <div class="col-md-6">
-      <div class="input-group">
-        <select class="form-select search-field" aria-label="Campo de Pesquisa">
-          <option value="Codigo">Código</option>
-          <option value="Deposito">Título</option>
-          <option value="Inventor">Resumo</option>
-
-        </select>
-        <input type="text" class="form-control search-input" placeholder="Digite sua pesquisa" />
-        <button class="btn btn-primary search-button" type="button">
-          Pesquisar
-        </button>
+  <div class="card">
+    <card class="card-body">
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <div class="input-group">
+            <select class="form-select search-field" aria-label="Campo de Pesquisa">
+              <option value="Codigo">Código</option>
+              <option value="Deposito">Título</option>
+              <option value="Inventor">Resumo</option>
+            </select>
+            <input type="text" class="form-control search-input" placeholder="Digite sua pesquisa" />
+            <button class="btn btn-primary search-button" type="button">
+              Pesquisar
+            </button>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="d-flex justify-content-end">
+            <a asp-action="Create"><button type="button" class="btn btn-primary">Cadastar</button>
+            </a>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="col-6">
-      <div class="d-flex justify-content-end">
-        <a asp-action="Create"><button type="button" class="btn btn-primary">Cadastar</button>
-        </a>
-      </div>
-    </div>
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr class="text-center">
+            <th>@Html.DisplayNameFor(model => model.Codigo)</th>
+            <th>@Html.DisplayNameFor(model => model.Titulo)</th>
+            <th>@Html.DisplayNameFor(model => model.Deposito)</th>
+            <th>@Html.DisplayNameFor(model => model.Exame)</th>
+            <th>@Html.DisplayNameFor(model => model.Publicacao)</th>
+            <th>Detalhes</th>
+            <th>Despachos</th>
+            <th>Serviços</th>
+            <th>Anuidades</th>
+            <th>Documentos</th>
+            <th>Editar</th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach (var item in Model) {
+          <tr>
+            <td class="text-nowrap">@Html.DisplayFor(modelItem => item.Codigo)</td>
+            <td class="flex-wrap text-ju">
+              @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>@Html.DisplayFor(modelItem => item.Deposito)</td>
+            <td>@Html.DisplayFor(modelItem => item.Exame)</td>
+            <td>@Html.DisplayFor(modelItem => item.Publicacao)</td>
+            <td class="text-center">
+              <a asp-action="Details" asp-route-id="@item.Codigo">
+                <i class="bi bi-eye"></i>
+              </a>
+            </td>
+            <td class="text-center">
+              <i class="bi bi-arrow-down-square"></i>
+            </td>
+            <td class="text-center">
+              <a asp-action="Servicos" asp-route-id="@item.Codigo"><i class="bi bi-arrow-up-square"></i></a>
+            </td>
+            <td class="text-center"><i class="bi bi-calendar"></i></td>
+            <td class="text-center"><i class="bi bi-archive"></i></td>
+            <td class="text-center">
+              <a asp-action="Edit" asp-route-id="@item.Codigo"><i class="bi bi-gear"></i></a>
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </card>
   </div>
-
-
-  <table class="table table-striped table-bordered">
-    <thead>
-      <tr class="text-center">
-        <th>@Html.DisplayNameFor(model => model.Codigo)</th>
-        <th>@Html.DisplayNameFor(model => model.Titulo)</th>
-        <th>@Html.DisplayNameFor(model => model.Deposito)</th>
-        <th>@Html.DisplayNameFor(model => model.Exame)</th>
-        <th>@Html.DisplayNameFor(model => model.Publicacao)</th>
-        <th>Detalhes</th>
-        <th>Despachos</th>
-        <th>Serviços</th>
-        <th>Anuidades</th>
-        <th>Documentos</th>
-        <th>Editar</th>
-      </tr>
-    </thead>
-    <tbody>
-      @foreach (var item in Model) {
-      <tr>
-        <td class="text-nowrap">@Html.DisplayFor(modelItem => item.Codigo)</td>
-        <td class="flex-wrap text-ju">
-          @Html.DisplayFor(modelItem => item.Titulo)
-        </td>
-        <td>@Html.DisplayFor(modelItem => item.Deposito)</td>
-        <td>@Html.DisplayFor(modelItem => item.Exame)</td>
-        <td>@Html.DisplayFor(modelItem => item.Publicacao)</td>
-        <td class="text-center">
-          <a asp-action="Details" asp-route-id="@item.Codigo">
-            <i class="bi bi-eye"></i>
-          </a>
-        </td>
-        <td class="text-center">
-          <i class="bi bi-arrow-down-square"></i>
-        </td>
-        <td class="text-center">
-          <a asp-action="Servicos" asp-route-id="@item.Codigo"><i class="bi bi-arrow-up-square"></i></a>
-        </td>
-        <td class="text-center"><i class="bi bi-calendar"></i></td>
-        <td class="text-center"><i class="bi bi-archive"></i></td>
-        <td class="text-center">
-          <a asp-action="Edit" asp-route-id="@item.Codigo"><i class="bi bi-gear"></i></a>
-        </td>
-      </tr>
-      }
-    </tbody>
-  </table>
 </GestaoPI.Models.Patente>

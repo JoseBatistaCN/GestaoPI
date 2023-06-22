@@ -1,7 +1,3 @@
-html {
-  font-size: 14px;
-}
-
 @media (min-width: 768px) {
   html {
     font-size: 16px;
@@ -11,29 +7,27 @@ html {
 
 body {
   font-family: 'Roboto', sans-serif;
+  background-color: #fafbfe;
+  font-weight: 400;
+  color: #6c757d;
 }
 
 h1 {
-  font-size: 1.6em;
+  font-size: 1.9em;
 }
 
 a {
   text-decoration: none;
-  color: black;
+  color: #6c757d;
 }
 
 
 .feature {
   justify-content: center;
   text-align: center;
-  box-shadow: 10px black;
 }
 
 .card-feature:hover {
     transition: all 0.3s ease-out;
-    box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
     top: -4px;
-    border: 1px solid #cccccc;
-    color: black;
-
 }
