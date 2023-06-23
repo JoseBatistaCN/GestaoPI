@@ -5,10 +5,6 @@
       "PackagePath": "staticwebassets\\GestaoPI.bundle.scp.css"
     },
     {
-      "Id": "E:\\jeyvi\\codando\\Projetos\\GestaoPI\\GestaoPI\\wwwroot\\css\\list-group.css",
-      "PackagePath": "staticwebassets\\css\\list-group.css"
-    },
-    {
       "Id": "E:\\jeyvi\\codando\\Projetos\\GestaoPI\\GestaoPI\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

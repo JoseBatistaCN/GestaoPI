@@ -9896,24 +9896,31 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\202000012874\\.nuget\\packages\\": {}
+    "C:\\Users\\jeyvi\\.nuget\\packages\\": {},
+    "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\202000012874\\Documents\\Code\\GestaoPI\\GestaoPI.csproj",
+      "projectUniqueName": "E:\\jeyvi\\codando\\Projetos\\GestaoPI\\GestaoPI\\GestaoPI.csproj",
       "projectName": "GestaoPI",
-      "projectPath": "c:\\Users\\202000012874\\Documents\\Code\\GestaoPI\\GestaoPI.csproj",
-      "packagesPath": "C:\\Users\\202000012874\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\202000012874\\Documents\\Code\\GestaoPI\\obj\\",
+      "projectPath": "E:\\jeyvi\\codando\\Projetos\\GestaoPI\\GestaoPI\\GestaoPI.csproj",
+      "packagesPath": "C:\\Users\\jeyvi\\.nuget\\packages\\",
+      "outputPath": "E:\\jeyvi\\codando\\Projetos\\GestaoPI\\GestaoPI\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\202000012874\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\jeyvi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -9972,7 +9979,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.406\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }
