@@ -21,70 +21,71 @@
 
 <body>
     <header id="navbar">
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">GestãoPI</a>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark box-shadow mb-3">
+            <div class="container">
+                <div>
+                    <img src=" https://cdn-icons-png.flaticon.com/512/487/487542.png" alt="" style="height: 2rem;">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">GestãoPI</a>
+                </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                    <ul class="navbar-nav flex-grow-1 d-flex justify-content-center">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-dark" role="button" data-bs-toggle="dropdown"
+                            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
-                                Processos
+                                <i class="bi bi-archive"></i><span class="ms-2">Processos</span>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li>
-                                    <a asp-controller="Processo" asp-action="Index"
-                                        class="dropdown-item text-dark">Patentes</a>
+                                    <a asp-controller="Processo" asp-action="Index" class="dropdown-item ">Patentes</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item text-dark" href="#">Marcas</a>
+                                    <a class="dropdown-item " href="#">Marcas</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item text-dark" href="#">Programas de Computador</a>
+                                    <a class="dropdown-item " href="#">Programas de Computador</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item text-dark" href="#">Desenho Industrial</a>
+                                    <a class="dropdown-item " href="#">Desenho Industrial</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home"
-                                asp-action="Privacy">Relatórios</a>
+                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Privacy"><i
+                                    class="bi bi-file-earmark-spreadsheet"></i><span class="ms-2">Relatórios</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">RPI</a>
+                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Privacy"><i
+                                    class="bi bi-newspaper"></i><span class="ms-2">RPI</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home"
-                                asp-action="Privacy">Agenda</a>
+                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Privacy"><i
+                                    class="bi bi-calendar"></i><span class="ms-2">Agenda</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark">Gráficos</a>
+                            <a class="nav-link "><i class="bi bi-bar-chart"></i><span class="ms-2">Gráficos</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark">Inventores</a>
+                            <a class="nav-link "><i class="bi bi-people"></i><span class="ms-2">Inventores</span></a>
                         </li>
                     </ul>
+                </div>
+                <div class="nav-item">
+                    <a href="#" class="nav-link text-white">
+                        <span></span><i class="bi bi-person-circle"></i>
+                    </a>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container-fluid">
-        <div class="row">
-            <nav class="col">
-                
-            </nav>
-            <div class="col-10">
-                <main role="main">@RenderBody()</main>
-            </div>
-        </div>
+    <div class="container">
+        <main role="main">@RenderBody()</main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <!-- <footer class="border-top footer text-muted fixed-bottom">
         <div class="container-fluid my-2">
             <div class="row">
                 <div class="col">
@@ -98,7 +99,7 @@
                 </div>
             </div>
         </div>
-    </footer>
+    </footer> -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

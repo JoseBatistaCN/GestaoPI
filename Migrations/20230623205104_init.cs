@@ -109,7 +109,7 @@ namespace GestaoPI.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     resumo = table.Column<string>(type: "mediumtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    situacao = table.Column<int>(type: "int", nullable: true),
+                    situacao = table.Column<int>(type: "int", nullable: false),
                     status = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     deposito = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     concessao = table.Column<DateTime>(type: "datetime(6)", nullable: true),
@@ -152,6 +152,32 @@ namespace GestaoPI.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_revista", x => x.cod_revista);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "InventorPatente",
+                columns: table => new
+                {
+                    InventoresId = table.Column<int>(type: "int", nullable: false),
+                    PatentesCodigo = table.Column<string>(type: "varchar(19)", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_InventorPatente", x => new { x.InventoresId, x.PatentesCodigo });
+                    table.ForeignKey(
+                        name: "FK_InventorPatente_inventor_InventoresId",
+                        column: x => x.InventoresId,
+                        principalTable: "inventor",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_InventorPatente_patente_PatentesCodigo",
+                        column: x => x.PatentesCodigo,
+                        principalTable: "patente",
+                        principalColumn: "codigo",
+                        onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -241,6 +267,11 @@ namespace GestaoPI.Migrations
                 column: "cod_revista");
 
             migrationBuilder.CreateIndex(
+                name: "IX_InventorPatente_PatentesCodigo",
+                table: "InventorPatente",
+                column: "PatentesCodigo");
+
+            migrationBuilder.CreateIndex(
                 name: "codigo_UNIQUE",
                 table: "patente",
                 column: "codigo",
@@ -267,7 +298,7 @@ namespace GestaoPI.Migrations
                 name: "despacho_patente");
 
             migrationBuilder.DropTable(
-                name: "inventor");
+                name: "InventorPatente");
 
             migrationBuilder.DropTable(
                 name: "marca");
@@ -283,6 +314,9 @@ namespace GestaoPI.Migrations
 
             migrationBuilder.DropTable(
                 name: "revista");
+
+            migrationBuilder.DropTable(
+                name: "inventor");
 
             migrationBuilder.DropTable(
                 name: "codigo_servico_patente");

@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GestaoPI.Migrations
 {
     [DbContext(typeof(GestaopiContext))]
-    [Migration("20230620114747_inventores")]
+    [Migration("20230623230007_inventores")]
     partial class inventores
     {
         /// <inheritdoc />
@@ -201,7 +201,7 @@ namespace GestaoPI.Migrations
                         .HasColumnType("mediumtext")
                         .HasColumnName("resumo");
 
-                    b.Property<int?>("Situacao")
+                    b.Property<int>("Situacao")
                         .HasColumnType("int")
                         .HasColumnName("situacao");
 

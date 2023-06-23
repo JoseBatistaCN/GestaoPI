@@ -4,12 +4,15 @@ namespace GestaoPI.Models.Enums
 {
     public enum PatenteSituacao
     {
+        [Display(Name = "Em Análise")]
+        EmAnalise,
         Anulada,
         Sigilo,
         [Display(Name = "Em Exame Técnico")]
-        ExameTecnico,
+        ExameTécnico,
         Arquivada,
         Indeferida,
         Concedida,
     }
+
 }

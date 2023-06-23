@@ -11,5 +11,6 @@
     ],
     "cSpell.enableFiletypes": [
         "!csharp"
-    ]
+    ],
+    "dotnet.defaultSolution": "GestaoPI.sln"
 }

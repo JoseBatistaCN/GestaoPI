@@ -22,5 +22,7 @@ namespace GestaoPI.Models
         public DateTime Deposito {get; set;}
 
         public DateTime? Concessao {get; set;}
+
+        public virtual ICollection<Inventor>? Inventores {get; set;} = new List<Inventor>();
     }
 }

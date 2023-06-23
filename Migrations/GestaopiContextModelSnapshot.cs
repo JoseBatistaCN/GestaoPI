@@ -198,7 +198,7 @@ namespace GestaoPI.Migrations
                         .HasColumnType("mediumtext")
                         .HasColumnName("resumo");
 
-                    b.Property<int?>("Situacao")
+                    b.Property<int>("Situacao")
                         .HasColumnType("int")
                         .HasColumnName("situacao");
 

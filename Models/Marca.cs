@@ -30,6 +30,9 @@ namespace GestaoPI.Models
         [Column("concessao")]
         [Display(Name = "Concessão")]
         public DateTime? Concessao {get; set;}
+
+        public virtual ICollection<Inventor>? Inventores {get; set;} = new List<Inventor>();
+        
     
     }
 }

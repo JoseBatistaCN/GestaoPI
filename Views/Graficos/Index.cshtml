@@ -1,40 +1,40 @@
 
 @{
-    ViewData["Title"] = "Graficos";
+    ViewData["Title"] = "Gráficos";
 }
 
-<h1>Selecione o Gráfico:</h1>
-<hr>
-<div class="d-flex justify-content-center">
-  <div class="row">
-    <div class="col-12">
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-        <label class="form-check-label" for="flexRadioDefault1">
-          Quantidade Processos por Inventor
-        </label>
+<h1>@ViewData["Title"]</h1>
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+          <label class="form-check-label" for="flexRadioDefault1">
+            Quantidade Processos por Inventor
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+          <label class="form-check-label" for="flexRadioDefault2">
+            Quantidade Processos (Ativo/Inativos)
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+          <label class="form-check-label" for="flexRadioDefault1">
+            Processos Por Ano do Depósito/Concessão (Ativos/Inativos)
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+          <label class="form-check-label" for="flexRadioDefault2">
+            Datas dos Processos Próprios de Marca (Ativos/Inativos)
+          </label>
+        </div>
+        <a class="btn btn-primary mt-3" href="#" role="button"> Visualizar</a>
       </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-        <label class="form-check-label" for="flexRadioDefault2">
-          Quantidade Processos (Ativo/Inativos)
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-        <label class="form-check-label" for="flexRadioDefault1">
-          Processos Por Ano do Depósito/Concessão (Ativos/Inativos)
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-        <label class="form-check-label" for="flexRadioDefault2">
-          Datas dos Processos Próprios de Marca (Ativos/Inativos)
-        </label>
-      </div>
-
     </div>
-    <a class="btn btn-primary" href="#" role="button"> Visualizar</a>
   </div>
   <div>
     

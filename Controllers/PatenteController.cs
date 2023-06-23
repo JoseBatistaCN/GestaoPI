@@ -54,7 +54,6 @@ using GestaoPI.Data;
         // GET: patente/Create
         public IActionResult Create()
         {
-            ViewBag.Situacoes = Enum.GetValues(typeof(PatenteSituacao));
             return View();
         }
 

@@ -1,29 +1,63 @@
 ﻿@{ ViewData["Title"] = "Home"; }
 
-
 <div class="content">
-    <h2 class="pb-3 border-bottom"></h2>
-    <div class="row g-3 py-3 row-cols-lg-3">
+    <h1>Dashboard</h1>
+    <div class="row g-3 py-5 row-cols-lg-3">
+
       <div class="feature col">
-        <a asp-action="Processos">
-          <div class="col">
-            <div id="card-processo" class="card-feature card h-100">
-              <div class="card-body">
-                <img src="https://cdn-icons-png.flaticon.com/512/3160/3160299.png" alt="" style="height: 128px" />
-                <h5 class="card-title">Processos</h5>
-              </div>
+        <a asp-controller="Patente" asp-action="index">
+          <div class="card-feature card">
+            <div class="card-body">
+              <img src="https://cdn-icons-png.flaticon.com/512/4391/4391394.png" alt="" style="height: 128px" />
+              <h5 class="card-title">Patentes</h5>
             </div>
           </div>
         </a>
       </div>
+      
+      <div class="feature col">
+        <a href="#">
+            <div class="card-feature card">
+              <div class="card-body">
+                <img src="https://cdn-icons-png.flaticon.com/512/1042/1042340.png" alt="" style="height: 128px" />
+                <h5 class="card-title">Marcas</h5>
+              </div>
+            </div>
+          </a>
+      </div>
+
+      <div class="feature col">
+        <a href="#">
+            <div class="card-feature card">
+              <div class="card-body">
+                <img src="https://cdn-icons-png.flaticon.com/512/1163/1163463.png" alt="" style="height: 128px" />
+                <h5 class="card-title">Programas de Computador</h5>
+              </div>
+            </div>
+          </a>
+      </div>
+
+      <div class="feature col">
+        <a href="#">
+            <div class="card-feature card">
+              <div class="card-body">
+                <img src="https://cdn-icons-png.flaticon.com/512/2558/2558115.png" alt="" style="height: 128px" />
+                <h5 class="card-title">Desenhos Industriais</h5>
+              </div>
+            </div>
+          </a>
+    </div>
+
+
+
+
       <div class="feature col">
         <a asp-action="Agenda">
-          <div id="card-agenda" class="card-feature card h-100">
+          <div id="card-agenda" class=" card h-100">
             <div class="card-body">
               <img src="https://cdn-icons-png.flaticon.com/512/2983/2983719.png" alt="" style="height: 128px" />
               <h5 class="card-title">Agenda</h5>
             </div>
-
           </div>
         </a>
       </div>

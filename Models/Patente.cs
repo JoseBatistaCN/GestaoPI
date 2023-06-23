@@ -32,7 +32,8 @@ public class Patente : IProcesso
 
     [Column("situacao")]
     [Display(Name = "Situação")]
-    public PatenteSituacao? Situacao { get; set; }
+    [Required(ErrorMessage = "Campo Obrigatório")]
+    public PatenteSituacao Situacao { get; set; } = PatenteSituacao.EmAnalise;
 
     [Column("status")]
     [Display(Name = "Status")]
@@ -66,8 +67,8 @@ public class Patente : IProcesso
     [Display(Name = "Anotação")]
     public string? Anotacao { get; set; }
 
-    public virtual ICollection<Inventor> Inventores { get; set; } = null!;
+    public virtual ICollection<Inventor>? Inventores { get; set; } = new List<Inventor>();
 
-    public virtual ICollection<DespachoPatente> DespachoPatentes { get; set; } = null!;
+    public virtual ICollection<DespachoPatente>? DespachoPatentes { get; set; } = new List<DespachoPatente>();
 
 }

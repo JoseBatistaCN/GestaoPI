@@ -1,7 +1,10 @@
+@model GestaoPI.Models.Inventor
 
-    @{ ViewData["Title"] = "Inventores";}
-  
-    <h1>@ViewData["Title"]</h1>
+@{ ViewData["Title"] = "Inventores";}
+
+<h1>@ViewData["Title"]</h1>
+<div class="card">
+  <div class="card-body">
     <div class="row mb-3">
       <div class="col-md-6">
         <div class="input-group">
@@ -10,11 +13,7 @@
             <option value="dataDeposito">Pantente</option>
             <option value="codigo">Resumo</option>
           </select>
-          <input
-            type="text"
-            class="form-control search-input"
-            placeholder="Digite sua pesquisa"
-          />
+          <input type="text" class="form-control search-input" placeholder="Digite sua pesquisa" />
           <button class="btn btn-primary search-button" type="button">
             Pesquisar
           </button>
@@ -22,22 +21,22 @@
       </div>
       <div class="col-6">
         <div class="d-flex justify-content-end">
-          <a asp-action="Create"
-            ><button type="button" class="btn btn-primary">Cadastar</button>
+          <a asp-action="Create"><button type="button" class="btn btn-primary">Cadastar</button>
           </a>
         </div>
       </div>
     </div>
-  
-  
+    
+    
     <table class="table table-striped table-bordered">
       <thead>
         <tr class="text-center">
           <th>Nome</th>
           <th>Patente</th>
-          <td>Marca</td>
-          <td>Desenho Industrial</td>
-          <td>Programa de Computador</td>
+          <th>Marca</th>
+          <th>Desenho Industrial</th>
+          <th>Programa de Computador</th>
+          <th>Detalhes</th>
         </tr>
       </thead>
       <tbody>
@@ -48,8 +47,10 @@
           <td>0</td>
           <td>0</td>
           <td>0</td>
+          <td><a href="#"><i class="bi bi-eye"></i></a></td>
         </tr>
       </tbody>
     </table>
-  </GestaoPI.Models.Patente>
-  
+  </div>
+</div>
+</GestaoPI.Models.Patente>

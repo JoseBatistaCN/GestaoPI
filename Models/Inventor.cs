@@ -21,7 +21,9 @@ namespace GestaoPI.Models
         public string Nome {get; set;} = null!;
 
         public virtual ICollection<Patente> Patentes {get; set;} = null!;
-
+        public virtual ICollection<Marca> Marcas {get; set;} = null!;
+        public virtual ICollection<ProgramaDeComputador> ProgramasDeComputador {get; set;} = null!;
+        public virtual ICollection<DesenhoIndustrial> DesenhosIndustriais {get; set;} = null!;
 
     }
 }

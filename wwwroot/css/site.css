@@ -1,3 +1,7 @@
+:root {
+  --primaryColorBlue: #4B49AC;
+}
+
 @media (min-width: 768px) {
   html {
     font-size: 16px;
@@ -16,18 +20,29 @@ h1 {
   font-size: 1.9em;
 }
 
-a {
-  text-decoration: none;
-  color: #6c757d;
-}
-
 
 .feature {
   justify-content: center;
   text-align: center;
+  align-items: center;
 }
 
-.card-feature:hover {
+/* .card-feature:hover {
     transition: all 0.3s ease-out;
     top: -4px;
+} */
+
+a { 
+  text-decoration: none;
+  color: #6c757d;
 }
+
+h5 {
+  font-size: 1.2em;
+  font-weight: 500;
+}
+
+
+
+
+
