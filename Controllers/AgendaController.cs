@@ -9,11 +9,11 @@ using Microsoft.Extensions.Logging;
 namespace GestaoPI.Controllers
 {
     [Route("[controller]")]
-    public class RevistaController : Controller
+    public class AgendaController : Controller
     {
-        private readonly ILogger<RevistaController> _logger;
+        private readonly ILogger<AgendaController> _logger;
 
-        public RevistaController(ILogger<RevistaController> logger)
+        public AgendaController(ILogger<AgendaController> logger)
         {
             _logger = logger;
         }
@@ -22,5 +22,7 @@ namespace GestaoPI.Controllers
         {
             return View();
         }
+
+        
     }
 }

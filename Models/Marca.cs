@@ -14,6 +14,7 @@ namespace GestaoPI.Models
     {
         [Key]
         [Column("cod_marca")]
+        [Display(Name = "Número")]
         [Required (ErrorMessage = "O código da marca é obrigatório.")]
         public string Codigo {get; set;} = null!;
 
@@ -21,6 +22,14 @@ namespace GestaoPI.Models
         [Required (ErrorMessage = "O nome da marca é obrigatório.")]
         [Display(Name = "Marca")]
         public string? Titulo {get; set;}
+
+        [Column("apresentacao")]
+        [Display(Name = "Apresentação")]
+        public MarcaApresentacao? Apresentacao {get; set;}
+
+        [Column("situacao")]
+        [Display(Name = "Situação")]
+        public MarcaSituacao? Situacao {get; set;}
 
         [Column("deposito")]
         [Required (ErrorMessage = "O nome do titular é obrigatório.")]
@@ -31,8 +40,15 @@ namespace GestaoPI.Models
         [Display(Name = "Concessão")]
         public DateTime? Concessao {get; set;}
 
+        [Column("anotacao")]
+        [Display(Name = "Anotação")]
+        public string? Anotacao {get; set;}
+
+        [Column("status")]
+        [Display(Name = "Status")]
+        public Boolean Status {get; set;} = true;
+        
         public virtual ICollection<Inventor>? Inventores {get; set;} = new List<Inventor>();
         
-    
     }
 }

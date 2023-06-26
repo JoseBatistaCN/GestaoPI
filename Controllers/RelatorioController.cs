@@ -9,11 +9,11 @@ using Microsoft.Extensions.Logging;
 namespace GestaoPI.Controllers
 {
     [Route("[controller]")]
-    public class GraficosController : Controller
+    public class RelatorioController : Controller
     {
-        private readonly ILogger<GraficosController> _logger;
+        private readonly ILogger<RelatorioController> _logger;
 
-        public GraficosController(ILogger<GraficosController> logger)
+        public RelatorioController(ILogger<RelatorioController> logger)
         {
             _logger = logger;
         }
@@ -23,10 +23,5 @@ namespace GestaoPI.Controllers
             return View();
         }
 
-        // [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        // public IActionResult Error()
-        // {
-            // return View("Error!");
-        // }
     }
 }

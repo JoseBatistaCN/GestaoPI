@@ -5,22 +5,27 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using GestaoPI.Services;
 
 namespace GestaoPI.Controllers
 {
     [Route("[controller]")]
-    public class RevistaController : Controller
+    public class MarcaController : Controller
     {
-        private readonly ILogger<RevistaController> _logger;
+        private readonly MarcaRepository _marcaRepository;
+        private readonly ILogger<MarcaController> _logger;
 
-        public RevistaController(ILogger<RevistaController> logger)
+        public MarcaController(ILogger<MarcaController> logger, MarcaRepository marcaRepository)
         {
+            _marcaRepository = marcaRepository;
             _logger = logger;
         }
 
         public IActionResult Index()
         {
+
             return View();
         }
+        
     }
 }

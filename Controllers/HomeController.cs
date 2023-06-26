@@ -20,26 +20,6 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Processos()
-    {
-        return View();
-    }
-
-    public IActionResult Agenda()
-    {
-        return View("Views/Agenda/Index.cshtml");
-    }
-
-    public IActionResult Inventores()
-    {
-        return View("Views/Inventors/Index.cshtml");
-    }
-
-    public IActionResult Relatorio()
-    {
-        return View("Views/Relatorio/Index.cshtml");
-    }	
-
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

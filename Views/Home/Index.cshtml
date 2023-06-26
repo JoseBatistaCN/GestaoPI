@@ -1,106 +1,102 @@
 ﻿@{ ViewData["Title"] = "Home"; }
 
 <div class="content">
-    <h1>Dashboard</h1>
-    <div class="row g-3 py-5 row-cols-lg-3">
-
-      <div class="feature col">
-        <a asp-controller="Patente" asp-action="index">
-          <div class="card-feature card">
-            <div class="card-body">
-              <img src="https://cdn-icons-png.flaticon.com/512/4391/4391394.png" alt="" style="height: 128px" />
-              <h5 class="card-title">Patentes</h5>
-            </div>
+  <h1>Dashboard</h1>
+  <div class="row g-3 py-3 row-cols-lg-3">
+    <div class="feature col">
+      <a asp-controller="Patente" asp-action="index">
+        <div class="card-feature card">
+          <div class="card-body">
+            <img src="https://cdn-icons-png.flaticon.com/512/4391/4391394.png" alt="" style="height: 128px" />
+            <h5 class="card-title">Patentes</h5>
           </div>
-        </a>
-      </div>
-      
-      <div class="feature col">
-        <a href="#">
-            <div class="card-feature card">
-              <div class="card-body">
-                <img src="https://cdn-icons-png.flaticon.com/512/1042/1042340.png" alt="" style="height: 128px" />
-                <h5 class="card-title">Marcas</h5>
-              </div>
-            </div>
-          </a>
-      </div>
-
-      <div class="feature col">
-        <a href="#">
-            <div class="card-feature card">
-              <div class="card-body">
-                <img src="https://cdn-icons-png.flaticon.com/512/1163/1163463.png" alt="" style="height: 128px" />
-                <h5 class="card-title">Programas de Computador</h5>
-              </div>
-            </div>
-          </a>
-      </div>
-
-      <div class="feature col">
-        <a href="#">
-            <div class="card-feature card">
-              <div class="card-body">
-                <img src="https://cdn-icons-png.flaticon.com/512/2558/2558115.png" alt="" style="height: 128px" />
-                <h5 class="card-title">Desenhos Industriais</h5>
-              </div>
-            </div>
-          </a>
+        </div>
+      </a>
     </div>
 
+    <div class="feature col">
+      <a asp-controller="Marca" asp-action="index">
+        <div class="card-feature card">
+          <div class="card-body">
+            <img src="https://cdn-icons-png.flaticon.com/512/1042/1042340.png" alt="" style="height: 128px" />
+            <h5 class="card-title">Marcas</h5>
+          </div>
+        </div>
+      </a>
+    </div>
 
+    <div class="feature col">
+      <a asp-controller="ProgramaDeComputador" asp-action="index">
+        <div class="card-feature card">
+          <div class="card-body">
+            <img src="https://cdn-icons-png.flaticon.com/512/1163/1163463.png" alt="" style="height: 128px" />
+            <h5 class="card-title">Programas de Computador</h5>
+          </div>
+        </div>
+      </a>
+    </div>
 
+    <div class="feature col">
+      <a asp-controller="ProgramaDeComputador" asp-action="index">
+        <div class="card-feature card">
+          <div class="card-body">
+            <img src="https://cdn-icons-png.flaticon.com/512/2558/2558115.png" alt="" style="height: 128px" />
+            <h5 class="card-title">Desenhos Industriais</h5>
+          </div>
+        </div>
+      </a>
+    </div>
 
-      <div class="feature col">
-        <a asp-action="Agenda">
-          <div id="card-agenda" class=" card h-100">
-            <div class="card-body">
-              <img src="https://cdn-icons-png.flaticon.com/512/2983/2983719.png" alt="" style="height: 128px" />
-              <h5 class="card-title">Agenda</h5>
-            </div>
+    <div class="feature col">
+      <a asp-controller="Agenda" asp-action="index">
+        <div id="card-agenda" class=" card h-100">
+          <div class="card-body">
+            <img src="https://cdn-icons-png.flaticon.com/512/2983/2983719.png" alt="" style="height: 128px" />
+            <h5 class="card-title">Agenda</h5>
           </div>
-        </a>
-      </div>
-      <div class="feature col">
-        <a asp-controller="Graficos" asp-action="Index">
-          <div id="card-grafico" class="card-feature card h-100">
-            <div class="card-body">
-              <img src="https://cdn-icons-png.flaticon.com/512/2257/2257295.png" alt="" style="height: 128px" />
-              <h5 class="card-title">Gráficos</h5>
-            </div>
+        </div>
+      </a>
+    </div>
+    <div class="feature col">
+      <a asp-controller="Grafico" asp-action="Index">
+        <div id="card-grafico" class="card-feature card h-100">
+          <div class="card-body">
+            <img src="https://cdn-icons-png.flaticon.com/512/2257/2257295.png" alt="" style="height: 128px" />
+            <h5 class="card-title">Gráficos</h5>
           </div>
-        </a>
-      </div>
-      <div class="feature col">
-        <a asp-controller="Revista" asp-action="Index">
-          <div id="card-revista" class="card-feature card h-100" style="height: 182px">
-            <div class="card-body">
-              <img src="https://cdn-icons-png.flaticon.com/512/2356/2356617.png" alt="" style="height: 128px" />
-              <h5 class="card-title">Revista RPI</h5>
-            </div>
+        </div>
+      </a>
+    </div>
+    <div class="feature col">
+      <a asp-controller="Revista" asp-action="Index">
+        <div id="card-revista" class="card-feature card h-100" style="height: 182px">
+          <div class="card-body">
+            <img src="https://cdn-icons-png.flaticon.com/512/2356/2356617.png" alt="" style="height: 128px" />
+            <h5 class="card-title">Revista RPI</h5>
           </div>
-        </a>
-      </div>
-      <div class="feature col">
-        <a asp-action="Inventores">
-          <div id="card-inventores" class="card-feature card h-100">
-            <div class="card-body">
-              <img src="https://cdn-icons-png.flaticon.com/512/681/681392.png" alt="" style="height: 128px" />
-              <h5 class="card-title">Inventores</h5>
-            </div>
+        </div>
+      </a>
+    </div>
+    <div class="feature col">
+      <a asp-controller="Inventor" asp-action="index">
+        <div id="card-inventores" class="card-feature card h-100">
+          <div class="card-body">
+            <img src="https://cdn-icons-png.flaticon.com/512/681/681392.png" alt="" style="height: 128px" />
+            <h5 class="card-title">Inventores</h5>
           </div>
-        </a>
-      </div>
-      <div class="feature col">
-        <a asp-action="Relatorio">
-          <div id="card-relatorio" class="card-feature card">
-            <div class="card-body">
-              <img src="https://cdn-icons-png.flaticon.com/512/1690/1690617.png" alt="" style="height: 128px" />
-              <h5 class="card-title">Relatórios</h5>
-            </div>
+        </div>
+      </a>
+    </div>
+    <div class="feature col">
+      <a asp-controller="Relatorio" asp-action="index">
+        <div id="card-relatorio" class="card-feature card">
+          <div class="card-body">
+            <img src="https://cdn-icons-png.flaticon.com/512/1690/1690617.png" alt="" style="height: 128px" />
+            <h5 class="card-title">Relatórios</h5>
           </div>
-        </a>
-      </div>
+        </div>
+      </a>
     </div>
   </div>
+</div>
 </div>

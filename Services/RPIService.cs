@@ -20,26 +20,9 @@ namespace GestaoPI.Services
             this._titular = titular;
         }
     
-    public async Task<string> DownloadRPI()
-    {
-        using (HttpClient client = new HttpClient())
-        {
-            using (HttpResponseMessage response = await client.GetAsync(_url))
-            {
-                using (HttpContent content = response.Content)
-                {
-                    await content.ReadAsStreamAsync();
-                    using (var fileStream = File.Create(_fileName))
-                    {
-                        (await content.ReadAsStreamAsync()).CopyTo(fileStream);
-                        return "Arquivo baixado com sucesso!";
-                    }
-                }
-            }
-        }
-    }
-    
+
     
     }
+    
         
 }

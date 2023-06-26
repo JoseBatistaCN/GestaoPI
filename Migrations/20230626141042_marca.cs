@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace GestaoPI.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class marca : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -90,8 +90,13 @@ namespace GestaoPI.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     marca = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
+                    apresentacao = table.Column<int>(type: "int", nullable: true),
+                    situacao = table.Column<int>(type: "int", nullable: true),
                     deposito = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    concessao = table.Column<DateTime>(type: "datetime(6)", nullable: true)
+                    concessao = table.Column<DateTime>(type: "datetime(6)", nullable: true),
+                    anotacao = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    status = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -156,6 +161,58 @@ namespace GestaoPI.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
+                name: "DesenhoIndustrialInventor",
+                columns: table => new
+                {
+                    DesenhosIndustriaisCodigo = table.Column<string>(type: "varchar(255)", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    InventoresId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DesenhoIndustrialInventor", x => new { x.DesenhosIndustriaisCodigo, x.InventoresId });
+                    table.ForeignKey(
+                        name: "FK_DesenhoIndustrialInventor_desenho_industrial_DesenhosIndustr~",
+                        column: x => x.DesenhosIndustriaisCodigo,
+                        principalTable: "desenho_industrial",
+                        principalColumn: "cod_desenho_industrial",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_DesenhoIndustrialInventor_inventor_InventoresId",
+                        column: x => x.InventoresId,
+                        principalTable: "inventor",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "InventorMarca",
+                columns: table => new
+                {
+                    InventoresId = table.Column<int>(type: "int", nullable: false),
+                    MarcasCodigo = table.Column<string>(type: "varchar(255)", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_InventorMarca", x => new { x.InventoresId, x.MarcasCodigo });
+                    table.ForeignKey(
+                        name: "FK_InventorMarca_inventor_InventoresId",
+                        column: x => x.InventoresId,
+                        principalTable: "inventor",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_InventorMarca_marca_MarcasCodigo",
+                        column: x => x.MarcasCodigo,
+                        principalTable: "marca",
+                        principalColumn: "cod_marca",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
                 name: "InventorPatente",
                 columns: table => new
                 {
@@ -215,6 +272,32 @@ namespace GestaoPI.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
+                name: "InventorProgramaDeComputador",
+                columns: table => new
+                {
+                    InventoresId = table.Column<int>(type: "int", nullable: false),
+                    ProgramasDeComputadorCodigo = table.Column<string>(type: "varchar(255)", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_InventorProgramaDeComputador", x => new { x.InventoresId, x.ProgramasDeComputadorCodigo });
+                    table.ForeignKey(
+                        name: "FK_InventorProgramaDeComputador_inventor_InventoresId",
+                        column: x => x.InventoresId,
+                        principalTable: "inventor",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_InventorProgramaDeComputador_programa_de_computador_Programa~",
+                        column: x => x.ProgramasDeComputadorCodigo,
+                        principalTable: "programa_de_computador",
+                        principalColumn: "cod_programa_de_computador",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
                 name: "despacho_patente",
                 columns: table => new
                 {
@@ -252,6 +335,11 @@ namespace GestaoPI.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateIndex(
+                name: "IX_DesenhoIndustrialInventor_InventoresId",
+                table: "DesenhoIndustrialInventor",
+                column: "InventoresId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_despacho_patente_cod_despacho",
                 table: "despacho_patente",
                 column: "cod_despacho");
@@ -267,9 +355,19 @@ namespace GestaoPI.Migrations
                 column: "cod_revista");
 
             migrationBuilder.CreateIndex(
+                name: "IX_InventorMarca_MarcasCodigo",
+                table: "InventorMarca",
+                column: "MarcasCodigo");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_InventorPatente_PatentesCodigo",
                 table: "InventorPatente",
                 column: "PatentesCodigo");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_InventorProgramaDeComputador_ProgramasDeComputadorCodigo",
+                table: "InventorProgramaDeComputador",
+                column: "ProgramasDeComputadorCodigo");
 
             migrationBuilder.CreateIndex(
                 name: "codigo_UNIQUE",
@@ -292,22 +390,25 @@ namespace GestaoPI.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "desenho_industrial");
+                name: "DesenhoIndustrialInventor");
 
             migrationBuilder.DropTable(
                 name: "despacho_patente");
 
             migrationBuilder.DropTable(
+                name: "InventorMarca");
+
+            migrationBuilder.DropTable(
                 name: "InventorPatente");
 
             migrationBuilder.DropTable(
-                name: "marca");
-
-            migrationBuilder.DropTable(
-                name: "programa_de_computador");
+                name: "InventorProgramaDeComputador");
 
             migrationBuilder.DropTable(
                 name: "servico_patente");
+
+            migrationBuilder.DropTable(
+                name: "desenho_industrial");
 
             migrationBuilder.DropTable(
                 name: "codigo_despacho_patente");
@@ -316,7 +417,13 @@ namespace GestaoPI.Migrations
                 name: "revista");
 
             migrationBuilder.DropTable(
+                name: "marca");
+
+            migrationBuilder.DropTable(
                 name: "inventor");
+
+            migrationBuilder.DropTable(
+                name: "programa_de_computador");
 
             migrationBuilder.DropTable(
                 name: "codigo_servico_patente");

@@ -19,6 +19,21 @@ namespace GestaoPI.Migrations
                 .HasAnnotation("ProductVersion", "7.0.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
+            modelBuilder.Entity("DesenhoIndustrialInventor", b =>
+                {
+                    b.Property<string>("DesenhosIndustriaisCodigo")
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<int>("InventoresId")
+                        .HasColumnType("int");
+
+                    b.HasKey("DesenhosIndustriaisCodigo", "InventoresId");
+
+                    b.HasIndex("InventoresId");
+
+                    b.ToTable("DesenhoIndustrialInventor");
+                });
+
             modelBuilder.Entity("DespachoPatente", b =>
                 {
                     b.Property<int>("Id")
@@ -149,6 +164,14 @@ namespace GestaoPI.Migrations
                         .HasColumnType("varchar(255)")
                         .HasColumnName("cod_marca");
 
+                    b.Property<string>("Anotacao")
+                        .HasColumnType("longtext")
+                        .HasColumnName("anotacao");
+
+                    b.Property<int?>("Apresentacao")
+                        .HasColumnType("int")
+                        .HasColumnName("apresentacao");
+
                     b.Property<DateTime?>("Concessao")
                         .HasColumnType("datetime(6)")
                         .HasColumnName("concessao");
@@ -156,6 +179,14 @@ namespace GestaoPI.Migrations
                     b.Property<DateTime>("Deposito")
                         .HasColumnType("datetime(6)")
                         .HasColumnName("deposito");
+
+                    b.Property<int?>("Situacao")
+                        .HasColumnType("int")
+                        .HasColumnName("situacao");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("tinyint(1)")
+                        .HasColumnName("status");
 
                     b.Property<string>("Titulo")
                         .IsRequired()
@@ -296,6 +327,21 @@ namespace GestaoPI.Migrations
                     b.ToTable("servico_patente");
                 });
 
+            modelBuilder.Entity("InventorMarca", b =>
+                {
+                    b.Property<int>("InventoresId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("MarcasCodigo")
+                        .HasColumnType("varchar(255)");
+
+                    b.HasKey("InventoresId", "MarcasCodigo");
+
+                    b.HasIndex("MarcasCodigo");
+
+                    b.ToTable("InventorMarca");
+                });
+
             modelBuilder.Entity("InventorPatente", b =>
                 {
                     b.Property<int>("InventoresId")
@@ -309,6 +355,36 @@ namespace GestaoPI.Migrations
                     b.HasIndex("PatentesCodigo");
 
                     b.ToTable("InventorPatente");
+                });
+
+            modelBuilder.Entity("InventorProgramaDeComputador", b =>
+                {
+                    b.Property<int>("InventoresId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ProgramasDeComputadorCodigo")
+                        .HasColumnType("varchar(255)");
+
+                    b.HasKey("InventoresId", "ProgramasDeComputadorCodigo");
+
+                    b.HasIndex("ProgramasDeComputadorCodigo");
+
+                    b.ToTable("InventorProgramaDeComputador");
+                });
+
+            modelBuilder.Entity("DesenhoIndustrialInventor", b =>
+                {
+                    b.HasOne("GestaoPI.Models.DesenhoIndustrial", null)
+                        .WithMany()
+                        .HasForeignKey("DesenhosIndustriaisCodigo")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("GestaoPI.Models.Inventor", null)
+                        .WithMany()
+                        .HasForeignKey("InventoresId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("DespachoPatente", b =>
@@ -357,6 +433,21 @@ namespace GestaoPI.Migrations
                     b.Navigation("Patente");
                 });
 
+            modelBuilder.Entity("InventorMarca", b =>
+                {
+                    b.HasOne("GestaoPI.Models.Inventor", null)
+                        .WithMany()
+                        .HasForeignKey("InventoresId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("GestaoPI.Models.Marca", null)
+                        .WithMany()
+                        .HasForeignKey("MarcasCodigo")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("InventorPatente", b =>
                 {
                     b.HasOne("GestaoPI.Models.Inventor", null)
@@ -368,6 +459,21 @@ namespace GestaoPI.Migrations
                     b.HasOne("GestaoPI.Models.Patente", null)
                         .WithMany()
                         .HasForeignKey("PatentesCodigo")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("InventorProgramaDeComputador", b =>
+                {
+                    b.HasOne("GestaoPI.Models.Inventor", null)
+                        .WithMany()
+                        .HasForeignKey("InventoresId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("GestaoPI.Models.ProgramaDeComputador", null)
+                        .WithMany()
+                        .HasForeignKey("ProgramasDeComputadorCodigo")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
