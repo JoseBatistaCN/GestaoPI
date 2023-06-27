@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GestaoPI.Migrations
 {
     [DbContext(typeof(GestaopiContext))]
-    [Migration("20230626141042_marca")]
-    partial class marca
+    [Migration("20230627105059_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

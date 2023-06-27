@@ -12,5 +12,19 @@
     "cSpell.enableFiletypes": [
         "!csharp"
     ],
-    "dotnet.defaultSolution": "GestaoPI.sln"
+    "dotnet.defaultSolution": "GestaoPI.sln",
+
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/bin": true,
+        "**/obj": true,
+        "**/Properties": true,
+        "**/.vs": true,
+        
+    }
 }

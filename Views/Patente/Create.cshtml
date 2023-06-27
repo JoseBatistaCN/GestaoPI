@@ -46,9 +46,9 @@
                 <textarea asp-for="Anotacao" class="form-control"></textarea>
                 <span asp-validation-for="Anotacao" class="text-danger"></span>
             </div>
-            @Html.LabelFor(model => model.Inventores, htmlAttributes: new { @class = "control-label" })
             <div class="form-group">
-                <select asp-for="Inventores" asp-items="ViewBag.Inventores" class="form-control"></select>
+                @Html.LabelFor(model => model.Inventores, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownListFor(model => model.Inventores, new MultiSelectList(ViewBag.Inventores, "Id", "Nome"), new { @class = "form-control", @multiple = "multiple" })
             </div>
             <div class="form-group">
                 <input type="submit" value="Cadastrar" class="btn btn-primary" />
@@ -59,7 +59,6 @@
         </div>
     </div>
 </div>
-
 
 @section Scripts { 
 @{await Html.RenderPartialAsync("_ValidationScriptsPartial");
