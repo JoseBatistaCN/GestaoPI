@@ -4,6 +4,8 @@ using GestaoPI.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using GestaoPI.Models;
 
+namespace GestaoPI.Models;
+
 [Table("despacho_patente")]
 public class DespachoPatente : IDespacho
 {

@@ -46,6 +46,10 @@ h5 {
   font-weight: 500;
 }
 
+.cor-principal {
+  color: var(--primaryColorBlue);
+}
+
 
 
 

@@ -153,4 +153,11 @@ using GestaoPI.Data;
         {
             return _patenteRepository.Existe(id);
         }
+
+        public async Task<IActionResult> Despacho(){
+
+            return View("Views/Patente/Despacho/Index.cshtml");
+        }
+
+        
     }

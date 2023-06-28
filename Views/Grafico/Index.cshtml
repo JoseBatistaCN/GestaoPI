@@ -4,39 +4,72 @@
 }
 
 <h1>@ViewData["Title"]</h1>
-<div class="card">
-  <div class="card-body">
-    <div class="row">
-      <div class="col">
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-          <label class="form-check-label" for="flexRadioDefault1">
-            Quantidade Processos por Inventor
-          </label>
+<div class="row">
+  <div class="card col">
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Quantidade Processos por Inventor
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <label class="form-check-label" for="flexRadioDefault2">
+              Quantidade Processos (Ativo/Inativos)
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Processos Por Ano do Depósito/Concessão (Ativos/Inativos)
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <label class="form-check-label" for="flexRadioDefault2">
+              Datas dos Processos Próprios de Marca (Ativos/Inativos)
+            </label>
+          </div>
+          <a class="btn btn-primary mt-3" href="#" role="button"> Visualizar</a>
         </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-          <label class="form-check-label" for="flexRadioDefault2">
-            Quantidade Processos (Ativo/Inativos)
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-          <label class="form-check-label" for="flexRadioDefault1">
-            Processos Por Ano do Depósito/Concessão (Ativos/Inativos)
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-          <label class="form-check-label" for="flexRadioDefault2">
-            Datas dos Processos Próprios de Marca (Ativos/Inativos)
-          </label>
-        </div>
-        <a class="btn btn-primary mt-3" href="#" role="button"> Visualizar</a>
+      </div>
+    </div>
+    <div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <div class="card-body">
+        <canvas id="myChart"></canvas>
       </div>
     </div>
   </div>
-  <div>
-    
-  </div>
 </div>
+<div class="my-3"><a asp-controller="Home" asp-action="Index">Voltar</a></div>
+<script>
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: ["Patente", "Marca", "Desenho Industial", "Programa de Computador"],
+      datasets: [{
+        label: 'Quantidade de Processos',
+        data: [20, 4, 1, 0],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      legend : {
+        display: true,
+        position: 'right'
+      } 
+      
+    },
+    puglins: {}
+  })
+</script>
+

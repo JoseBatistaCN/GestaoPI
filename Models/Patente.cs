@@ -45,20 +45,20 @@ public class Patente : IProcesso
     [Required(ErrorMessage = "Campo Obrigatório")]
     [Display(Name = "Depósito")]
 
-    [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
+    [DisplayFormat(DataFormatString = "{0:dd/MMMMM/yyyy}", ApplyFormatInEditMode = false)]
     public DateTime Deposito { get; set; }
 
     [Column("concessao")]
-    [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
+    [DisplayFormat(DataFormatString = "{0:dd/MMMMM/yyyy}", ApplyFormatInEditMode = false)]
     public DateTime? Concessao { get; set; }
 
     [Column("exame")]
-    [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
+    [DisplayFormat(DataFormatString = "{0:dd/MMMMM/yyyy}", ApplyFormatInEditMode = false)]
     public DateTime? Exame { get; set; }
 
     [Column("publicacao")]
     [Display(Name = "Publicação")]
-    [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
+    [DisplayFormat(DataFormatString = "{0:dd/MMMMM/yyyy}", ApplyFormatInEditMode = false)]
     public DateTime? Publicacao { get; set; }
 
     // Outros
