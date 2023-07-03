@@ -31,6 +31,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Inventor/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50b3JcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Inventor/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50b3JcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Inventor/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50b3JcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Inventor/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50b3JcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/202000012874/Documents/Code/GestaoPI/Views/Inventor/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50b3JcaW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -81,6 +97,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/202000012874/Documents/Code/GestaoPI/Views/Patente/Servico/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0ZW50ZVxTZXJ2aWNvXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/ProgramaDeComputador/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZ3JhbWFEZUNvbXB1dGFkb3JcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/ProgramaDeComputador/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZ3JhbWFEZUNvbXB1dGFkb3JcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/ProgramaDeComputador/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZ3JhbWFEZUNvbXB1dGFkb3JcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/ProgramaDeComputador/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZ3JhbWFEZUNvbXB1dGFkb3JcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/ProgramaDeComputador/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZ3JhbWFEZUNvbXB1dGFkb3JcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/202000012874/Documents/Code/GestaoPI/Views/Relatorio/Index.cshtml]

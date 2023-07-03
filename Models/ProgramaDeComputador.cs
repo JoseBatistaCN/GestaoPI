@@ -27,9 +27,7 @@ namespace GestaoPI.Models
 
         public virtual ICollection<DespachoProgramaDeComputador> Despachos {get; set;} = new List<DespachoProgramaDeComputador>();
         public virtual ICollection<Linguagem> Linguagens {get; set;} = new List<Linguagem>();
-
         public virtual ICollection<CampoDeAplicacao> CampoDeAplicacao {get; set;} = new List<CampoDeAplicacao>();
-
         public virtual ICollection<TipoPrograma> TiposDoPrograma {get; set;} = new List<TipoPrograma>();
 
     }

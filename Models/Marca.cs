@@ -33,6 +33,7 @@ namespace GestaoPI.Models
 
         [Column("deposito")]
         [Required (ErrorMessage = "O nome do titular é obrigatório.")]
+        [DisplayFormat(DataFormatString = "{0:dd/MMMMM/yyyy}", ApplyFormatInEditMode = false)]
         [Display(Name = "Depósito")]
         public DateTime Deposito {get; set;}
 

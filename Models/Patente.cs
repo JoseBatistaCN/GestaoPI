@@ -50,6 +50,7 @@ public class Patente : IProcesso
 
     [Column("concessao")]
     [DisplayFormat(DataFormatString = "{0:dd/MMMMM/yyyy}", ApplyFormatInEditMode = false)]
+    [Display(Name = "Concessão")]
     public DateTime? Concessao { get; set; }
 
     [Column("exame")]

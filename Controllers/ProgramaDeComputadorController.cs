@@ -10,85 +10,85 @@ using GestaoPI.Models;
 
 namespace GestaoPI.Controllers
 {
-    public class InventorController : Controller
+    public class ProgramaDeComputadorController : Controller
     {
         private readonly GestaopiContext _context;
 
-        public InventorController(GestaopiContext context)
+        public ProgramaDeComputadorController(GestaopiContext context)
         {
             _context = context;
         }
 
-        // GET: Inventor
+        // GET: ProgramaDeComputador
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Inventores.ToListAsync());
+            return View(await _context.ProgramaDeComputadores.ToListAsync());
         }
 
-        // GET: Inventor/Details/5
-        public async Task<IActionResult> Details(int? id)
+        // GET: ProgramaDeComputador/Details/5
+        public async Task<IActionResult> Details(string id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var inventor = await _context.Inventores
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (inventor == null)
+            var programaDeComputador = await _context.ProgramaDeComputadores
+                .FirstOrDefaultAsync(m => m.Codigo == id);
+            if (programaDeComputador == null)
             {
                 return NotFound();
             }
 
-            return View(inventor);
+            return View(programaDeComputador);
         }
 
-        // GET: Inventor/Create
+        // GET: ProgramaDeComputador/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Inventor/Create
+        // POST: ProgramaDeComputador/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome")] Inventor inventor)
+        public async Task<IActionResult> Create([Bind("Codigo,Titulo,Deposito,Concessao")] ProgramaDeComputador programaDeComputador)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(inventor);
+                _context.Add(programaDeComputador);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(inventor);
+            return View(programaDeComputador);
         }
 
-        // GET: Inventor/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        // GET: ProgramaDeComputador/Edit/5
+        public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var inventor = await _context.Inventores.FindAsync(id);
-            if (inventor == null)
+            var programaDeComputador = await _context.ProgramaDeComputadores.FindAsync(id);
+            if (programaDeComputador == null)
             {
                 return NotFound();
             }
-            return View(inventor);
+            return View(programaDeComputador);
         }
 
-        // POST: Inventor/Edit/5
+        // POST: ProgramaDeComputador/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome")] Inventor inventor)
+        public async Task<IActionResult> Edit(string id, [Bind("Codigo,Titulo,Deposito,Concessao")] ProgramaDeComputador programaDeComputador)
         {
-            if (id != inventor.Id)
+            if (id != programaDeComputador.Codigo)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace GestaoPI.Controllers
             {
                 try
                 {
-                    _context.Update(inventor);
+                    _context.Update(programaDeComputador);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!InventorExists(inventor.Id))
+                    if (!ProgramaDeComputadorExists(programaDeComputador.Codigo))
                     {
                         return NotFound();
                     }
@@ -113,41 +113,41 @@ namespace GestaoPI.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(inventor);
+            return View(programaDeComputador);
         }
 
-        // GET: Inventor/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        // GET: ProgramaDeComputador/Delete/5
+        public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var inventor = await _context.Inventores
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (inventor == null)
+            var programaDeComputador = await _context.ProgramaDeComputadores
+                .FirstOrDefaultAsync(m => m.Codigo == id);
+            if (programaDeComputador == null)
             {
                 return NotFound();
             }
 
-            return View(inventor);
+            return View(programaDeComputador);
         }
 
-        // POST: Inventor/Delete/5
+        // POST: ProgramaDeComputador/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var inventor = await _context.Inventores.FindAsync(id);
-            _context.Inventores.Remove(inventor);
+            var programaDeComputador = await _context.ProgramaDeComputadores.FindAsync(id);
+            _context.ProgramaDeComputadores.Remove(programaDeComputador);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool InventorExists(int id)
+        private bool ProgramaDeComputadorExists(string id)
         {
-            return _context.Inventores.Any(e => e.Id == id);
+            return _context.ProgramaDeComputadores.Any(e => e.Codigo == id);
         }
     }
 }

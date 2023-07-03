@@ -1,56 +1,35 @@
-@model GestaoPI.Models.Inventor
+@model IEnumerable<GestaoPI.Models.Inventor>
 
-@{ ViewData["Title"] = "Inventores";}
+@{
+    ViewData["Title"] = "Index";
+}
 
-<h1>@ViewData["Title"]</h1>
-<div class="card">
-  <div class="card-body">
-    <div class="row mb-3">
-      <div class="col-md-6">
-        <div class="input-group">
-          <select class="form-select search-field" aria-label="Campo de Pesquisa">
-            <option value="titulo">Nome</option>
-            <option value="dataDeposito">Pantente</option>
-            <option value="codigo">Resumo</option>
-          </select>
-          <input type="text" class="form-control search-input" placeholder="Digite sua pesquisa" />
-          <button class="btn btn-primary search-button" type="button">
-            Pesquisar
-          </button>
-        </div>
-      </div>
-      <div class="col-6">
-        <div class="d-flex justify-content-end">
-          <a asp-action="Create"><button type="button" class="btn btn-primary">Cadastar</button>
-          </a>
-        </div>
-      </div>
-    </div>
-    
-    
-    <table class="table table-striped table-bordered">
-      <thead>
-        <tr class="text-center">
-          <th>Nome</th>
-          <th>Patente</th>
-          <th>Marca</th>
-          <th>Desenho Industrial</th>
-          <th>Programa de Computador</th>
-          <th>Detalhes</th>
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th></th>
         </tr>
-      </thead>
-      <tbody>
-        <tr class="text-center">
-          <td class="text-nowrap">Claudio</td>
-          <td class="flex-wrap text-ju">0
-          </td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td><a href="#"><i class="bi bi-eye"></i></a></td>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
         </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-</GestaoPI.Models.Patente>
+}
+    </tbody>
+</table>
