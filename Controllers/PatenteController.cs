@@ -5,11 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using GestaoPI.Data;
 using GestaoPI.Models;
 using GestaoPI.Models.Enums;
 using GestaoPI.Interfaces;
-using GestaoPI.Data;
-    public class PatenteController : Controller
+using GestaoPI.Services;
+public class PatenteController : Controller
     {
         private readonly IProcessoRepository<Patente> _patenteRepository;
         private readonly GestaopiContext _context;

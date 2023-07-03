@@ -3,6 +3,7 @@ using System;
 using GestaoPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GestaoPI.Migrations
 {
     [DbContext(typeof(GestaopiContext))]
-    partial class GestaopiContextModelSnapshot : ModelSnapshot
+    [Migration("20230703113923_MoreClassesModel")]
+    partial class MoreClassesModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,7 +54,7 @@ namespace GestaoPI.Migrations
 
                     b.HasIndex("ProgramaDeComputadorCodigo");
 
-                    b.ToTable("campo_de_aplicacao");
+                    b.ToTable("CampoDeAplicacao");
                 });
 
             modelBuilder.Entity("GestaoPI.Models.CodigoDespachoMarca", b =>
