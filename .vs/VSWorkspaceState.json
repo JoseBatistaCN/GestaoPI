@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\Controllers",
-    "\\Models"
+    "\\Services",
+    "\\Views\\Shared"
   ],
-  "SelectedNode": "\\Models\\Inventor.cs",
+  "SelectedNode": "\\Services\\PatenteRepository.cs",
   "PreviewInSolutionExplorer": false
 }
