@@ -42,7 +42,7 @@
   </div>
   <div class="col">
     <div class="card">
-      <div class="card-body d-flex justify-content-center">
+      <div class="card-body  d-flex justify-content-center">
         <div style="height: 30vh; width: 30vh;">
           <canvas id="myChart"></canvas>
         </div>
@@ -60,11 +60,15 @@
       labels: ["Patente", "Marca", "Desenho Industial", "Programa de Computador"],
       datasets: [{
         label: 'Quantidade de Processos',
-        data: [20, 4, 1, 0],
+        data: [3, 2, 1, 0],
         borderWidth: 1
       }]
     },
     options: {
+      title: {
+        display: false,
+        text: 'Quantidade de Processos'
+      },
       legend : {
         display: true,
         position: 'right'

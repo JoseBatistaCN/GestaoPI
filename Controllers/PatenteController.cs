@@ -12,10 +12,10 @@ using GestaoPI.Interfaces;
 using GestaoPI.Services;
 public class PatenteController : Controller
     {
-        private readonly IProcessoRepository<Patente> _patenteRepository;
+        private readonly IPatenteRepository _patenteRepository;
         private readonly GestaopiContext _context;
 
-        public PatenteController(IProcessoRepository<Patente> patenteRepository, GestaopiContext context)
+        public PatenteController(IPatenteRepository patenteRepository, GestaopiContext context)
         {
             _patenteRepository = patenteRepository;
             _context = context;
@@ -24,7 +24,7 @@ public class PatenteController : Controller
         // GET: patente
         public async Task<IActionResult> Index()
         {
-            var todasPatentes = await _patenteRepository.ObterTodos();
+            var todasPatentes = await _patenteRepository.GetPatentes();
             return View(todasPatentes);
         }
 
@@ -42,7 +42,7 @@ public class PatenteController : Controller
                 return NotFound();
             }
 
-            var patente = await _patenteRepository.ObterPorId(id);
+            var patente = await _patenteRepository.GetPatenteById(id);
                 
             if (patente == null)
             {
@@ -67,7 +67,7 @@ public class PatenteController : Controller
         {
             if (ModelState.IsValid)
             {
-                await _patenteRepository.Inserir(patente);
+                await _patenteRepository.InsertPatente(patente);
                 return RedirectToAction(nameof(Index));
             }
             return View(patente);
@@ -81,7 +81,7 @@ public class PatenteController : Controller
                 return NotFound();
             }
 
-            var patente = await _patenteRepository.ObterPorId(id);
+            var patente = await _patenteRepository.GetPatenteById(id);
             if (patente == null)
             {
                 return NotFound();
@@ -106,11 +106,11 @@ public class PatenteController : Controller
             {
                 try
                 {
-                    await _patenteRepository.Atualizar(patente);
+                    await _patenteRepository.UpdatePatente(patente);
                                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!patenteExists(patente.Codigo))
+                    if (!_patenteRepository.PatenteExists(patente.Codigo))
                     {
                         return NotFound();
                     }
@@ -132,7 +132,7 @@ public class PatenteController : Controller
                 return NotFound();
             }
 
-            var patente =  await _patenteRepository.ObterPorId(id);
+            var patente =  await _patenteRepository.GetPatenteById(id);
             if (patente == null)
             {
                 return NotFound();
@@ -146,14 +146,10 @@ public class PatenteController : Controller
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            await _patenteRepository.Excluir(id);
+            await _patenteRepository.DeletePatente(id);
             return RedirectToAction(nameof(Index));
         }
 
-        private bool patenteExists(string id)
-        {
-            return _patenteRepository.Existe(id);
-        }
 
         public async Task<IActionResult> Despacho(){
 

@@ -27,6 +27,8 @@ namespace GestaoPI.Models
         [Column("extraordinario")]
         public DateTime Extraordinario { get; set; }
 
-        public PagamentoAnuidade PagamentoAnuidade { get; set; } = null!;
+        public PagamentoAnuidade? PagamentoAnuidade { get; set; }
+
+        public virtual Patente Patente { get; set; } = null!;
     }
 }

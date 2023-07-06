@@ -49,9 +49,9 @@ namespace GestaoPI.Models
         [Display(Name = "Status")]
         public Boolean Status {get; set;} = true;
         
-        public virtual ICollection<Inventor>? Inventores {get; set;} = new List<Inventor>();
+        public virtual ICollection<Inventor> Inventores {get; set;} = new List<Inventor>();
 
-        public virtual ICollection<DespachoMarca>? DespachosMarca { get; set; } = new List<DespachoMarca>();
+        public virtual ICollection<DespachoMarca> DespachosMarca { get; set; } = new List<DespachoMarca>();
 
         
 

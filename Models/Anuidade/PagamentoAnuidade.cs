@@ -16,7 +16,7 @@ namespace GestaoPI.Models
         public int Id { get; set; }
 
         [Column("dt_pagamento")]
-        public DateTime DataPagamento { get; set; } = DateTime.Now;
+        public DateTime DataPagamento { get; set; }
 
         [Column("nm_protocolo")]
         public string? NumeroProtocolo { get; set; }

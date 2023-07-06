@@ -10,11 +10,16 @@ namespace GestaoPI.Models;
 public class Revista
 {
     [Key]
-    [Column("cod_revista")]
-    public string Codigo { get; set; } = null!;
+    [Column("nm_revista")]
+    public string Numero { get; set; } = null!;
 
-    [Column("dt_revista")]
-    public DateTime Data { get; set; }
+    [Column("dt_publicacao")]
+    public DateTime DataPublicacao { get; set; }
 
-    public virtual ICollection<DespachoPatente> DespachoPatentes { get; } = new List<DespachoPatente>();
+    public virtual ICollection<DespachoPatente> DespachoPatentes { get; set;} = new List<DespachoPatente>();
+    public virtual ICollection<DespachoMarca> DespachosMarcas { get; set;} = new List<DespachoMarca>();
+    public virtual ICollection<DespachoProgramaDeComputador> DespachoProgramaDeComputadors { get; set;} = new List<DespachoProgramaDeComputador>();
+
+    
+
 }

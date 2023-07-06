@@ -8,7 +8,7 @@ namespace GestaoPI.Interfaces
     public interface ICodigoDespacho
     {
         public string Codigo {get;}
-        public string? Titulo {get;}
+        public string Titulo {get;}
         public string? Descricao {get;}
         public int? Prazo {get;}
     }

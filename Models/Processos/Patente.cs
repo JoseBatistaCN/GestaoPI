@@ -68,8 +68,10 @@ public class Patente : IProcesso
     [Display(Name = "Anotação")]
     public string? Anotacao { get; set; }
 
-    public virtual ICollection<Inventor>? Inventores { get; set; } = new List<Inventor>();
+    public virtual ICollection<Inventor> Inventores { get; set; } = new List<Inventor>();
 
-    public virtual ICollection<DespachoPatente>? DespachoPatentes { get; set; } = new List<DespachoPatente>();
+    public virtual ICollection<DespachoPatente> DespachoPatentes { get; set; } = new List<DespachoPatente>();
+
+    public virtual ICollection<Anuidade> Anuidades { get; set; } = new List<Anuidade>();
 
 }

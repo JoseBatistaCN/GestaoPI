@@ -1,47 +1,88 @@
 @model IEnumerable<GestaoPI.Models.ProgramaDeComputador>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Programas de Computador";
 }
 
-<h1>Index</h1>
+<h1>@ViewData["Title"]</h1>
+<div class="card">
+  <div class="card-body">
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
+    <div id="Pesquisar" class="row mb-3">
+      <div class="col-md-6">
+        <div class="input-group">
+          <select class="form-select search-field" aria-label="Campo de Pesquisa">
+            <option value="Codigo">Código</option>
+            <option value="Deposito">Título</option>
+            <option value="Inventor">Resumo</option>
+          </select>
+          <input type="text" class="form-control search-input" placeholder="Pesquisar patente" />
+          <i class="btn btn-outline-primary bi bi-search" role="button"></i>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="d-flex justify-content-end">
+          <a asp-action="Create" class="btn btn-primary">
+            <i class="fa-solid fa-plus"></i> <span>Cadastrar</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+    <table id="tabela" class="table table-borderless">
+      <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Titulo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Deposito)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Concessao)
-            </th>
-            <th></th>
+          <th scope="col">@Html.DisplayNameFor(model => model.Codigo) <a href="#"><i class="fa-solid fa-sort"></i></a>
+          </th>
+          <th scope="col">@Html.DisplayNameFor(model => model.Titulo) <a href="#"><i class="fa-solid fa-sort"></i>
+          </th>
+          <th scope="col">@Html.DisplayNameFor(model => model.Deposito) <a href="#"><i class="fa-solid fa-sort"></i>
+          </th>
+          </th>
+          <th colspan="6" scope="col">Ações</th>
+
         </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
+      </thead>
+      <tbody>
+        @foreach (var item in Model) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Titulo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Deposito)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Concessao)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Codigo">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Codigo">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Codigo">Delete</a>
-            </td>
+          <td class="text-nowrap fw-bold">@Html.DisplayFor(modelItem => item.Codigo)</td>
+          <td class="flex-wrap text-ju">
+            @Html.DisplayFor(modelItem => item.Titulo)
+          </td>
+          <td>@Html.DisplayFor(modelItem => item.Deposito)</td>
+          <td>
+            <a asp-action="Details" asp-route-id="@item.Codigo">
+              <i class="fa-solid fa-eye fa-lg"></i>
+            </a>
+          </td>
+          <td>
+            <a id="despacho-patente" asp-action="Despacho" class="">
+              <i class="fa-solid fa-down-long fa-lg"></i>
+            </a>
+          </td>
+          <td>
+            <a asp-action="Servicos" asp-route-id="@item.Codigo" class="">
+              <i class="fa-solid fa-up-long fa-lg"></i>
+            </a>
+          </td>
+          <td>
+            <a id="anuidade-patente" href="#">
+              <i class="fa-solid fa-calendar fa-lg"></i>
+            </a>
+          </td>
+          <td>
+            <a href="#"><i class="fa-regular fa-file fa-lg"></i></a>
+          </td>
+          <td>
+            <a asp-action="Edit" asp-route-id="@item.Codigo">
+              <i class="fa fa-solid fa-pen-to-square fa-lg"></i>
+            </a>
+          </td>
         </tr>
-}
-    </tbody>
-</table>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

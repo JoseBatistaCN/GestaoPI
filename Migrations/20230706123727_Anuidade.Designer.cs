@@ -3,6 +3,7 @@ using System;
 using GestaoPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GestaoPI.Migrations
 {
     [DbContext(typeof(GestaopiContext))]
-    partial class GestaopiContextModelSnapshot : ModelSnapshot
+    [Migration("20230706123727_Anuidade")]
+    partial class Anuidade
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,40 +35,6 @@ namespace GestaoPI.Migrations
                     b.HasIndex("InventoresId");
 
                     b.ToTable("DesenhoIndustrialInventor");
-                });
-
-            modelBuilder.Entity("GestaoPI.Models.Anuidade", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("id");
-
-                    b.Property<short>("Ano")
-                        .HasColumnType("smallint")
-                        .HasColumnName("ano");
-
-                    b.Property<DateTime>("Extraordinario")
-                        .HasColumnType("datetime(6)")
-                        .HasColumnName("extraordinario");
-
-                    b.Property<DateTime>("Orinario")
-                        .HasColumnType("datetime(6)")
-                        .HasColumnName("ordinario");
-
-                    b.Property<int?>("PagamentoAnuidadeId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("PatenteCodigo")
-                        .HasColumnType("varchar(19)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PagamentoAnuidadeId");
-
-                    b.HasIndex("PatenteCodigo");
-
-                    b.ToTable("anuidade");
                 });
 
             modelBuilder.Entity("GestaoPI.Models.CampoDeAplicacao", b =>
@@ -391,34 +360,6 @@ namespace GestaoPI.Migrations
                     b.ToTable("marca");
                 });
 
-            modelBuilder.Entity("GestaoPI.Models.PagamentoAnuidade", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("id");
-
-                    b.Property<string>("Anotacao")
-                        .HasColumnType("longtext")
-                        .HasColumnName("anotacao");
-
-                    b.Property<DateTime>("DataPagamento")
-                        .HasColumnType("datetime(6)")
-                        .HasColumnName("dt_pagamento");
-
-                    b.Property<string>("NumeroProtocolo")
-                        .HasColumnType("longtext")
-                        .HasColumnName("nm_protocolo");
-
-                    b.Property<decimal>("ValorPago")
-                        .HasColumnType("decimal(65,30)")
-                        .HasColumnName("vl_pago");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("pagamento_anuidade");
-                });
-
             modelBuilder.Entity("GestaoPI.Models.Patente", b =>
                 {
                     b.Property<string>("Codigo")
@@ -633,21 +574,6 @@ namespace GestaoPI.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("GestaoPI.Models.Anuidade", b =>
-                {
-                    b.HasOne("GestaoPI.Models.PagamentoAnuidade", "PagamentoAnuidade")
-                        .WithMany()
-                        .HasForeignKey("PagamentoAnuidadeId");
-
-                    b.HasOne("GestaoPI.Models.Patente", "Patente")
-                        .WithMany("Anuidades")
-                        .HasForeignKey("PatenteCodigo");
-
-                    b.Navigation("PagamentoAnuidade");
-
-                    b.Navigation("Patente");
-                });
-
             modelBuilder.Entity("GestaoPI.Models.CampoDeAplicacao", b =>
                 {
                     b.HasOne("GestaoPI.Models.ProgramaDeComputador", null)
@@ -841,8 +767,6 @@ namespace GestaoPI.Migrations
 
             modelBuilder.Entity("GestaoPI.Models.Patente", b =>
                 {
-                    b.Navigation("Anuidades");
-
                     b.Navigation("DespachoPatentes");
                 });
 

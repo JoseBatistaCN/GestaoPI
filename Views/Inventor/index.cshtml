@@ -1,35 +1,59 @@
 @model IEnumerable<GestaoPI.Models.Inventor>
-
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Inventores";
 }
 
-<h1>Index</h1>
+<h1>@ViewData["Title"]</h1>
+  <div class="card">
+    <div class="card-body">
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
+      <div id="Pesquisar" class="row mb-3">
+        <div class="col-md-6">
+          <div class="input-group">
+            <select class="form-select search-field" aria-label="Campo de Pesquisa">
+              <option value="Codigo">Nome</option>
+              <option value="Deposito">Título</option>
+              <option value="Inventor">Resumo</option>
+            </select>
+            <input type="text" class="form-control search-input" placeholder="Pesquisar patente" />
+            <i class="btn btn-outline-primary bi bi-search" role="button"></i>
+          </div>
+        </div>
+        <div class="col-">
+          <div class="d-flex justify-content-end">
+            <a asp-action="Create" class="btn btn-primary">
+              <i class="fa-solid fa-plus"></i> <span>Cadastrar</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+      <table id="tabela" class="table table-borderless">
+        <thead>
+          <tr>
+            <th scope="col">@Html.DisplayNameFor(model => model.Nome) <a href="#"><i class="fa-solid fa-sort"></i></a>
+            <th colspan="2" scope="col">Ações</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          @foreach (var item in Model) {
+          <tr>
+            <td class="text-nowrap fw-bold">@Html.DisplayFor(modelItem => item.Nome)</td>
             <td>
-                @Html.DisplayFor(modelItem => item.Nome)
+              <a asp-action="Details" asp-route-id="@item.Id">
+                <i class="fa-solid fa-eye fa-lg"></i>
+              </a>
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+              <a asp-action="Edit" asp-route-id="@item.Id">
+                <i class="fa fa-solid fa-pen-to-square fa-lg"></i>
+              </a>
             </td>
-        </tr>
-}
-    </tbody>
-</table>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>

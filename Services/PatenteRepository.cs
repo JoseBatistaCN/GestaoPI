@@ -9,7 +9,7 @@ using GestaoPI.Interfaces;
 
 namespace GestaoPI.Services
 {
-    public class PatenteRepository : IProcessoRepository<Patente>
+    public class PatenteRepository : IPatenteRepository
     {
         private readonly GestaopiContext _context;
 
@@ -18,12 +18,12 @@ namespace GestaoPI.Services
             _context = context;
         }
 
-        public async Task<IEnumerable<Patente>> ObterTodos()
+        public async Task<IEnumerable<Patente>> GetPatentes()
         {
             return await _context.Patentes!.ToListAsync();
         }
 
-        public async Task Inserir(Patente processo)
+        public async Task InsertPatente(Patente processo)
         {
             processo.Titulo = processo.Titulo?.Trim();
             processo.Resumo = processo.Titulo?.Trim();
@@ -31,12 +31,12 @@ namespace GestaoPI.Services
             await _context.SaveChangesAsync();
         }
 
-        public async Task<Patente?> ObterPorId(string id)
+        public async Task<Patente> GetPatenteById(string id)
         {
-            return await _context.Patentes.FindAsync(id);
+            return  await _context.Patentes.FindAsync(id);
         }
 
-        public async Task Atualizar(Patente processo)
+        public async Task UpdatePatente(Patente processo)
         {
             processo.Titulo = processo.Titulo?.Trim();
             processo.Resumo = processo.Titulo?.Trim();
@@ -44,19 +44,19 @@ namespace GestaoPI.Services
             await _context.SaveChangesAsync();
         }
 
-        public async Task Excluir(string id){
+        public async Task DeletePatente(string id){
             var patente = await _context.Patentes!.FindAsync(id);
             _context.Patentes.Remove(patente!);
             await _context.SaveChangesAsync();
         }
 
-        public Boolean Existe(string id){
+        public Boolean PatenteExists(string id){
             return _context.Patentes.Any(e => e.Codigo == id);
         }
 
-        public ICollection<Patente?> ObterStatusPatente()
+        public Task Save()
         {
-            throw new NotImplementedException();
+            return _context.SaveChangesAsync();
         }
     }
 }

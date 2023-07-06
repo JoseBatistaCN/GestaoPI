@@ -12,12 +12,12 @@ namespace GestaoPI.Models
     public class CodigoDespachoProgramaDeComputador : ICodigoDespacho
     {
         [Key]
-        [Column("cod_despacho")]
+        [Column("cod")]
         [StringLength(10)]
         public string Codigo {get; set;} = null!;
 
         [Column("titulo")]
-        public string? Titulo {get; set;} = null!;
+        public string Titulo {get; set;} = null!;
 
         [Column("descricao")]
         public string? Descricao {get; set;} = null!;

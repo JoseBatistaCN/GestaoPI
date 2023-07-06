@@ -6,8 +6,8 @@ using GestaoPI.Models;
 
 namespace GestaoPI.Models;
 
-[Table("despacho_patente")]
-public class DespachoPatente : IDespacho
+[Table("despacho_marca")]
+public class DespachoMarca : IDespacho
 {
     [Key]
     [Column("id")]
@@ -16,26 +16,26 @@ public class DespachoPatente : IDespacho
 
     [Column("cod_despacho")]
     [Display(Name = "Código")]
-    public string CodigoDespacho {get; set;} = null!;
+    public string Codigo {get; set;} = null!;
 
-    [Column("cod_patente")]
+    [Column("cod_marca")]
     public string Processo { get ; set; } = null!;
 
     [Column("validade")]
     [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
     public DateTime? validade {get;}
 
-    [Column("cod_revista")]
-    public string CodigoRevista { get; set; } = null!;
+    [Column("nm_revista")]
+    public string NumeroRevista { get; set; } = null!;
 
     [ForeignKey("Processo")]
-    public virtual Patente Patente { get; set; } = null!;
+    public virtual Marca Marca { get; set; } = null!;
     
-    [ForeignKey("CodigoRevista")]
+    [ForeignKey("NumeroRevista")]
     public virtual Revista Revista {get; set;} = null!;
 
-    [ForeignKey("CodigoDespacho")]
-    public virtual CodigoDespachoPatente CodigoDespachoPatente {get; set;} = null!;
+    [ForeignKey("Codigo")]
+    public virtual CodigoDespachoMarca CodigoDespachoMarca {get; set;} = null!;
 
     
 }

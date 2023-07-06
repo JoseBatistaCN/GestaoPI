@@ -3,6 +3,7 @@ using System;
 using GestaoPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GestaoPI.Migrations
 {
     [DbContext(typeof(GestaopiContext))]
-    partial class GestaopiContextModelSnapshot : ModelSnapshot
+    [Migration("20230706124328_Anuidade2")]
+    partial class Anuidade2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

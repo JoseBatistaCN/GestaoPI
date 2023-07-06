@@ -16,7 +16,7 @@ public class DespachoProgramaDeComputador : IDespacho
 
     [Column("cod_despacho")]
     [Display(Name = "Código")]
-    public string CodigoDespacho {get; set;} = null!;
+    public string Codigo {get; set;} = null!;
 
     [Column("cod_programa_de_computador")]
     public string Processo { get ; set; } = null!;
@@ -25,16 +25,16 @@ public class DespachoProgramaDeComputador : IDespacho
     [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
     public DateTime? validade {get;}
 
-    [Column("cod_revista")]
-    public string CodigoRevista { get; set; } = null!;
+    [Column("nm_revista")]
+    public string NumeroRevista { get; set; } = null!;
 
     [ForeignKey("Processo")]
     public virtual ProgramaDeComputador ProgramaDeComputador { get; set; } = null!;
     
-    [ForeignKey("CodigoRevista")]
+    [ForeignKey("NumeroRevista")]
     public virtual Revista Revista {get; set;} = null!;
 
-    [ForeignKey("CodigoDespacho")]
+    [ForeignKey("Codigo")]
     public virtual CodigoDespachoProgramaDeComputador CodigoDespachoProgramaDeComputador {get; set;} = null!;
 
     
