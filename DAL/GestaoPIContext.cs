@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using GestaoPI.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace GestaoPI.Data;
+namespace GestaoPI.DAL;
 
 public partial class GestaopiContext : DbContext
 {

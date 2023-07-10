@@ -8,141 +8,141 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = GestaoPI
 build_property.RootNamespace = GestaoPI
-build_property.ProjectDir = c:\Users\202000012874\Documents\Code\GestaoPI\
+build_property.ProjectDir = C:\Users\202000012874\Documents\Code\GestaoPI\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = c:\Users\202000012874\Documents\Code\GestaoPI
+build_property.MSBuildProjectDirectory = C:\Users\202000012874\Documents\Code\GestaoPI
 build_property._RazorSourceGeneratorDebug = 
 
-[c:/Users/202000012874/Documents/Code/GestaoPI/Views/Agenda/Index.cshtml]
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Agenda/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWdlbmRhXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/202000012874/Documents/Code/GestaoPI/Views/Grafico/Index.cshtml]
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Grafico/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JhZmljb1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/202000012874/Documents/Code/GestaoPI/Views/Home/Index.cshtml]
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/202000012874/Documents/Code/GestaoPI/Views/Home/Privacy.cshtml]
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/202000012874/Documents/Code/GestaoPI/Views/Inventor/Create.cshtml]
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Inventor/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50b3JcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/202000012874/Documents/Code/GestaoPI/Views/Inventor/Delete.cshtml]
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Inventor/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50b3JcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/202000012874/Documents/Code/GestaoPI/Views/Inventor/Details.cshtml]
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Inventor/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50b3JcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/202000012874/Documents/Code/GestaoPI/Views/Inventor/Edit.cshtml]
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Inventor/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50b3JcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/202000012874/Documents/Code/GestaoPI/Views/Inventor/index.cshtml]
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Inventor/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50b3JcaW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/202000012874/Documents/Code/GestaoPI/Views/Marca/Create.cshtml]
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Marca/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/202000012874/Documents/Code/GestaoPI/Views/Marca/Delete.cshtml]
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Marca/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/202000012874/Documents/Code/GestaoPI/Views/Marca/Details.cshtml]
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Marca/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/202000012874/Documents/Code/GestaoPI/Views/Marca/Edit.cshtml]
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Marca/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/202000012874/Documents/Code/GestaoPI/Views/Marca/Index.cshtml]
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Marca/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/202000012874/Documents/Code/GestaoPI/Views/Patente/Create.cshtml]
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Patente/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0ZW50ZVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/202000012874/Documents/Code/GestaoPI/Views/Patente/Delete.cshtml]
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Patente/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0ZW50ZVxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/202000012874/Documents/Code/GestaoPI/Views/Patente/Despacho/Index.cshtml]
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Patente/Despacho/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0ZW50ZVxEZXNwYWNob1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/202000012874/Documents/Code/GestaoPI/Views/Patente/Details.cshtml]
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Patente/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0ZW50ZVxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/202000012874/Documents/Code/GestaoPI/Views/Patente/Edit.cshtml]
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Patente/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0ZW50ZVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/202000012874/Documents/Code/GestaoPI/Views/Patente/Index.cshtml]
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Patente/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0ZW50ZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/202000012874/Documents/Code/GestaoPI/Views/Patente/Servico/Index.cshtml]
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Patente/Servico/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0ZW50ZVxTZXJ2aWNvXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/202000012874/Documents/Code/GestaoPI/Views/ProgramaDeComputador/Create.cshtml]
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/ProgramaDeComputador/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZ3JhbWFEZUNvbXB1dGFkb3JcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/202000012874/Documents/Code/GestaoPI/Views/ProgramaDeComputador/Delete.cshtml]
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/ProgramaDeComputador/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZ3JhbWFEZUNvbXB1dGFkb3JcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/202000012874/Documents/Code/GestaoPI/Views/ProgramaDeComputador/Details.cshtml]
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/ProgramaDeComputador/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZ3JhbWFEZUNvbXB1dGFkb3JcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/202000012874/Documents/Code/GestaoPI/Views/ProgramaDeComputador/Edit.cshtml]
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/ProgramaDeComputador/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZ3JhbWFEZUNvbXB1dGFkb3JcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/202000012874/Documents/Code/GestaoPI/Views/ProgramaDeComputador/Index.cshtml]
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/ProgramaDeComputador/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZ3JhbWFEZUNvbXB1dGFkb3JcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/202000012874/Documents/Code/GestaoPI/Views/Relatorio/Index.cshtml]
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Relatorio/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVsYXRvcmlvXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/202000012874/Documents/Code/GestaoPI/Views/Revista/Index.cshtml]
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Revista/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV2aXN0YVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/202000012874/Documents/Code/GestaoPI/Views/Shared/Error.cshtml]
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/202000012874/Documents/Code/GestaoPI/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/202000012874/Documents/Code/GestaoPI/Views/_ViewImports.cshtml]
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/202000012874/Documents/Code/GestaoPI/Views/_ViewStart.cshtml]
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/202000012874/Documents/Code/GestaoPI/Views/Shared/_Layout.cshtml]
+[C:/Users/202000012874/Documents/Code/GestaoPI/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-vhosamdyp9

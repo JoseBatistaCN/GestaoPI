@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
-using GestaoPI.Data;
+using GestaoPI.DAL;
 using Microsoft.EntityFrameworkCore;
 
 namespace GestaoPI.DAL
 {
+    
     public class GenericRepository<TEntity> where TEntity : class
     {
         internal GestaopiContext context;
@@ -17,14 +19,38 @@ namespace GestaoPI.DAL
             this.context = context;
             this.dbSet = context.Set<TEntity>();
         }
-
-        public virtual async Task<IEnumerable<TEntity>> Get()
+        /*
+            This method is used to get all records from the database.
+        */
+        public virtual async Task<IEnumerable<TEntity>> Get(Expression<Func<TEntity, bool>>? filter = null,
+            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? orderBy = null, string includeProperties = "")
         {
             IQueryable<TEntity> query = dbSet;
-            return await query.ToListAsync();
+
+            if (filter != null)
+            {
+                query = query.Where(filter);
+            }
+
+            // includeProperties will be comma delimited
+            foreach (var includeProperty in includeProperties.Split
+                (new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(includeProperty);
+                }
+
+
+            if (orderBy != null)
+            {
+                return await orderBy(query).ToListAsync();
+            } else
+            {
+                return await query.ToListAsync();
+            }
+
         }
 
-        public virtual async Task<TEntity> GetByID(object id)
+        public virtual async Task<TEntity?> GetByID(object id)
         {
             return await dbSet.FindAsync(id);
         }
@@ -34,14 +60,27 @@ namespace GestaoPI.DAL
             dbSet.Add(entity);
             await context.SaveChangesAsync();
         }
-
+        
         public virtual async Task Delete(object id)
         {
-            TEntity entityToDelete = await dbSet.FindAsync(id);
-            Delete(entityToDelete);
-            await context.SaveChangesAsync();
+            TEntity? entityToDelete = await dbSet.FindAsync(id);
+            if (entityToDelete != null)
+                Delete(entityToDelete);
+        }
+        public virtual void Delete(TEntity entityToDelete) 
+        {
+            if (context.Entry(entityToDelete).State == EntityState.Detached)
+            {
+                dbSet.Attach(entityToDelete);
+            }
+            dbSet.Remove(entityToDelete);
         }
 
-        
+        public virtual void Update(TEntity entityToUpdate) 
+        {
+            dbSet.Attach(entityToUpdate);
+            context.Entry(entityToUpdate).State = EntityState.Modified;
+        }
+
     }
 }

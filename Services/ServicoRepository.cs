@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using GestaoPI.Interfaces;
 using GestaoPI.Models;
-using GestaoPI.Data;
+using GestaoPI.DAL;
 using Microsoft.EntityFrameworkCore;
 
 namespace GestaoPI.Services

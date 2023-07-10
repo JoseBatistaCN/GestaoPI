@@ -5,24 +5,26 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using GestaoPI.Data;
+using GestaoPI.DAL;
 using GestaoPI.Models;
+using System.Data;
 
 namespace GestaoPI.Controllers
 {
     public class MarcaController : Controller
     {
-        private readonly GestaopiContext _context;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public MarcaController(GestaopiContext context)
+        public MarcaController(IUnitOfWork unitOfWork)
         {
-            _context = context;
+            _unitOfWork = unitOfWork;
         }
 
         // GET: Marca
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Marcas.ToListAsync());
+            var marcas = await _unitOfWork.MarcaRepository.Get();
+            return View(marcas.ToList());
         }
 
         // GET: Marca/Details/5
@@ -33,8 +35,7 @@ namespace GestaoPI.Controllers
                 return NotFound();
             }
 
-            var marca = await _context.Marcas
-                .FirstOrDefaultAsync(m => m.Codigo == id);
+            var marca = await _unitOfWork.MarcaRepository.GetByID(id);
             if (marca == null)
             {
                 return NotFound();
@@ -58,8 +59,8 @@ namespace GestaoPI.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(marca);
-                await _context.SaveChangesAsync();
+                await _unitOfWork.MarcaRepository.Insert(marca);
+                await _unitOfWork.Save();
                 return RedirectToAction(nameof(Index));
             }
             return View(marca);
@@ -73,7 +74,7 @@ namespace GestaoPI.Controllers
                 return NotFound();
             }
 
-            var marca = await _context.Marcas.FindAsync(id);
+            var marca = await _unitOfWork.MarcaRepository.GetByID(id);
             if (marca == null)
             {
                 return NotFound();
@@ -97,19 +98,12 @@ namespace GestaoPI.Controllers
             {
                 try
                 {
-                    _context.Update(marca);
-                    await _context.SaveChangesAsync();
+                    _unitOfWork.MarcaRepository.Update(marca);
+                    await _unitOfWork.Save();
                 }
-                catch (DbUpdateConcurrencyException)
+                catch (DataException)
                 {
-                    if (!MarcaExists(marca.Codigo))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    ModelState.AddModelError("", "Não foi possível salvar as alterações. Tente novamente, se o problema persistir, contate o administrador do sistema.");
                 }
                 return RedirectToAction(nameof(Index));
             }
@@ -124,8 +118,7 @@ namespace GestaoPI.Controllers
                 return NotFound();
             }
 
-            var marca = await _context.Marcas
-                .FirstOrDefaultAsync(m => m.Codigo == id);
+            var marca = await _unitOfWork.MarcaRepository.GetByID(id);
             if (marca == null)
             {
                 return NotFound();
@@ -139,15 +132,17 @@ namespace GestaoPI.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var marca = await _context.Marcas.FindAsync(id);
-            _context.Marcas.Remove(marca);
-            await _context.SaveChangesAsync();
+            var marca = await _unitOfWork.MarcaRepository.GetByID(id);
+            if (marca == null)
+            {
+                return NotFound();
+            } else {
+                _unitOfWork.MarcaRepository.Delete(marca);
+                await _unitOfWork.Save();
+            }
+            
             return RedirectToAction(nameof(Index));
         }
 
-        private bool MarcaExists(string id)
-        {
-            return _context.Marcas.Any(e => e.Codigo == id);
-        }
     }
 }

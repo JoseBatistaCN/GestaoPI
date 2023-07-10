@@ -5,32 +5,33 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using GestaoPI.Data;
+using GestaoPI.DAL;
 using GestaoPI.Models;
 using GestaoPI.Models.Enums;
 using GestaoPI.Interfaces;
 using GestaoPI.Services;
+using System.Data.Common;
+
+namespace GestaoPI.Controllers;
 public class PatenteController : Controller
     {
-        private readonly IPatenteRepository _patenteRepository;
-        private readonly GestaopiContext _context;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public PatenteController(IPatenteRepository patenteRepository, GestaopiContext context)
+        public PatenteController(IUnitOfWork unitOfWork)
         {
-            _patenteRepository = patenteRepository;
-            _context = context;
+            _unitOfWork = unitOfWork;
         }
 
         // GET: patente
         public async Task<IActionResult> Index()
         {
-            var todasPatentes = await _patenteRepository.GetPatentes();
-            return View(todasPatentes);
+            var patentes = await _unitOfWork.PatenteRepository.Get();
+            return View(patentes);
         }
 
-        public async Task<IActionResult> Servicos(string id)
+        public IActionResult Servicos()
         {
-            var servicosPatente = await (from sp in _context.ServicoPatentes where sp.CodigoPatente == id select sp).ToListAsync() ;
+            var servicosPatente = new List<ServicoPatente>();
             return View("Views/Patente/Servico/Index.cshtml", servicosPatente);
         }
 
@@ -42,7 +43,7 @@ public class PatenteController : Controller
                 return NotFound();
             }
 
-            var patente = await _patenteRepository.GetPatenteById(id);
+            var patente = await _unitOfWork.PatenteRepository.GetByID(id);
                 
             if (patente == null)
             {
@@ -67,7 +68,7 @@ public class PatenteController : Controller
         {
             if (ModelState.IsValid)
             {
-                await _patenteRepository.InsertPatente(patente);
+                await _unitOfWork.PatenteRepository.Insert(patente);
                 return RedirectToAction(nameof(Index));
             }
             return View(patente);
@@ -81,7 +82,7 @@ public class PatenteController : Controller
                 return NotFound();
             }
 
-            var patente = await _patenteRepository.GetPatenteById(id);
+            var patente = await _unitOfWork.PatenteRepository.GetByID(id);
             if (patente == null)
             {
                 return NotFound();
@@ -106,18 +107,14 @@ public class PatenteController : Controller
             {
                 try
                 {
-                    await _patenteRepository.UpdatePatente(patente);
+                    _unitOfWork.PatenteRepository.Update(patente);
+                    await _unitOfWork.Save();
                                 }
-                catch (DbUpdateConcurrencyException)
+                catch (DbException)
                 {
-                    if (!_patenteRepository.PatenteExists(patente.Codigo))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    ModelState.AddModelError("", "Não foi possível salvar as alterações. " +
+                        "Tente novamente, se o problema persistir " +
+                        "consulte o administrador do sistema.");
                 }
                 return RedirectToAction(nameof(Index));
             }
@@ -132,7 +129,7 @@ public class PatenteController : Controller
                 return NotFound();
             }
 
-            var patente =  await _patenteRepository.GetPatenteById(id);
+            var patente =  await _unitOfWork.PatenteRepository.GetByID(id);
             if (patente == null)
             {
                 return NotFound();
@@ -146,12 +143,12 @@ public class PatenteController : Controller
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            await _patenteRepository.DeletePatente(id);
+            await _unitOfWork.PatenteRepository.Delete(id);
             return RedirectToAction(nameof(Index));
         }
 
 
-        public async Task<IActionResult> Despacho(){
+        public IActionResult Despacho(){
 
             return View("Views/Patente/Despacho/Index.cshtml");
         }

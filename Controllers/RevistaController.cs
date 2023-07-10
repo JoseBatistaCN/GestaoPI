@@ -11,11 +11,9 @@ namespace GestaoPI.Controllers
     [Route("[controller]")]
     public class RevistaController : Controller
     {
-        private readonly ILogger<RevistaController> _logger;
 
-        public RevistaController(ILogger<RevistaController> logger)
+        public RevistaController()
         {
-            _logger = logger;
         }
 
         public IActionResult Index()
