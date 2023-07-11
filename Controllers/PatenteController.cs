@@ -66,10 +66,14 @@ public class PatenteController : Controller
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Codigo,Titulo,Resumo,Situacao,Status,Deposito,Concessao,Exame,Publicacao,Anotacao")] Patente patente)
         {
+            patente.Exame = patente.Deposito.AddMonths(36);
+            
             if (ModelState.IsValid)
             {
                 await _unitOfWork.PatenteRepository.Insert(patente);
                 return RedirectToAction(nameof(Index));
+            } else {
+                Console.WriteLine("Model State is not valid");
             }
             return View(patente);
         }
@@ -151,6 +155,11 @@ public class PatenteController : Controller
         public IActionResult Despacho(){
 
             return View("Views/Patente/Despacho/Index.cshtml");
+        }
+
+        public IActionResult Anuidade(){
+
+            return View("Views/Patente/Anuidade/Index.cshtml");
         }
 
         

@@ -13,6 +13,7 @@ namespace GestaoPI.DAL
         GenericRepository<ProgramaDeComputador> ProgramaDeComputadorRepository { get; }
         GenericRepository<DesenhoIndustrial> DesenhoIndustrialRepository { get; }
         GenericRepository<Inventor> InventorRepository { get; }
+        GenericRepository<Anuidade> AnuidadeRepository { get; }
 
         Task Save();
     }

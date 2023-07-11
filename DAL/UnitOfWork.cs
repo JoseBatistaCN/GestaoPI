@@ -14,6 +14,8 @@ namespace GestaoPI.DAL
         private GenericRepository<ProgramaDeComputador>? _programaDeComputadorRepository;
         private GenericRepository<DesenhoIndustrial>? _desenhoIndustrialRepository;
         private GenericRepository<Inventor>? _inventorRepository;
+        private GenericRepository<Anuidade>? _anuidadeRepository;
+        
 
         public UnitOfWork(GestaopiContext context)
         {
@@ -65,7 +67,14 @@ namespace GestaoPI.DAL
             }
         }
 
-
+        public GenericRepository<Anuidade> AnuidadeRepository
+        {
+            get
+            {
+                this._anuidadeRepository ??= new GenericRepository<Anuidade>(_context);
+                return _anuidadeRepository;
+            }
+        }
 
         public async Task Save()
         {

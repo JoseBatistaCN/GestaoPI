@@ -73,5 +73,23 @@ public class Patente : IProcesso
     public virtual ICollection<DespachoPatente> DespachoPatentes { get; set; } = new List<DespachoPatente>();
 
     public virtual ICollection<Anuidade> Anuidades { get; set; } = new List<Anuidade>();
+    
+
+    public Patente() {
+
+        for (byte i = 3; i < 20; i++) {
+
+            DateTime ordinario = Deposito.AddYears(i).AddMonths(3);
+            DateTime extraordinario = ordinario.AddMonths(6);
+            Anuidades.Add(
+                new Anuidade() {
+                    Ano = i,
+                    Orinario = ordinario,
+                    Extraordinario = extraordinario
+                }
+            );
+        }
+    }
+
 
 }

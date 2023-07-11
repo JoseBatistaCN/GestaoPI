@@ -19,16 +19,18 @@ namespace GestaoPI.Models
 
         [Column("ano")]
         [Range(3, 20)]
-        public short Ano { get; set; }
+        public byte Ano { get; set; }
 
         [Column("ordinario")]
         public DateTime Orinario { get; set; }
 
         [Column("extraordinario")]
         public DateTime Extraordinario { get; set; }
+        
 
-        public PagamentoAnuidade? PagamentoAnuidade { get; set; }
+        public PagamentoAnuidade PagamentoAnuidade { get; set; } = new PagamentoAnuidade();
 
         public virtual Patente Patente { get; set; } = null!;
+
     }
 }

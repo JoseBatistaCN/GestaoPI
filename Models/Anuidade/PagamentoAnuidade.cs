@@ -16,15 +16,25 @@ namespace GestaoPI.Models
         public int Id { get; set; }
 
         [Column("dt_pagamento")]
-        public DateTime DataPagamento { get; set; }
+        [Display(Name = "Data do Pagamento")]
+        public DateTime? DataPagamento { get; set; }
 
         [Column("nm_protocolo")]
+        [Display(Name = "Número do Protocolo")]
         public string? NumeroProtocolo { get; set; }
 
         [Column("vl_pago")]
-        public decimal ValorPago { get; set; }
+        [Display(Name = "Valor")]
+        public decimal? ValorPago { get; set; }
 
         [Column("anotacao")]
+        [Display(Name = "Anotação")]
         public string? Anotacao { get; set; }
+
+        [Column("pago")]
+        [Display(Name = "Pago")]
+        public bool Pago { get; set; } = false;
+
+        
     }
 }
